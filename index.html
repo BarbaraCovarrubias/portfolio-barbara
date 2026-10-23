@@ -64,7 +64,6 @@
     .glow-blue {
       box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.25);
     }
-    /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -139,7 +138,6 @@
     <!-- ================= HERO SECTION ================= -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-12">
       <div class="relative">
-        <!-- Background Ambient Glow -->
         <div class="absolute -top-12 -left-12 w-64 sm:w-96 h-64 sm:h-96 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute top-1/2 -right-12 w-64 sm:w-96 h-64 sm:h-96 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -201,7 +199,7 @@
       </div>
     </section>
 
-    <!-- ================= SOBRE MÍ & REFERENCIA ================= -->
+    <!-- ================= SOBRE MÍ ================= -->
     <section id="sobre-mi" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div class="lg:col-span-7 space-y-4">
@@ -222,25 +220,25 @@
           </div>
         </div>
 
-        <!-- Referencia Ejecutiva Comprobada -->
-        <div class="lg:col-span-5 glass-card p-5 sm:p-6 rounded-2xl border-l-4 border-l-brand-primary">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-full bg-blue-500/20 text-brand-primary flex items-center justify-center font-bold text-sm">
-              JC
+        <!-- Pilares de Gestión y Arquitectura -->
+        <div class="lg:col-span-5 glass-card p-5 sm:p-6 rounded-2xl border-l-4 border-l-brand-primary space-y-4">
+          <h4 class="font-bold text-white text-base flex items-center gap-2">
+            <span class="text-brand-primary">🚀</span>
+            <span>Pilares de Liderazgo Técnico</span>
+          </h4>
+          <div class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="font-semibold text-white mb-0.5">Arquitectura Financiera Resiliente</div>
+              <p class="text-slate-400 text-xs">Diseño de APIs transaccionales desacopladas, pipelines asíncronos y sandboxes con alta tolerancia a fallos.</p>
             </div>
-            <div>
-              <h4 class="font-bold text-white text-sm sm:text-base">Juan Pablo Cazzasa</h4>
-              <p class="text-xs text-slate-400">IT Manager – Payway / Prisma Medios de Pago</p>
+            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="font-semibold text-white mb-0.5">Gobernanza & Métricas GenAI</div>
+              <p class="text-slate-400 text-xs">Integración de modelos fundacionales mediante MCP y validación algorítmica con RAGAS para evitar alucinaciones operativas.</p>
             </div>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-300 italic mb-4">
-            "Bárbara posee una capacidad excepcional para ordenar arquitecturas complejas, tender puentes entre producto y tecnología y liderar entregas críticas en medios de pago."
-          </p>
-          <div class="flex items-center gap-3 pt-3 border-t border-slate-800 text-xs">
-            <a href="https://wa.me/5491131013044" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/25">
-              <span>WhatsApp Referente</span>
-            </a>
-            <span class="text-slate-500 font-mono text-[11px]">+54 9 11 3101-3044</span>
+            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="font-semibold text-white mb-0.5">Developer Experience (DX) & Onboarding</div>
+              <p class="text-slate-400 text-xs">Transformación de flujos de homologación técnicos en experiencias de autoservicio ágiles para partners y comercios.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -574,7 +572,7 @@
           </div>
           <p class="text-slate-400 text-xs">Francisco Álvarez, Buenos Aires | barbara.covarrubias@hotmail.com</p>
           <p class="text-slate-300 text-xs leading-relaxed">
-            Ingeniera en Sistemas con más de 8 años de trayectoria en adquirencia y medios de pago (Payway / Prisma). Pionera en la implementación de servidores corporativos MCP (Model Context Protocol) sobre Node.js y pipelines de evaluación RAGAS.
+            Ingeniera en Sistemas con más de 8 años de trayectoria en adquirencia y medios de pago (Payway / Prisma). Especialista en la implementación de servidores corporativos MCP (Model Context Protocol) sobre Node.js y pipelines de evaluación RAGAS.
           </p>
         </div>
 
@@ -680,7 +678,6 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Close mobile menu on anchor click
     document.querySelectorAll('#mobileMenu a').forEach(link => {
       link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
@@ -796,9 +793,6 @@
               <li><strong>Gestión de Proyectos & Metodologías Ágiles</strong> – ITBA</li>
             </ul>
           </div>
-
-          <h2>Referencia Ejecutiva</h2>
-          <p style="font-size: 12px; color: #334155;"><strong>Juan Pablo Cazzasa</strong> – IT Manager, Payway / Prisma Medios de Pago (WhatsApp: +54 9 11 3101-3044)</p>
           <script>
             window.onload = function() {
               window.print();
@@ -927,7 +921,6 @@
       appendMessage('User', val);
       input.value = '';
 
-      // Typing effect
       setTimeout(() => {
         const reply = getLocalAiResponse(val);
         appendMessage('AI', reply);
