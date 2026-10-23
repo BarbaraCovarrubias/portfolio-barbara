@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <title>Bárbara Noelia Covarrubias | IT Lead & AI Architect</title>
-  <meta name="description" content="Portfolio profesional de Bárbara Noelia Covarrubias - IT Lead, Especialista en Medios de Pago y Arquitecturas de IA Generativa.">
+  <title>Bárbara Noelia Covarrubias | IT Lead Integraciones, Medios de Pago & Soluciones IA</title>
+  <meta name="description" content="Portfolio y CV profesional interactivo de Bárbara Noelia Covarrubias - IT Lead Integraciones, Medios de Pago & Soluciones IA.">
   
   <!-- Google Fonts & Tailwind -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,27 @@
               emerald: '#10B981',
               violet: '#8B5CF6'
             }
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 7s ease-in-out 2s infinite',
+            'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+            'spin-very-slow': 'spin 20s linear infinite',
+            'gradient-x': 'gradientX 8s ease infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.75', transform: 'scale(1.08)' },
+            },
+            gradientX: {
+              '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+              '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
+            }
           }
         }
       }
@@ -43,19 +64,50 @@
       -webkit-tap-highlight-color: transparent;
     }
     .glass {
-      background: rgba(13, 19, 34, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(13, 19, 34, 0.90);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .glass-card {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.72);
       border: 1px solid rgba(30, 41, 59, 0.85);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .glass-card:hover {
-      border-color: rgba(59, 130, 246, 0.5);
-      transform: translateY(-2px);
+      border-color: rgba(59, 130, 246, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px -8px rgba(59, 130, 246, 0.18);
+    }
+    .tech-pill {
+      transition: all 0.25s ease;
+    }
+    .tech-pill:hover {
+      transform: translateY(-2px) scale(1.03);
+      border-color: rgba(6, 182, 212, 0.6);
+      color: #38BDF8;
+      box-shadow: 0 4px 14px -3px rgba(6, 182, 212, 0.25);
+    }
+    .icon-spin-hover:hover svg, .icon-spin-hover:hover span {
+      transform: rotate(12deg) scale(1.12);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    /* Scroll reveal transitions */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Subtle background grid */
+    .bg-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     }
     ::-webkit-scrollbar {
       width: 6px;
@@ -69,24 +121,33 @@
     }
   </style>
 </head>
-<body class="selection:bg-brand-primary selection:text-white">
+<body class="selection:bg-brand-primary selection:text-white bg-grid relative">
+
+  <!-- Floating Ambient Particles (Motion Graphics Background) -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-32 -left-20 w-96 h-96 bg-brand-primary/15 rounded-full blur-3xl animate-pulse-glow"></div>
+    <div class="absolute top-1/3 -right-24 w-80 h-80 bg-brand-cyan/15 rounded-full blur-3xl animate-float-slow"></div>
+    <div class="absolute bottom-20 left-10 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl animate-float-delayed"></div>
+  </div>
 
   <!-- ================= TOP NAVIGATION ================= -->
   <header class="fixed top-0 left-0 right-0 z-40 glass border-b border-brand-border/60">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-cyan flex items-center justify-center font-bold text-white shadow-md text-sm">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-cyan flex items-center justify-center font-bold text-white shadow-md text-sm transition-transform group-hover:scale-105 group-hover:rotate-3">
           BC
         </div>
-        <span class="font-bold text-sm sm:text-base tracking-tight text-white">Bárbara Covarrubias</span>
+        <span class="font-bold text-sm sm:text-base tracking-tight text-white group-hover:text-brand-cyan transition-colors">Bárbara Covarrubias</span>
       </a>
 
       <!-- Desktop Links -->
       <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-        <a href="#sobre-mi" class="hover:text-brand-cyan transition-colors">Sobre Mí</a>
-        <a href="#proyectos" class="hover:text-brand-cyan transition-colors">Casos de Éxito</a>
-        <a href="#habilidades" class="hover:text-brand-cyan transition-colors">Stack</a>
-        <a href="#trayectoria" class="hover:text-brand-cyan transition-colors">Trayectoria</a>
+        <a href="#sobre-mi" class="hover:text-brand-cyan transition-colors">Perfil</a>
+        <a href="#metricas" class="hover:text-brand-cyan transition-colors">Métricas</a>
+        <a href="#casos-destacados" class="hover:text-brand-cyan transition-colors">Casos Destacados</a>
+        <a href="#experiencia" class="hover:text-brand-cyan transition-colors">Experiencia</a>
+        <a href="#habilidades" class="hover:text-brand-cyan transition-colors">Stack & Competencias</a>
+        <a href="#formacion" class="hover:text-brand-cyan transition-colors">Formación</a>
         <a href="#contacto" class="hover:text-brand-cyan transition-colors">Contacto</a>
       </nav>
 
@@ -94,8 +155,8 @@
       <div class="flex items-center gap-2 sm:gap-3">
         <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustaría%20conversar%20sobre%20una%20oportunidad%20laboral." 
            target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold hover:bg-emerald-500/25 transition-all">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+           class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold hover:bg-emerald-500/25 hover:shadow-lg hover:shadow-emerald-500/15 transition-all">
+          <svg class="w-4 h-4 fill-current animate-pulse" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
           </svg>
           <span>Hablemos</span>
@@ -110,362 +171,495 @@
       </div>
     </div>
 
-    <!-- Mobile Dropdown Menu (Limpio, sin atajo redundante) -->
+    <!-- Mobile Dropdown Menu -->
     <div id="mobileMenu" class="hidden md:hidden border-t border-brand-border/60 bg-brand-dark/95 backdrop-blur-xl px-5 py-3 space-y-2.5">
-      <a href="#sobre-mi" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Sobre Mí</a>
-      <a href="#proyectos" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Casos de Éxito & MCP</a>
-      <a href="#habilidades" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Stack Técnico</a>
-      <a href="#trayectoria" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Trayectoria</a>
+      <a href="#sobre-mi" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Perfil</a>
+      <a href="#metricas" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Métricas</a>
+      <a href="#casos-destacados" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Casos Destacados</a>
+      <a href="#experiencia" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Experiencia</a>
+      <a href="#habilidades" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Stack & Competencias</a>
+      <a href="#formacion" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Formación</a>
       <a href="#contacto" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Contacto Directo</a>
     </div>
   </header>
 
-  <main class="pt-24 sm:pt-28 pb-20">
+  <main class="relative z-10 pt-24 sm:pt-28 pb-20">
     <!-- ================= HERO SECTION ================= -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-12">
       <div class="relative">
-        <div class="absolute -top-12 -left-12 w-64 sm:w-96 h-64 sm:h-96 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute top-1/2 -right-12 w-64 sm:w-96 h-64 sm:h-96 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
-
         <div class="max-w-3xl space-y-4 sm:space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/60 text-xs font-medium text-slate-300">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/60 text-xs font-medium text-slate-300 shadow-inner">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Disponible para roles de IT Lead / Engineering Lead</span>
+            <span>IT Lead | Medios de Pago & Soluciones IA</span>
           </div>
 
           <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
-            Bárbara Noelia <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-cyan to-brand-emerald">Covarrubias</span>
+            BÁRBARA NOELIA <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-cyan to-brand-emerald animate-gradient-x">COVARRUBIAS</span>
           </h1>
 
           <p class="text-base sm:text-xl font-medium text-slate-200">
-            IT Lead | Medios de Pago & Arquitecturas de IA Generativa | Ingeniera en Sistemas
+            IT Lead Integraciones, Medios de Pago & Soluciones IA
           </p>
 
           <p class="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
-            Lidero la convergencia entre ecosistemas financieros transaccionales y modelos de Inteligencia Artificial (MCP, Agentes Autónomos y RAG con evaluación RAGAS). Más de 8 años convirtiendo requerimientos de misión crítica en APIs resilientes para Payway y Prisma Medios de Pago.
+            Ingeniera en Sistemas e IT Lead con sólida trayectoria técnica y de gestión liderando células ágiles de ingeniería en el ecosistema Prisma Medios de Pago / Payway. Especializada en la arquitectura técnica, delivery y puesta en producción de soluciones de Inteligencia Artificial Generativa y en plataformas de integración de alta concurrencia.
           </p>
 
-          <!-- Action CTA Group: Limpio con 2 botones principales sin redundancia -->
+          <!-- Badges de Datos Clave según CV -->
+          <div class="flex flex-wrap gap-2 text-xs font-mono pt-1">
+            <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700 transition-all hover:border-slate-500">📍 Morón, Buenos Aires</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700 transition-all hover:border-slate-500">🌍 Ciudadanía Italiana</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700 transition-all hover:border-slate-500">🗣️ Español (Nativo) | Inglés (Intermedio B2)</span>
+          </div>
+
+          <!-- Action CTA Group con Descarga Directa del PDF -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-            <a href="#proyectos" class="px-5 py-3 rounded-xl bg-gradient-to-r from-brand-primary to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold text-sm text-center shadow-lg shadow-blue-500/20 transition-all">
-              Explorar Proyectos & MCP
+            <a href="#casos-destacados" class="px-5 py-3 rounded-xl bg-gradient-to-r from-brand-primary to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold text-sm text-center shadow-lg shadow-blue-500/25 transition-all hover:scale-105 active:scale-95">
+              Explorar Proyectos & Casos
             </a>
-            <button onclick="openCvModal()" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-semibold text-sm text-center transition-all flex items-center justify-center gap-2">
-              <svg class="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="CV_Barbara_Covarrubias.pdf" download="CV_Barbara_Covarrubias.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-semibold text-sm text-center transition-all flex items-center justify-center gap-2 hover:border-brand-cyan hover:scale-105 active:scale-95 group">
+              <svg class="w-4 h-4 text-brand-cyan group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
               </svg>
               <span>Visualizar / Descargar CV</span>
-            </button>
+            </a>
           </div>
         </div>
 
-        <!-- Metric Badges Responsive Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-12">
-          <div class="glass-card p-4 rounded-xl">
-            <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-primary font-mono">1T → 1sem</div>
-            <div class="text-xs text-slate-400 mt-1">Aceleración del ciclo de integración con IA y MCP</div>
+        <!-- Metric Badges EXACTAS DEL CV con animación sutil -->
+        <div id="metricas" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mt-8 sm:mt-12 reveal">
+          <div class="glass-card p-4 rounded-xl text-center sm:text-left icon-spin-hover group">
+            <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-primary font-mono group-hover:scale-105 transition-transform">1T → 1sem</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-1 uppercase font-semibold">Ciclo por feature con IA</div>
           </div>
-          <div class="glass-card p-4 rounded-xl">
-            <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 font-mono">100%</div>
-            <div class="text-xs text-slate-400 mt-1">Autogestión de documentación y testing en Portal Payway</div>
+          <div class="glass-card p-4 rounded-xl text-center sm:text-left icon-spin-hover group">
+            <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 font-mono group-hover:scale-105 transition-transform">100%</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-1 uppercase font-semibold">Autogestión de integradores</div>
           </div>
-          <div class="glass-card p-4 rounded-xl">
-            <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400 font-mono">1er MCP</div>
-            <div class="text-xs text-slate-400 mt-1">Servidor corporativo para cobros y conciliación</div>
+          <div class="glass-card p-4 rounded-xl text-center sm:text-left icon-spin-hover group">
+            <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 font-mono group-hover:scale-105 transition-transform">8+</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-1 uppercase font-semibold">Equipo técnico</div>
           </div>
-          <div class="glass-card p-4 rounded-xl">
-            <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 font-mono">99.9%</div>
-            <div class="text-xs text-slate-400 mt-1">Uptime en APIs transaccionales y Webhooks</div>
+          <div class="glass-card p-4 rounded-xl text-center sm:text-left icon-spin-hover group">
+            <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400 font-mono group-hover:scale-105 transition-transform">1er MCP</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-1 uppercase font-semibold">Implementado en producción</div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= SOBRE MÍ ================= -->
-    <section id="sobre-mi" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-7 space-y-4">
-          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Perfil Ejecutivo</h2>
-          <h3 class="text-2xl sm:text-3xl font-bold text-white">Liderazgo con profundidad técnica y visión de negocio</h3>
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-            Como Ingeniera en Sistemas especializada en pagos digitales, mi enfoque combina la gobernanza de arquitecturas de software de alta disponibilidad con la vanguardia de la IA Generativa corporativa.
-          </p>
-          <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
-            Dirigí técnicamente la evolución del <a href="https://docs.payway.com.ar" target="_blank" rel="noopener noreferrer" class="text-brand-cyan hover:underline inline-flex items-center gap-1 font-medium">Portal de Integraciones de Payway <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>, implementé el primer servidor MCP interno sobre Node.js y orquesté flujos agénticos evaluados bajo marcos RAGAS para garantizar cero alucinaciones en respuestas financieras.
-          </p>
-          <div class="pt-2">
-            <div class="flex flex-wrap gap-2 text-xs font-mono">
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">📍 Francisco Álvarez, BA</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">🎓 Ingeniera en Sistemas (UAI)</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">⚡ Dip. Inteligencia Artificial (UNO)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-5 glass-card p-5 sm:p-6 rounded-2xl border-l-4 border-l-brand-primary space-y-4">
-          <h4 class="font-bold text-white text-base flex items-center gap-2">
-            <span class="text-brand-primary">🚀</span>
-            <span>Pilares de Liderazgo Técnico</span>
-          </h4>
-          <div class="space-y-3 text-xs sm:text-sm text-slate-300">
-            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <div class="font-semibold text-white mb-0.5">Arquitectura Financiera Resiliente</div>
-              <p class="text-slate-400 text-xs">Diseño de APIs transaccionales desacopladas, pipelines asíncronos y sandboxes con alta tolerancia a fallos.</p>
-            </div>
-            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <div class="font-semibold text-white mb-0.5">Gobernanza & Métricas GenAI</div>
-              <p class="text-slate-400 text-xs">Integración de modelos fundacionales mediante MCP y validación algorítmica con RAGAS para evitar alucinaciones operativas.</p>
-            </div>
-            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <div class="font-semibold text-white mb-0.5">Developer Experience (DX) & Onboarding</div>
-              <p class="text-slate-400 text-xs">Transformación de flujos de homologación técnicos en experiencias de autoservicio ágiles para partners y comercios.</p>
-            </div>
+          <div class="glass-card p-4 rounded-xl text-center sm:text-left col-span-2 sm:col-span-1 icon-spin-hover group">
+            <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 font-mono group-hover:scale-105 transition-transform">99,9%</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-1 uppercase font-semibold">Disponibilidad en APIs</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= PROYECTOS & CASOS DE ÉXITO ================= -->
-    <section id="proyectos" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <!-- ================= SOBRE MÍ / PERFIL ================= -->
+    <section id="sobre-mi" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 reveal">
+      <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-700/80 relative overflow-hidden">
+        <div class="absolute -right-16 -bottom-16 w-60 h-60 bg-brand-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan mb-2">Perfil Profesional</h2>
+        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">Liderazgo Técnico, Arquitectura & Delivery</h3>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            Ingeniera en Sistemas e IT Lead con sólida trayectoria técnica y de gestión liderando células ágiles de ingeniería en el ecosistema <strong>Prisma Medios de Pago / Payway</strong>. Especializada en la arquitectura técnica, delivery y puesta en producción de soluciones de Inteligencia Artificial Generativa (Agentic AI, RAG en AWS Bedrock con modelos de Anthropic, PostgreSQL con extensión pgvector, servidores MCP y auditoría continua RAGAS sobre AWS) y en plataformas de integración de alta concurrencia.
+          </p>
+          <p class="text-slate-400">
+            Liderazgo técnico en la construcción del Portal de Integraciones bajo microservicios y arquitecturas reactivas (Java Spring Boot, React, Kafka, Webhooks, PostgreSQL), coordinando la integración de E-commerce (WooCommerce, VTEX) y Terminales de Pago vía API. Capacidad probada para coordinar equipos de desarrollo, definir estándares de ingeniería y traducir la visión estratégica de producto en soluciones robustas y escalables.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CASOS DESTACADOS: SLIDER / CARRUSEL ANIMADO ================= -->
+    <section id="casos-destacados" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 reveal">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
         <div>
-          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Casos de Estudio</h2>
-          <h3 class="text-2xl sm:text-3xl font-bold text-white">Arquitectura & Soluciones de Alto Impacto</h3>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Soluciones de Alto Impacto</h2>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white">Arquitectura & Delivery en Producción</h3>
         </div>
-        <div class="flex items-center gap-2 overflow-x-auto pb-1">
-          <button onclick="filterProjects('all')" id="filter-all" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-primary text-white">Todos</button>
-          <button onclick="filterProjects('ia')" id="filter-ia" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white">IA & MCP</button>
-          <button onclick="filterProjects('fintech')" id="filter-fintech" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white">Fintech & APIs</button>
+        
+        <!-- Controles del Slider -->
+        <div class="flex items-center gap-2 self-start sm:self-auto">
+          <button onclick="prevSlide()" aria-label="Anterior diapositiva" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all border border-slate-700 active:scale-90">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          <div class="flex gap-1.5 px-2" id="carouselIndicators">
+            <button onclick="goToSlide(0)" class="w-3 h-1.5 rounded-full bg-brand-primary transition-all indicator-btn" data-index="0"></button>
+            <button onclick="goToSlide(1)" class="w-1.5 h-1.5 rounded-full bg-slate-700 transition-all indicator-btn" data-index="1"></button>
+            <button onclick="goToSlide(2)" class="w-1.5 h-1.5 rounded-full bg-slate-700 transition-all indicator-btn" data-index="2"></button>
+          </div>
+          <button onclick="nextSlide()" aria-label="Siguiente diapositiva" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all border border-slate-700 active:scale-90">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Card 1: Servidor MCP -->
-        <div class="project-card ia glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ia">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono text-brand-cyan mb-2">
-              <span>IA Generativa / MCP</span>
-              <span class="px-2 py-0.5 rounded bg-brand-cyan/15 text-brand-cyan">2026</span>
+      <!-- Carousel Container -->
+      <div class="relative overflow-hidden rounded-3xl border border-slate-700/80 glass-card">
+        <div id="carouselTrack" class="flex transition-transform duration-500 ease-out">
+          
+          <!-- Slide 1: Servidor MCP -->
+          <div class="w-full shrink-0 p-6 sm:p-10 flex flex-col justify-between space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center font-mono font-bold text-sm">
+                  MCP
+                </div>
+                <div>
+                  <h4 class="text-xl sm:text-2xl font-bold text-white">Servidor Corporativo MCP (Model Context Protocol)</h4>
+                  <p class="text-xs text-brand-cyan font-mono">Implementado en Producción sobre AWS (ECS/ECR)</p>
+                </div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30 text-xs font-mono font-semibold">1er MCP</span>
             </div>
-            <h4 class="text-lg font-bold text-white mb-2">Servidor Corporativo MCP (Model Context Protocol)</h4>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
-              Diseño y puesta en marcha del primer MCP Server en Node.js para conectar modelos de lenguaje (Claude 3.5 Sonnet sobre AWS Bedrock) con las APIs de consulta de cobros y liquidación de Payway.
+            
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">
+              Arquitectura y desarrollo en <strong>Node.js sobre AWS (ECS/ECR)</strong> del primer servidor MCP para exponer herramientas de cobro, contratos OpenAPI y RAG directamente en los IDEs de desarrollo, acelerando drásticamente el onboarding técnico de integradores.
             </p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono">Node.js</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono">AWS Bedrock</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono">MCP Protocol</span>
-            </div>
-          </div>
-          <button onclick="openProjectModal('mcp')" class="w-full py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors">
-            Ver Detalles de Arquitectura →
-          </button>
-        </div>
 
-        <!-- Card 2: Agente RAG + RAGAS -->
-        <div class="project-card ia glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ia">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono text-violet-400 mb-2">
-              <span>Agentes & RAG</span>
-              <span class="px-2 py-0.5 rounded bg-violet-500/15 text-violet-400">2026</span>
-            </div>
-            <h4 class="text-lg font-bold text-white mb-2">Agente RAG con Orquestación n8n & RAGAS</h4>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
-              Asistente agéntico para integradores técnicos con base vectorial en pgvector, orquestado en n8n y evaluado continuamente con el framework RAGAS (Faithfulness > 0.94).
-            </p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono">n8n</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono">pgvector</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono">RAGAS</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs text-slate-400 font-mono">Protocolo</div>
+                <div class="text-sm font-bold text-white mt-0.5">Model Context Protocol</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs text-slate-400 font-mono">Infraestructura</div>
+                <div class="text-sm font-bold text-white mt-0.5">AWS ECS / ECR & Docker</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs text-slate-400 font-mono">Impacto Directo</div>
+                <div class="text-sm font-bold text-brand-cyan mt-0.5">Onboarding técnico guiado</div>
+              </div>
             </div>
           </div>
-          <button onclick="openProjectModal('rag')" class="w-full py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors">
-            Ver Detalles de Arquitectura →
-          </button>
-        </div>
 
-        <!-- Card 3: Portal de Integraciones Payway -->
-        <div class="project-card fintech glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="fintech">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono text-emerald-400 mb-2">
-              <span>Fintech / Medios de Pago</span>
-              <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400">Payway</span>
+          <!-- Slide 2: Asistente IA & RAGAS -->
+          <div class="w-full shrink-0 p-6 sm:p-10 flex flex-col justify-between space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-violet-600/20 text-violet-400 flex items-center justify-center font-mono font-bold text-sm">
+                  RAG
+                </div>
+                <div>
+                  <h4 class="text-xl sm:text-2xl font-bold text-white">IA & Agentic Workflows con Auditoría RAGAS</h4>
+                  <p class="text-xs text-violet-400 font-mono">AWS Bedrock · n8n · PostgreSQL pgvector</p>
+                </div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-violet-500/15 text-violet-300 border border-violet-500/30 text-xs font-mono font-semibold">Zero Hallucinations</span>
             </div>
-            <h4 class="text-lg font-bold text-white mb-2">Portal de Integraciones Payway</h4>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
-              Liderazgo de punta a punta del portal de documentación y sandboxes interactivos (<a href="https://docs.payway.com.ar" target="_blank" class="text-brand-cyan underline">docs.payway.com.ar</a>), reduciendo el time-to-market de comercios de 1 trimestre a 1 semana.
+            
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">
+              Diseño y despliegue del asistente inteligente de integración: flujos agénticos orquestados con <strong>n8n</strong>, <strong>AWS Bedrock</strong> (Foundation Models de Anthropic), memoria contextual en <strong>Redis</strong> y RAG sobre Amazon Bedrock Knowledge Bases / S3 con búsqueda vectorial en PostgreSQL (pgvector). Pipeline de evaluación en Python para auditar métricas oficiales de Faithfulness, Answer Relevance y Semantic Similarity.
             </p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono">REST APIs</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono">Webhooks</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-mono">Sandboxes</span>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs text-slate-400 font-mono">Orquestación</div>
+                <div class="text-sm font-bold text-white mt-0.5">n8n Workflows & Redis Cache</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs text-slate-400 font-mono">Base Vectorial</div>
+                <div class="text-sm font-bold text-white mt-0.5">PostgreSQL (pgvector) + S3</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs text-slate-400 font-mono">Framework Calidad</div>
+                <div class="text-sm font-bold text-violet-300 mt-0.5">RAGAS Continuous Audit</div>
+              </div>
             </div>
           </div>
-          <button onclick="openProjectModal('portal')" class="w-full py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors">
-            Ver Detalles de Arquitectura →
-          </button>
+
+          <!-- Slide 3: Portal Payway -->
+          <div class="w-full shrink-0 p-6 sm:p-10 flex flex-col justify-between space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-mono font-bold text-sm">
+                  PW
+                </div>
+                <div>
+                  <h4 class="text-xl sm:text-2xl font-bold text-white">Portal de Integraciones Payway</h4>
+                  <p class="text-xs text-emerald-400 font-mono"><a href="https://docs.payway.com.ar" target="_blank" class="hover:underline">docs.payway.com.ar</a></p>
+                </div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-semibold">100% Autogestión</span>
+            </div>
+            
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">
+              Liderazgo técnico en la construcción del Portal bajo microservicios y arquitecturas reactivas (<strong>Java Spring Boot, React, Kafka, Webhooks, PostgreSQL</strong>), coordinando la integración de E-commerce (WooCommerce, VTEX) y Terminales de Pago vía API. Aceleración del ciclo de integración de un trimestre a solo una semana.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs text-slate-400 font-mono">Microservicios</div>
+                <div class="text-sm font-bold text-white mt-0.5">Java Spring Boot & React</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs text-slate-400 font-mono">Event Streaming</div>
+                <div class="text-sm font-bold text-white mt-0.5">Apache Kafka & Webhooks</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs text-slate-400 font-mono">Conectores</div>
+                <div class="text-sm font-bold text-emerald-400 mt-0.5">VTEX, WooCommerce, POS API</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ================= STACK & COMPETENCIAS ================= -->
-    <section id="habilidades" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <!-- ================= EXPERIENCIA LABORAL COMPLETA ================= -->
+    <section id="experiencia" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 reveal">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Habilidades Técnicas</h2>
-        <h3 class="text-2xl sm:text-3xl font-bold text-white">Stack de Ingeniería & Liderazgo</h3>
-        <p class="text-xs sm:text-sm text-slate-400 mt-2">Capacidades reales organizadas por dominio operativo sin porcentajes arbitrarios.</p>
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Trayectoria</h2>
+        <h3 class="text-2xl sm:text-3xl font-bold text-white">Experiencia Laboral</h3>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- 1. IA Generativa -->
-        <div class="glass-card p-5 rounded-2xl">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-lg">🤖</span>
-            <h4 class="font-bold text-white text-sm">IA Generativa & Agentes</h4>
-          </div>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Model Context Protocol (MCP)</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">AWS Bedrock (Claude 3.5)</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">RAG Architecture</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">RAGAS Framework</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">n8n Workflow Automation</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">pgvector / Embeddings</span>
-          </div>
-        </div>
-
-        <!-- 2. Medios de Pago & Fintech -->
-        <div class="glass-card p-5 rounded-2xl">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-lg">💳</span>
-            <h4 class="font-bold text-white text-sm">Medios de Pago & Fintech</h4>
-          </div>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Payment Gateways & APIs</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Terminales POS vía API</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Webhooks & Conciliación</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">E-commerce (VTEX, Woo)</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Prevención de Fraude</span>
-          </div>
-        </div>
-
-        <!-- 3. Backend & Cloud -->
-        <div class="glass-card p-5 rounded-2xl">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-lg">⚙️</span>
-            <h4 class="font-bold text-white text-sm">Backend & Arquitectura</h4>
-          </div>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Java Spring Boot</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Node.js / Express</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Apache Kafka</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">PostgreSQL / SQL</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">AWS Lambda / S3 / SQS</span>
+      <div class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-800">
+        <!-- 1. Payway -->
+        <div class="relative pl-10">
+          <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-cyan border-4 border-brand-dark animate-pulse"></div>
+          <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-800/80 pb-3">
+              <div>
+                <h4 class="font-bold text-white text-base sm:text-lg">IT Lead - Portal de Integraciones & AI Solutions</h4>
+                <div class="text-sm font-semibold text-brand-cyan">Payway</div>
+              </div>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 w-fit">jul 2025 – Actualidad</span>
+            </div>
+            
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary mt-1 font-bold">▪</span>
+                <span><strong>Liderazgo Técnico de Célula:</strong> Coordinación técnica y delivery ágil del equipo de ingeniería asignado al Portal de Integraciones público y privado (<a href="https://docs.payway.com.ar" target="_blank" class="text-brand-cyan underline">docs.payway.com.ar</a>), orquestando ceremonias técnicas, priorización de deuda técnica y backlog de desarrollo en Jira y GitLab.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary mt-1 font-bold">▪</span>
+                <span><strong>Implementación de IA & Agentic Workflows:</strong> Liderazgo en el diseño técnico y despliegue del primer asistente inteligente de integración: flujos agénticos orquestados con n8n, AWS Bedrock consumiendo Foundation Models de Anthropic, memoria contextual en Redis y RAG sobre Amazon Bedrock Knowledge Bases / S3, junto con búsqueda vectorial relacional en PostgreSQL (pgvector).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary mt-1 font-bold">▪</span>
+                <span><strong>Servidor MCP (Model Context Protocol):</strong> Arquitectura y desarrollo en Node.js sobre AWS (ECS/ECR) del primer servidor MCP para exponer herramientas de cobro, contratos OpenAPI y RAG directamente en los IDEs de desarrollo, acelerando drásticamente el onboarding técnico.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary mt-1 font-bold">▪</span>
+                <span><strong>Arquitectura de Eventos, E-commerce & Terminales:</strong> Conducción técnica de servicios en Java Spring Boot y frontend en React con mensajería asíncrona mediante Apache Kafka y Webhooks; soporte y homologación técnica para conectores VTEX, WooCommerce y POS vía API.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary mt-1 font-bold">▪</span>
+                <span><strong>Evaluación RAGAS:</strong> Construcción de pipeline de calidad en Python (enfoque LLM) para auditar métricas oficiales de Faithfulness, Answer Relevance y Semantic Similarity, implementación de autenticación Keycloak/JWT, prevención de IDOR y políticas Zero Secrets.</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- 4. Seguridad & Calidad -->
-        <div class="glass-card p-5 rounded-2xl">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-lg">🛡️</span>
-            <h4 class="font-bold text-white text-sm">Seguridad & Observabilidad</h4>
-          </div>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Grafana & Loki</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Veracode & SonarQube</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">PCI-DSS Awareness</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Postman API Testing</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">CI/CD Pipelines (Jenkins)</span>
+        <!-- 2. Prisma Medios de Pago - IT Lead / Technical Product Owner -->
+        <div class="relative pl-10">
+          <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-primary border-4 border-brand-dark"></div>
+          <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-800/80 pb-3">
+              <div>
+                <h4 class="font-bold text-white text-base sm:text-lg">IT Lead / Technical Product Owner - Portal de Integraciones</h4>
+                <div class="text-sm font-semibold text-brand-primary">Prisma Medios de Pago</div>
+              </div>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 w-fit">abr 2023 – jun 2025</span>
+            </div>
+            
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-cyan mt-1 font-bold">▪</span>
+                <span><strong>Liderazgo de Célula Técnica:</strong> Conducción del equipo multidisciplinario de desarrollo y QA; definición y refinamiento técnico de user stories, garantizando consistencia técnica entre comités de arquitectura, infoSec y negocio.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-cyan mt-1 font-bold">▪</span>
+                <span><strong>Estandarización de APIs & Monitoreo:</strong> Supervisión y homologación de especificaciones OpenAPI/Swagger para medios de pago presencial y online; observabilidad continua de microservicios con Grafana y pipelines CI/CD sobre AWS y PostgreSQL.</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- 5. Liderazgo & Delivery -->
+        <!-- 3. Prisma Medios de Pago - Project Manager -->
+        <div class="relative pl-10">
+          <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-slate-500 border-4 border-brand-dark"></div>
+          <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-800/80 pb-3">
+              <div>
+                <h4 class="font-bold text-white text-base sm:text-lg">Project Manager - Integraciones Payway</h4>
+                <div class="text-sm font-semibold text-slate-300">Prisma Medios de Pago</div>
+              </div>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 w-fit">may 2022 – nov 2023</span>
+            </div>
+            
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Liderazgo y seguimiento operativo de proyectos de integración con grandes comercios y partners; coordinación de homologaciones técnicas de pasarelas de pago y terminales punto de venta junto a Desarrollo y QA bajo Scrum.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. QServices & Accenture -->
+        <div class="relative pl-10">
+          <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-slate-700 border-4 border-brand-dark"></div>
+          <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-800/80 pb-3">
+              <div>
+                <h4 class="font-bold text-white text-base sm:text-lg">Analista Funcional Técnico Sr & QA Tester</h4>
+                <div class="text-sm font-semibold text-slate-300">QServices & Accenture</div>
+              </div>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 w-fit">2016 – 2022</span>
+            </div>
+            
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-slate-500 mt-1 font-bold">▪</span>
+                <span><strong>QServices (2020–2022):</strong> Análisis funcional técnico en integraciones Payway (Visa/Decidir) y proyectos Cloud AWS en Edenor (Web Services, Oracle, Postman).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-500 mt-1 font-bold">▪</span>
+                <span><strong>Accenture (2016–2020):</strong> QA y análisis técnico en interfaces críticas y procesos batch SQL/SAP para YPF y Telecom Italia.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COMPETENCIAS TÉCNICAS & STACK ================= -->
+    <section id="habilidades" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 reveal">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Habilidades Técnicas</h2>
+        <h3 class="text-2xl sm:text-3xl font-bold text-white">Competencias Técnicas & Stack</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- 1. Liderazgo & Delivery -->
         <div class="glass-card p-5 rounded-2xl">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-lg">👥</span>
-            <h4 class="font-bold text-white text-sm">Liderazgo & Gestión</h4>
+            <h4 class="font-bold text-white text-sm">Liderazgo & Delivery</h4>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Gestión de Equipos de IT</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Jira / Confluence / OKRs</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Scrum & Kanban</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Comunicación Ejecutiva</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Mentoría Técnica</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Liderazgo de Células Técnicas</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Scrum</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Jira</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">GitLab CI/CD</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Spec-Driven Development (SDD)</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Gestión de Stakeholders</span>
           </div>
         </div>
 
-        <!-- 6. Metodologías y Negocio -->
+        <!-- 2. Medios de Pago & Integración -->
         <div class="glass-card p-5 rounded-2xl">
           <div class="flex items-center gap-2 mb-3">
-            <span class="text-lg">🎯</span>
-            <h4 class="font-bold text-white text-sm">Fintech Business</h4>
+            <span class="text-lg">💳</span>
+            <h4 class="font-bold text-white text-sm">Medios de Pago & Integración</h4>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Adquirencia & Emisión</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Soluciones Omnicanal</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Developer Experience (DX)</span>
-            <span class="px-2 py-1 rounded bg-slate-800/90 text-slate-300 text-xs">Definición de Arquitectura</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">E-commerce (WooCommerce, VTEX)</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Ventas Online</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">POS vía API</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">OpenAPI / Swagger</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Pasarelas Web / Checkout</span>
+          </div>
+        </div>
+
+        <!-- 3. IA Generativa & LLMs -->
+        <div class="glass-card p-5 rounded-2xl">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">🤖</span>
+            <h4 class="font-bold text-white text-sm">IA Generativa & LLMs</h4>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Model Context Protocol (MCP)</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Agentic Workflows</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">AWS Bedrock (Anthropic)</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">RAG</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Framework RAGAS (LLM)</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">n8n</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Prompt Engineering</span>
+          </div>
+        </div>
+
+        <!-- 4. Arquitectura & Backend -->
+        <div class="glass-card p-5 rounded-2xl">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">⚙️</span>
+            <h4 class="font-bold text-white text-sm">Arquitectura & Backend</h4>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Java (Spring Boot)</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Node.js</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Python</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Apache Kafka</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Webhooks</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">APIs REST</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">React</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">AWS (ECS, ECR, S3)</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Docker</span>
+          </div>
+        </div>
+
+        <!-- 5. Datos, Seguridad & Observabilidad -->
+        <div class="glass-card p-5 rounded-2xl col-span-1 md:col-span-2 lg:col-span-2">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">🛡️</span>
+            <h4 class="font-bold text-white text-sm">Datos, Seguridad & Observabilidad</h4>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">PostgreSQL con extensión pgvector</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Redis</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">SQL Server</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Keycloak (OAuth2 / JWT)</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Grafana</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Guardrails</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Políticas Zero Secrets</span>
+            <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Prevención de IDOR</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TRAYECTORIA LABORAL ================= -->
-    <section id="trayectoria" class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+    <!-- ================= FORMACIÓN & CERTIFICACIONES ================= -->
+    <section id="formacion" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 reveal">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Experiencia Profesional</h2>
-        <h3 class="text-2xl sm:text-3xl font-bold text-white">Evolución en Ingeniería & Gestión</h3>
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Educación</h2>
+        <h3 class="text-2xl sm:text-3xl font-bold text-white">Formación & Certificaciones</h3>
       </div>
 
-      <div class="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-800">
-        <!-- Item 1 -->
-        <div class="relative pl-10">
-          <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-cyan border-4 border-brand-dark"></div>
-          <div class="glass-card p-5 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-              <h4 class="font-bold text-white text-base">Product Integrations Lead / IT Lead</h4>
-              <span class="text-xs font-mono text-brand-cyan">Payway | Prisma Medios de Pago</span>
-            </div>
-            <p class="text-xs text-slate-400 mb-2">2024 – Actualidad</p>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Liderazgo de integraciones corporativas e iniciativas de GenAI (servidor MCP, asistentes RAG con evaluación RAGAS). Gestión de equipos multidisciplinarios para el despliegue del portal técnico de documentación de APIs de pago.
-            </p>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Formación 1 -->
+        <div class="glass-card p-5 rounded-2xl icon-spin-hover">
+          <div class="text-xs font-mono text-brand-cyan mb-1">Universidad Nacional del Oeste (UNO)</div>
+          <h4 class="font-bold text-white text-sm sm:text-base">Diplomatura Sup. en IA Aplicada y Tec. Emergentes</h4>
+          <p class="text-xs text-slate-400 mt-1">En Curso</p>
         </div>
 
-        <!-- Item 2 -->
-        <div class="relative pl-10">
-          <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-slate-600 border-4 border-brand-dark"></div>
-          <div class="glass-card p-5 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-              <h4 class="font-bold text-white text-base">Analista Técnica de Integraciones Senior</h4>
-              <span class="text-xs font-mono text-slate-400">Prisma Medios de Pago</span>
-            </div>
-            <p class="text-xs text-slate-400 mb-2">2022 – 2024</p>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Soporte técnico de nivel 3 y consultoría de arquitectura para grandes cuentas (MercadoLibre, VTEX, integradores ERP). Certificación de terminales y diseño de especificaciones OpenAPI.
-            </p>
-          </div>
+        <!-- Formación 2 -->
+        <div class="glass-card p-5 rounded-2xl icon-spin-hover">
+          <div class="text-xs font-mono text-emerald-400 mb-1">Universidad Abierta Interamericana (UAI)</div>
+          <h4 class="font-bold text-white text-sm sm:text-base">Ingeniería en Sistemas Informáticos</h4>
+          <p class="text-xs text-slate-400 mt-1">Graduada 2022</p>
         </div>
 
-        <!-- Item 3 -->
-        <div class="relative pl-10">
-          <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-slate-700 border-4 border-brand-dark"></div>
-          <div class="glass-card p-5 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-              <h4 class="font-bold text-white text-base">QA Automation & Quality Assurance Engineer</h4>
-              <span class="text-xs font-mono text-slate-400">QServices / Accenture</span>
-            </div>
-            <p class="text-xs text-slate-400 mb-2">2018 – 2022</p>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Diseño de pruebas automatizadas funcionales y de performance en entornos bancarios y transaccionales para clientes como Banco Galicia y billetera MODO.
-            </p>
-          </div>
+        <!-- Formación 3 -->
+        <div class="glass-card p-5 rounded-2xl icon-spin-hover">
+          <div class="text-xs font-mono text-violet-400 mb-1">Instituto Tecnológico de Buenos Aires (ITBA)</div>
+          <h4 class="font-bold text-white text-sm sm:text-base">Certificación Profesional en Project Management</h4>
+          <p class="text-xs text-slate-400 mt-1">2023</p>
+        </div>
+
+        <!-- Certificaciones -->
+        <div class="glass-card p-5 rounded-2xl icon-spin-hover">
+          <div class="text-xs font-mono text-blue-400 mb-1">Acreditaciones Internacionales</div>
+          <h4 class="font-bold text-white text-sm sm:text-base">Certificaciones Profesionales</h4>
+          <p class="text-xs text-slate-300 mt-1.5 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Amazon Q Developer</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Engineering Lead</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Scrum</span>
+          </p>
         </div>
       </div>
     </section>
 
     <!-- ================= CONTACTO DIRECTO ================= -->
-    <section id="contacto" class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+    <section id="contacto" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 reveal">
       <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-700/80">
         <div class="text-center max-w-xl mx-auto mb-8">
           <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Canales Directos</h2>
@@ -477,7 +671,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <!-- WhatsApp Card -->
-          <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustaría%20conversar%20sobre%20una%20oportunidad%20laboral." target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 flex items-center gap-3 transition-colors">
+          <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustaría%20conversar%20sobre%20una%20oportunidad%20laboral." target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 flex items-center gap-3 transition-all hover:scale-102">
             <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
             </div>
@@ -487,7 +681,7 @@
             </div>
           </a>
 
-          <!-- Email Card with Copy icon button (sin superposición en móvil) -->
+          <!-- Email Card with Copy icon button -->
           <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-2">
             <div class="flex items-center gap-3 min-w-0">
               <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-primary/20 text-brand-primary flex items-center justify-center">
@@ -498,7 +692,7 @@
                 <div class="text-xs sm:text-sm font-bold text-white truncate">barbara.covarrubias@hotmail.com</div>
               </div>
             </div>
-            <button onclick="copyEmail()" id="copyEmailBtn" title="Copiar correo" aria-label="Copiar correo" class="shrink-0 p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">
+            <button onclick="copyEmail()" id="copyEmailBtn" title="Copiar correo" aria-label="Copiar correo" class="shrink-0 p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all active:scale-90">
               <svg id="copyIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
               </svg>
@@ -506,13 +700,13 @@
           </div>
 
           <!-- LinkedIn Card -->
-          <a href="https://www.linkedin.com/in/ing-b%C3%A1rbara-noelia-covarrubias-42166b109/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 flex items-center gap-3 transition-colors">
+          <a href="https://www.linkedin.com/in/barbara-covarrubias/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 flex items-center gap-3 transition-all hover:scale-102">
             <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-[#0A66C2] flex items-center justify-center">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 6.54a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z"/></svg>
             </div>
             <div>
               <div class="text-xs text-slate-400">LinkedIn Oficial</div>
-              <div class="text-sm font-bold text-white">/in/ing-barbara-noelia-covarrubias</div>
+              <div class="text-sm font-bold text-white">linkedin.com/in/barbara-covarrubias</div>
             </div>
           </a>
 
@@ -522,8 +716,8 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             </div>
             <div>
-              <div class="text-xs text-slate-400">Ubicación y Modalidad</div>
-              <div class="text-sm font-bold text-white">Francisco Álvarez, BA (Híbrido/Remoto)</div>
+              <div class="text-xs text-slate-400">Ubicación y Ciudadanía</div>
+              <div class="text-sm font-bold text-white">Morón, BA · Ciudadanía Italiana</div>
             </div>
           </div>
         </div>
@@ -531,81 +725,19 @@
     </section>
   </main>
 
-  <!-- ================= FLOATING AI AGENT BUTTON (Único botón para abrir el asistente) ================= -->
+  <!-- ================= FLOATING AI AGENT BUTTON ================= -->
   <aside aria-label="Asistente Virtual" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30">
-    <button onclick="openBarbaraAI()" class="flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium text-xs sm:text-sm shadow-xl shadow-violet-500/25 hover:scale-105 active:scale-95 transition-all">
-      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+    <button onclick="openBarbaraAI()" class="flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium text-xs sm:text-sm shadow-xl shadow-violet-500/30 hover:scale-105 active:scale-95 transition-all">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
       <span>Consultar a Bárbara IA</span>
       <span class="text-[10px] bg-white/20 px-1.5 py-0.5 rounded-full">✨</span>
     </button>
   </aside>
 
-  <!-- ================= MODAL: CV VIEWER & DOWNLOADER ================= -->
-  <div id="cvModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm">
-    <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl max-h-[90vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden">
-      <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
-        <h3 class="font-bold text-white text-sm sm:text-base">Currículum Ejecutivo - Bárbara Covarrubias</h3>
-        <button onclick="closeCvModal()" class="p-1 rounded-lg text-slate-400 hover:text-white">✕</button>
-      </div>
-      <div class="p-5 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-300">
-        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 space-y-2">
-          <div class="flex justify-between font-bold text-white">
-            <span>Bárbara Noelia Covarrubias</span>
-            <span class="text-brand-cyan">IT Lead</span>
-          </div>
-          <p class="text-slate-400 text-xs">Francisco Álvarez, Buenos Aires | barbara.covarrubias@hotmail.com</p>
-          <p class="text-slate-300 text-xs leading-relaxed">
-            Ingeniera en Sistemas con más de 8 años de trayectoria en adquirencia y medios de pago (Payway / Prisma). Especialista en la implementación de servidores corporativos MCP (Model Context Protocol) sobre Node.js y pipelines de evaluación RAGAS.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-2 text-brand-primary">Experiencia Clave</h4>
-          <ul class="list-disc pl-5 space-y-1 text-slate-300 text-xs">
-            <li><strong>Payway (2024-Presente):</strong> IT Lead & Integrations Lead. Servidor MCP y Portal de APIs.</li>
-            <li><strong>Prisma Medios de Pago (2022-2024):</strong> Senior Integrations Engineer. Pagos omnicanal y POS.</li>
-            <li><strong>QServices / Accenture (2018-2022):</strong> QA Automation. Clientes: Banco Galicia y MODO.</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-2 text-brand-cyan">Educación Formal</h4>
-          <ul class="list-disc pl-5 space-y-1 text-slate-300 text-xs">
-            <li><strong>Ingeniería en Sistemas:</strong> Universidad Abierta Interamericana (UAI).</li>
-            <li><strong>Diplomatura Superior en Inteligencia Artificial:</strong> Universidad Nacional del Oeste (UNO).</li>
-            <li><strong>Gestión de Proyectos & Agile:</strong> ITBA.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="p-4 border-t border-slate-800 bg-slate-950/60 flex items-center justify-end gap-3">
-        <button onclick="closeCvModal()" class="px-4 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white">Cerrar</button>
-        <button onclick="printOrDownloadCv()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-brand-primary hover:bg-blue-600 text-white flex items-center gap-1.5 shadow-md">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-          <span>Imprimir / Guardar en PDF</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= MODAL: PROJECT DETAILS ================= -->
-  <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm">
-    <div class="bg-slate-900 border border-slate-700 w-full max-w-xl max-h-[90vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden">
-      <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
-        <h3 id="projectModalTitle" class="font-bold text-white text-sm sm:text-base">Detalle de Proyecto</h3>
-        <button onclick="closeProjectModal()" class="p-1 rounded-lg text-slate-400 hover:text-white">✕</button>
-      </div>
-      <div id="projectModalBody" class="p-5 overflow-y-auto space-y-3 text-xs sm:text-sm text-slate-300"></div>
-      <div class="p-4 border-t border-slate-800 bg-slate-950/60 flex justify-end">
-        <button onclick="closeProjectModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-white">Cerrar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= MODAL: BÁRBARA AI AGENT (Tamaño contenido y amigable en móviles) ================= -->
+  <!-- ================= MODAL: BÁRBARA AI AGENT ================= -->
   <div id="aiModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-sm">
     <div class="bg-slate-950 border-t sm:border border-violet-500/30 w-full max-w-md h-[78vh] sm:h-[560px] rounded-t-3xl sm:rounded-2xl flex flex-col shadow-2xl overflow-hidden">
       
-      <!-- Header con botón cerrar visible -->
       <div class="p-3.5 border-b border-slate-800 bg-slate-900/90 flex items-center justify-between shrink-0">
         <div class="flex items-center gap-2.5">
           <div class="w-7 h-7 rounded-full bg-violet-600 text-white flex items-center justify-center font-bold text-xs">
@@ -619,25 +751,22 @@
         <button onclick="closeBarbaraAI()" class="p-1 px-2.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold">✕ Cerrar</button>
       </div>
 
-      <!-- Quick Chips: Preguntas frecuentes -->
       <div class="px-3 py-2 bg-slate-900/50 border-b border-slate-800/80 flex gap-2 overflow-x-auto text-[11px] shrink-0">
-        <button onclick="sendQuickPrompt('¿Cuál es su rol y seniority actual?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Seniority</button>
-        <button onclick="sendQuickPrompt('¿Cómo implementó el servidor MCP en Payway?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Servidor MCP</button>
-        <button onclick="sendQuickPrompt('¿Qué tecnologías domina en backend e IA?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Stack</button>
-        <button onclick="sendQuickPrompt('¿Cómo contactarla para una entrevista?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Contacto</button>
+        <button onclick="sendQuickPrompt('¿Cuál es su rol y experiencia en Payway?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Rol en Payway</button>
+        <button onclick="sendQuickPrompt('¿Cómo implementó el servidor MCP y flujos con IA?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Servidor MCP & RAG</button>
+        <button onclick="sendQuickPrompt('¿Qué stack domina en arquitectura y backend?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Stack & Datos</button>
+        <button onclick="sendQuickPrompt('¿Cuáles son sus datos de contacto?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Contacto</button>
       </div>
 
-      <!-- Chat Messages Container -->
       <div id="aiChatContainer" class="flex-1 p-3.5 overflow-y-auto space-y-2.5 text-xs sm:text-sm">
         <div class="flex gap-2 items-start">
           <div class="w-6 h-6 rounded-full bg-violet-600/40 text-violet-300 text-[10px] flex items-center justify-center shrink-0">AI</div>
           <div class="p-2.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[90%]">
-            Hola. Soy el asistente técnico de <strong>Bárbara Covarrubias</strong>. Respondé o elegí una consulta para conocer detalles precisos sobre su arquitectura en Payway, proyectos MCP, stack o datos de contacto.
+            Hola. Soy el asistente de <strong>Bárbara Noelia Covarrubias</strong>. Respondé o elegí una consulta para conocer detalles precisos sobre su rol como IT Lead en Payway, arquitectura de IA (MCP, AWS Bedrock, RAGAS), stack de microservicios o datos de contacto.
           </div>
         </div>
       </div>
 
-      <!-- Input Bar (sin auto-focus intrusivo) -->
       <div class="p-2.5 border-t border-slate-800 bg-slate-900/90 shrink-0">
         <form id="aiChatForm" onsubmit="handleAiChatSubmit(event)" class="flex gap-2">
           <input type="text" id="aiChatInput" placeholder="Escribe tu consulta aquí..." autocomplete="off"
@@ -663,13 +792,13 @@
       link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
 
-    // --- Copy Email Helper ---
+    // --- Copy Email Helper con feedback visual animado ---
     function copyEmail() {
       const email = 'barbara.covarrubias@hotmail.com';
       navigator.clipboard.writeText(email).then(() => {
         const btn = document.getElementById('copyEmailBtn');
         btn.innerHTML = `
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-emerald-400 scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
           </svg>`;
         btn.classList.add('bg-emerald-500/20', 'border', 'border-emerald-500/40');
@@ -683,158 +812,60 @@
       });
     }
 
-    // --- Filter Projects ---
-    function filterProjects(cat) {
-      document.querySelectorAll('.project-card').forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-category') === cat) {
-          card.style.display = 'flex';
+    // --- Interactive Slider / Carousel Logic ---
+    let currentSlide = 0;
+    const totalSlides = 3;
+    const carouselTrack = document.getElementById('carouselTrack');
+
+    function updateCarousel() {
+      carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.querySelectorAll('.indicator-btn').forEach((btn, idx) => {
+        if (idx === currentSlide) {
+          btn.className = 'w-3 h-1.5 rounded-full bg-brand-primary transition-all indicator-btn';
         } else {
-          card.style.display = 'none';
-        }
-      });
-      ['all', 'ia', 'fintech'].forEach(c => {
-        const btn = document.getElementById('filter-' + c);
-        if (c === cat) {
-          btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-primary text-white';
-        } else {
-          btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white';
+          btn.className = 'w-1.5 h-1.5 rounded-full bg-slate-700 transition-all indicator-btn';
         }
       });
     }
 
-    // --- CV Modal ---
-    function openCvModal() {
-      const modal = document.getElementById('cvModal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-    function closeCvModal() {
-      const modal = document.getElementById('cvModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
     }
 
-    function printOrDownloadCv() {
-      const printWindow = window.open('', '_blank');
-      printWindow.document.write(`
-        <!DOCTYPE html>
-        <html lang="es">
-        <head>
-          <meta charset="UTF-8">
-          <title>CV_Barbara_Covarrubias_IT_Lead</title>
-          <style>
-            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.45; color: #1e293b; padding: 25px; margin: 0; }
-            h1 { margin: 0 0 4px; font-size: 24px; color: #0f172a; }
-            .role { font-size: 15px; font-weight: 600; color: #2563eb; margin-bottom: 12px; }
-            .contact { font-size: 12px; color: #64748b; margin-bottom: 18px; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; }
-            h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; border-bottom: 1.5px solid #2563eb; padding-bottom: 3px; margin-top: 14px; margin-bottom: 8px; }
-            .item { margin-bottom: 10px; }
-            .item-header { display: flex; justify-content: space-between; font-weight: bold; font-size: 13px; color: #0f172a; }
-            .item-sub { font-size: 12px; color: #475569; margin-bottom: 4px; }
-            ul { margin: 4px 0 8px 18px; padding: 0; font-size: 12px; color: #334155; }
-            li { margin-bottom: 3px; }
-            @media print { body { padding: 0; } }
-          </style>
-        </head>
-        <body>
-          <h1>Bárbara Noelia Covarrubias</h1>
-          <div class="role">IT Lead | Arquitectura de Medios de Pago & IA Generativa | Ingeniera en Sistemas</div>
-          <div class="contact">Francisco Álvarez, Buenos Aires, Argentina · +54 9 11 5523-2198 · barbara.covarrubias@hotmail.com · linkedin.com/in/in/ing-barbara-noelia-covarrubias</div>
-          
-          <h2>Resumen Ejecutivo</h2>
-          <p style="font-size: 12px; color: #334155;">Ingeniera en Sistemas con más de 8 años de experiencia liderando integraciones de misión crítica en medios de pago y adquirencia (Payway / Prisma). Especialista en la implementación de Servidores MCP (Model Context Protocol), orquestación de agentes con AWS Bedrock (Claude 3.5 Sonnet) y evaluación de calidad con métricas RAGAS.</p>
-
-          <h2>Experiencia Destacada</h2>
-          <div class="item">
-            <div class="item-header"><span>Payway / Prisma Medios de Pago</span><span>2024 - Presente</span></div>
-            <div class="item-sub">Product Integrations Lead / IT Lead</div>
-            <ul>
-              <li>Diseño e implementación del primer servidor corporativo MCP (Node.js) para consulta de liquidaciones con LLMs.</li>
-              <li>Liderazgo integral del Portal de Integraciones Payway (docs.payway.com.ar), acelerando los tiempos de homologación de 1 trimestre a 1 semana.</li>
-              <li>Orquestación de pipelines RAG evaluados con RAGAS (Faithfulness > 0.94) eliminando alucinaciones financieras.</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="item-header"><span>Prisma Medios de Pago</span><span>2022 - 2024</span></div>
-            <div class="item-sub">Senior Technical Integrations Analyst</div>
-            <ul>
-              <li>Consultoría de arquitectura para grandes cuentas adquirentes e integradores omnicanal.</li>
-              <li>Certificación y gobernanza de APIs transaccionales REST y Webhooks para terminales de punto de venta.</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="item-header"><span>QServices / Accenture</span><span>2018 - 2022</span></div>
-            <div class="item-sub">QA Automation Engineer (Banco Galicia & MODO)</div>
-            <ul>
-              <li>Automatización de pruebas funcionales y de performance en servicios bancarios y billetera MODO.</li>
-            </ul>
-          </div>
-
-          <h2>Educación & Certificaciones</h2>
-          <div class="item">
-            <ul>
-              <li><strong>Ingeniería en Sistemas de Información</strong> – Universidad Abierta Interamericana (UAI)</li>
-              <li><strong>Diplomatura Superior en Inteligencia Artificial</strong> – Universidad Nacional del Oeste (UNO)</li>
-              <li><strong>Gestión de Proyectos & Metodologías Ágiles</strong> – ITBA</li>
-            </ul>
-          </div>
-          <script>
-            window.onload = function() {
-              window.print();
-            }
-          <\/script>
-        </body>
-        </html>
-      `);
-      printWindow.document.close();
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
     }
 
-    // --- Project Details Modal ---
-    const projectDetails = {
-      mcp: {
-        title: 'Servidor Corporativo MCP (Model Context Protocol)',
-        content: `
-          <p><strong>Objetivo:</strong> Habilitar a agentes de Inteligencia Artificial (Claude 3.5 Sonnet sobre AWS Bedrock) a consultar de forma segura el estado de liquidaciones y cobros de comercios mediante el protocolo estándar MCP.</p>
-          <p><strong>Arquitectura:</strong> Servidor desarrollado en Node.js/TypeScript con transporte seguro, validación estricta de esquemas JSON y políticas de InfoSec para aislar llaves de API y credenciales adquirentes.</p>
-          <p><strong>Impacto:</strong> Respuestas inmediatas y contextualizadas a consultas financieras complejas sin exponer bases transaccionales directas.</p>
-        `
-      },
-      rag: {
-        title: 'Agente RAG con Orquestación n8n & RAGAS',
-        content: `
-          <p><strong>Objetivo:</strong> Asistir a desarrolladores integradores de Payway con respuestas certeras sobre contratos de API y códigos de rechazo.</p>
-          <p><strong>Arquitectura:</strong> Ingesta de documentación técnica en pgvector, orquestación de flujos de decisión con n8n y pipeline continuo de benchmarking con RAGAS.</p>
-          <p><strong>KPI Medido:</strong> Métricas de Faithfulness y Answer Relevance superiores al 94%, garantizando total fidelidad técnica.</p>
-        `
-      },
-      portal: {
-        title: 'Portal de Integraciones Payway (docs.payway.com.ar)',
-        content: `
-          <p><strong>Objetivo:</strong> Modernizar la experiencia de desarrollador (DevEx) y transformar los procesos manuales de onboarding técnico en autoservicio guiado.</p>
-          <p><strong>Alcance:</strong> Documentación interactiva de APIs de cobro, Webhooks, emuladores de terminales POS y sandboxes de prueba.</p>
-          <p><strong>Impacto:</strong> Reducción del ciclo de homologación de comercios de 3 meses a solo 5 días hábiles.</p>
-        `
-      }
-    };
-
-    function openProjectModal(key) {
-      const data = projectDetails[key];
-      if (!data) return;
-      document.getElementById('projectModalTitle').innerText = data.title;
-      document.getElementById('projectModalBody').innerHTML = data.content;
-      const modal = document.getElementById('projectModal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-    function closeProjectModal() {
-      const modal = document.getElementById('projectModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
     }
 
-    // --- Bárbara AI Assistant Modal ---
+    // Auto-advance carousel every 7 seconds
+    let slideTimer = setInterval(nextSlide, 7000);
+    const carouselWrapper = document.getElementById('casos-destacados');
+    if (carouselWrapper) {
+      carouselWrapper.addEventListener('mouseenter', () => clearInterval(slideTimer));
+      carouselWrapper.addEventListener('mouseleave', () => slideTimer = setInterval(nextSlide, 7000));
+    }
+
+    // --- Scroll Reveal Animations ---
+    const revealElements = document.querySelectorAll('.reveal');
+    function checkReveal() {
+      const triggerBottom = window.innerHeight * 0.88;
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+          el.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('load', checkReveal);
+
+    // --- Bárbara AI Assistant Modal & Strict CV Logic ---
     function openBarbaraAI() {
       const modal = document.getElementById('aiModal');
       modal.classList.remove('hidden');
@@ -878,35 +909,77 @@
       container.scrollTop = container.scrollHeight;
     }
 
-    // Respuestas precisas, concisas y orientadas a valor técnico real
+    // Sistema de respuestas gobernado estrictamente por el CV provisto y directivas anti-alucinación
     function getLocalAiResponse(query) {
-      const q = query.toLowerCase();
+      const q = query.toLowerCase().trim();
+      const fallback = "Esa información no se encuentra especificada en el perfil profesional disponible.";
 
-      if (q.includes('seniority') || q.includes('rol') || q.includes('cargo') || q.includes('actual') || q.includes('puesto')) {
-        return "Bárbara se desempeña como <strong>Product Integrations Lead / IT Lead</strong> en Payway (Prisma Medios de Pago). Es Ingeniera en Sistemas con más de 8 años en la industria fintech y lidera comités de arquitectura, seguridad y desarrollo.";
+      // 1. Datos de Contacto, Ubicación, Ciudadanía e Idiomas
+      if (q.includes('contacto') || q.includes('whatsapp') || q.includes('telefono') || q.includes('celular') || q.includes('mail') || q.includes('correo') || q.includes('email') || q.includes('linkedin')) {
+        return "Los datos de contacto de Bárbara Noelia Covarrubias especificados en su CV son:<br>• Teléfono / WhatsApp: +54 9 11 5523-2198<br>• Correo: barbara.covarrubias@hotmail.com<br>• LinkedIn: linkedin.com/in/barbara-covarrubias";
+      }
+      if (q.includes('ubicacion') || q.includes('donde vive') || q.includes('residencia') || q.includes('moron')) {
+        return "Bárbara reside en Morón, Buenos Aires.";
+      }
+      if (q.includes('ciudadania') || q.includes('nacionalidad') || q.includes('pasaporte') || q.includes('italiana')) {
+        return "Cuenta con Ciudadanía Italiana.";
+      }
+      if (q.includes('idioma') || q.includes('ingles') || q.includes('español')) {
+        return "Idiomas especificados en su CV:<br>• Español (Nativo)<br>• Inglés (Intermedio B2).";
       }
 
-      if (q.includes('mcp') || q.includes('protocol') || q.includes('context')) {
-        return "Desarrolló en Node.js el <strong>servidor MCP corporativo</strong> de Payway para conectar agentes autónomos (Claude 3.5 Sonnet / AWS Bedrock) con bases de cobros y liquidaciones, aislando credenciales adquirentes bajo estrictos estándares de seguridad.";
+      // 2. Rol actual, Título y Perfil general
+      if (q.includes('rol') || q.includes('puesto') || q.includes('cargo') || q.includes('actual') || q.includes('quien es') || q.includes('perfil') || q.includes('resumen')) {
+        return "<strong>Bárbara Noelia Covarrubias</strong> es IT Lead Integraciones, Medios de Pago & Soluciones IA.<br><br>Perfil oficial: Ingeniera en Sistemas e IT Lead con sólida trayectoria técnica y de gestión liderando células ágiles de ingeniería en el ecosistema Prisma Medios de Pago / Payway. Especializada en la arquitectura técnica, delivery y puesta en producción de soluciones de Inteligencia Artificial Generativa (Agentic AI, RAG en AWS Bedrock con modelos de Anthropic, PostgreSQL con extensión pgvector, servidores MCP y auditoria continua RAGAS sobre AWS) y en plataformas de integración de alta concurrencia. Liderazgo técnico en la construcción del Portal de Integraciones bajo microservicios y arquitecturas reactivas (Java Spring Boot, React, Kafka, Webhooks, PostgreSQL), coordinando la integración de E-commerce (WooCommerce, VTEX) y Terminales de Pago vía API. Capacidad probada para coordinar equipos de desarrollo, definir estándares de ingeniería y traducir la visión estratégica de producto en soluciones robustas y escalables.";
       }
 
-      if (q.includes('ragas') || q.includes('rag') || q.includes('alucin') || q.includes('metrica')) {
-        return "Para los asistentes técnicos utiliza el framework <strong>RAGAS</strong> evaluando Context Recall, Faithfulness y Answer Relevance, manteniendo niveles superiores al 94% sobre bases vectoriales en pgvector para asegurar respuestas financieras exactas.";
+      // 3. Métricas Oficiales
+      if (q.includes('metrica') || q.includes('cifra') || q.includes('kpi') || q.includes('disponibilidad') || q.includes('uptime') || q.includes('equipo') || q.includes('autogestion')) {
+        return "Métricas oficiales especificadas en su CV:<br>• <strong>1T → 1sem:</strong> Ciclo por feature con IA.<br>• <strong>100%:</strong> Autogestión de integradores.<br>• <strong>8+:</strong> Equipo técnico.<br>• <strong>1er MCP:</strong> Implementado en producción.<br>• <strong>99,9%:</strong> Disponibilidad en APIs.";
       }
 
-      if (q.includes('stack') || q.includes('tecnologia') || q.includes('lenguaje') || q.includes('backend')) {
-        return "Su stack principal incluye: <strong>Backend:</strong> Java Spring Boot, Node.js/Express, Apache Kafka, PostgreSQL. <strong>IA:</strong> MCP, AWS Bedrock, n8n, pgvector, RAGAS. <strong>DevOps & Calidad:</strong> Grafana, Loki, Jenkins, Postman y SonarQube.";
+      // 4. Experiencia Payway (jul 2025 - Actualidad)
+      if (q.includes('payway') || q.includes('portal de integraciones') || q.includes('docs.payway')) {
+        return "<strong>Payway — IT Lead - Portal de Integraciones & AI Solutions (jul 2025 - Actualidad):</strong><br>• <strong>Liderazgo Técnico de Célula:</strong> Coordinación técnica y delivery ágil del equipo de ingeniería asignado al Portal de Integraciones público y privado (https://docs.payway.com.ar), orquestando ceremonias técnicas, priorización de deuda técnica y backlog de desarrollo en Jira y GitLab.<br>• <strong>Implementación de IA & Agentic Workflows:</strong> Liderazgo en el diseño técnico y despliegue del primer asistente inteligente de integración: flujos agénticos orquestados con n8n, AWS Bedrock consumiendo Foundation Models de Anthropic, memoria contextual en Redis y RAG sobre Amazon Bedrock Knowledge Bases / S3, junto con búsqueda vectorial relacional en PostgreSQL (pgvector).<br>• <strong>Servidor MCP (Model Context Protocol):</strong> Arquitectura y desarrollo en Node.js sobre AWS (ECS/ECR) del primer servidor MCP para exponer herramientas de cobro, contratos OpenAPI y RAG directamente en los IDEs de desarrollo, acelerando drásticamente el onboarding técnico.<br>• <strong>Arquitectura de Eventos, E-commerce & Terminales:</strong> Conducción técnica de servicios en Java Spring Boot y frontend en React con mensajería asíncrona mediante Apache Kafka y Webhooks; soporte y homologación técnica para conectores VTEX, WooCommerce y POS vía API.<br>• <strong>Evaluación RAGAS:</strong> Construcción de pipeline de calidad en Python (enfoque LLM) para auditar métricas oficiales de Faithfulness, Answer Relevance y Semantic Similarity, implementación de autenticación Keycloak/JWT, prevención de IDOR y políticas Zero Secrets.";
       }
 
-      if (q.includes('payway') || q.includes('portal') || q.includes('medios de pago') || q.includes('adquirencia')) {
-        return "Lideró técnicamente el portal de documentación y sandboxes <a href='https://docs.payway.com.ar' target='_blank' class='text-brand-cyan underline'>docs.payway.com.ar</a>, logrando reducir los tiempos de integración de los comercios de 3 meses a solo 1 semana.";
+      // 5. Inteligencia Artificial: MCP, RAG, Bedrock, RAGAS, n8n, pgvector
+      if (q.includes('mcp') || q.includes('model context protocol')) {
+        return "<strong>Servidor MCP (Model Context Protocol):</strong> Arquitectura y desarrollo en Node.js sobre AWS (ECS/ECR) del primer servidor MCP para exponer herramientas de cobro, contratos OpenAPI y RAG directamente en los IDEs de desarrollo, acelerando drásticamente el onboarding técnico.";
+      }
+      if (q.includes('ragas') || q.includes('evaluacion') || q.includes('auditoria')) {
+        return "<strong>Evaluación RAGAS:</strong> Construcción de pipeline de calidad en Python (enfoque LLM) para auditar métricas oficiales de Faithfulness, Answer Relevance y Semantic Similarity, implementación de autenticación Keycloak/JWT, prevención de IDOR y políticas Zero Secrets.";
+      }
+      if (q.includes('ia') || q.includes('inteligencia artificial') || q.includes('bedrock') || q.includes('anthropic') || q.includes('rag') || q.includes('agente') || q.includes('agentic')) {
+        return "<strong>Implementación de IA & Agentic Workflows:</strong> Liderazgo en el diseño técnico y despliegue del primer asistente inteligente de integración: flujos agénticos orquestados con n8n, AWS Bedrock consumiendo Foundation Models de Anthropic, memoria contextual en Redis y RAG sobre Amazon Bedrock Knowledge Bases / S3, junto con búsqueda vectorial relacional en PostgreSQL (pgvector).";
       }
 
-      if (q.includes('contacto') || q.includes('entrevista') || q.includes('telefono') || q.includes('whatsapp') || q.includes('mail') || q.includes('correo')) {
-        return "Podés escribirle directo a su WhatsApp al <strong>+54 9 11 5523-2198</strong> o por correo a <strong>barbara.covarrubias@hotmail.com</strong>. Está disponible para oportunidades híbridas o remotas.";
+      // 6. Prisma Medios de Pago
+      if (q.includes('prisma') || q.includes('product owner') || q.includes('project manager')) {
+        return "Trayectoria en <strong>Prisma Medios de Pago</strong> según su CV:<br>• <strong>IT Lead / Technical Product Owner - Portal de Integraciones (abr 2023 - jun 2025):</strong> Conducción del equipo multidisciplinario de desarrollo y QA; definición y refinamiento técnico de user stories entre comités de arquitectura, infoSec y negocio. Supervisión y homologación de especificaciones OpenAPI/Swagger para medios de pago presencial y online; observabilidad continua de microservicios con Grafana y pipelines CI/CD sobre AWS y PostgreSQL.<br>• <strong>Project Manager - Integraciones Payway (may 2022 - nov 2023):</strong> Liderazgo y seguimiento operativo de proyectos de integración con grandes comercios y partners; coordinación de homologaciones técnicas de pasarelas de pago y terminales punto de venta junto a Desarrollo y QA bajo Scrum.";
       }
 
-      return "Bárbara es IT Lead e Ingeniera en Sistemas especialista en pagos digitales e Inteligencia Artificial Generativa aplicada a entornos corporativos (MCP, RAGAS, APIs transaccionales). Podés consultarme sobre su stack, proyectos en Payway o sus datos de contacto.";
+      // 7. QServices & Accenture
+      if (q.includes('qservices') || q.includes('accenture') || q.includes('qa') || q.includes('tester') || q.includes('analista funcional')) {
+        return "<strong>QServices & Accenture — Analista Funcional Técnico Sr & QA Tester (2016 - 2022):</strong><br>• <strong>QServices (2020-2022):</strong> Análisis funcional técnico en integraciones Payway (Visa/Decidir) y proyectos Cloud AWS en Edenor (Web Services, Oracle, Postman).<br>• <strong>Accenture (2016-2020):</strong> QA y análisis técnico en interfaces críticas y procesos batch SQL/SAP para YPF y Telecom Italia.";
+      }
+
+      // 8. Competencias Técnicas & Stack
+      if (q.includes('stack') || q.includes('tecnologia') || q.includes('backend') || q.includes('lenguaje') || q.includes('java') || q.includes('node') || q.includes('python') || q.includes('kafka') || q.includes('react') || q.includes('postgres') || q.includes('aws') || q.includes('docker') || q.includes('redis') || q.includes('keycloak') || q.includes('grafana') || q.includes('vtex') || q.includes('woocommerce') || q.includes('pos')) {
+        return "Competencias Técnicas & Stack explícitos en su CV:<br>• <strong>Liderazgo & Delivery:</strong> Liderazgo de Células Técnicas, Scrum, Jira, GitLab CI/CD, Spec-Driven Development (SDD), Gestión de Stakeholders.<br>• <strong>Medios de Pago & Integración:</strong> E-commerce (WooCommerce, VTEX, Ventas Online), POS vía API, OpenAPI/Swagger, Pasarelas Web / Checkout.<br>• <strong>IA Generativa & LLMs:</strong> Model Context Protocol (MCP), Agentic Workflows, AWS Bedrock (Anthropic), RAG, Framework RAGAS (LLM), n8n, Prompt Engineering.<br>• <strong>Arquitectura & Backend:</strong> Java (Spring Boot), Node.js, Python, Apache Kafka, Webhooks, APIs REST, React, AWS (ECS, ECR, S3), Docker.<br>• <strong>Datos, Seguridad & Observabilidad:</strong> PostgreSQL extensión pgvector, Redis, SQL Server, Keycloak (OAuth2/JWT), Grafana, Guardrails.";
+      }
+
+      // 9. Formación, Universidad, Certificaciones y Referencias
+      if (q.includes('formacion') || q.includes('estudio') || q.includes('educacion') || q.includes('universidad') || q.includes('titulo') || q.includes('ingeniera') || q.includes('uai') || q.includes('uno') || q.includes('itba') || q.includes('certificacion')) {
+        return "Formación y Certificaciones especificadas en su CV:<br>• <strong>Diplomatura Sup. en IA Aplicada y Tec. Emergentes:</strong> Univ. Nacional del Oeste (UNO) - En Curso.<br>• <strong>Ingeniería en Sistemas Informáticos:</strong> Univ. Abierta Interamericana (UAI) - Graduada 2022.<br>• <strong>Certificación Profesional en Project Management:</strong> Instituto Tecnológico de Buenos Aires (ITBA, 2023).<br>• <strong>Certificaciones:</strong> Amazon Q Developer, Engineering Lead, Scrum.";
+      }
+
+      if (q.includes('referencia') || q.includes('cazzasa')) {
+        return "Referencia registrada en su CV:<br>• <strong>Juan Pablo Cazzasa</strong> — IT Manager Payway (+54 9 11 3101-3044).";
+      }
+
+      // Regla obligatoria ante información no especificada
+      return fallback;
     }
 
     function handleAiChatSubmit(e) {
