@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bárbara Noelia Covarrubias | IT Lead & GenAI Solutions</title>
+  <meta name="description" content="Portfolio profesional de Bárbara Noelia Covarrubias. IT Lead especializada en Medios de Pago, Integraciones y Soluciones de Inteligencia Artificial Generativa.">
+  
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            },
+            accent: {
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+              violet: '#8b5cf6',
+            },
+            dark: {
+              bg: '#070a12',
+              card: '#0f172a',
+              cardHover: '#131e36',
+              border: '#1e293b',
+              muted: '#94a3b8'
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .tech-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .glow-effect {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070a12;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+    .chat-bubble-user {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      border-radius: 16px 16px 4px 16px;
+    }
+    .chat-bubble-ai {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      color: #e2e8f0;
+      border-radius: 16px 16px 16px 4px;
+    }
+  </style>
+</head>
+
+<body class="bg-[#070a12] text-slate-100 font-sans selection:bg-brand-500 selection:text-white transition-colors duration-300">
+
+  <!-- Glow radial decorative spots -->
+  <div class="glow-effect top-0 left-1/4 bg-brand-600/10 -translate-x-1/2"></div>
+  <div class="glow-effect top-1/3 right-10 bg-accent-cyan/10"></div>
+  <div class="glow-effect bottom-1/4 left-10 bg-accent-violet/10"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-40 backdrop-blur-xl bg-[#070a12]/80 border-b border-dark-border/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo / Identity -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-accent-cyan flex items-center justify-center font-mono font-bold text-white shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+          BC
+        </div>
+        <div>
+          <span class="font-bold text-base tracking-tight text-white block group-hover:text-brand-400 transition-colors">
+            Bárbara Covarrubias
+          </span>
+          <span class="text-xs text-dark-muted font-mono block">
+            IT Lead · Ingeniera en Sistemas
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#hero" class="hover:text-brand-400 transition-colors">Inicio</a>
+        <a href="#sobre-mi" class="hover:text-brand-400 transition-colors">Sobre Mí</a>
+        <a href="#proyectos" class="hover:text-brand-400 transition-colors">Proyectos & IA</a>
+        <a href="#habilidades" class="hover:text-brand-400 transition-colors">Habilidades</a>
+        <a href="#experiencia" class="hover:text-brand-400 transition-colors">Trayectoria</a>
+        <a href="#contacto" class="hover:text-brand-400 transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="toggleChatDrawer(true)" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-accent-violet/15 border border-accent-violet/40 text-xs sm:text-sm font-semibold text-accent-violet hover:bg-accent-violet/25 transition-all shadow-lg shadow-accent-violet/10">
+          <i data-lucide="sparkles" class="w-4 h-4 animate-pulse"></i>
+          <span>Preguntar a Bárbara AI</span>
+        </button>
+        <button onclick="openCvModal()" class="hidden lg:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-dark-card border border-dark-border text-sm font-semibold text-slate-200 hover:text-white hover:border-brand-500/50 hover:bg-dark-cardHover transition-all">
+          <i data-lucide="file-text" class="w-4 h-4 text-brand-400"></i>
+          <span>Ver CV</span>
+        </button>
+        <a href="https://wa.me/5491155232198?text=Hola%20B%C3%A1rbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad%20laboral" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-brand-600 to-accent-cyan text-white text-sm font-semibold shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40 hover:opacity-95 transition-all">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Hablemos</span>
+        </a>
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg bg-dark-card border border-dark-border text-slate-300 hover:text-white" aria-label="Abrir menú">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#070a12]/95 border-b border-dark-border px-6 py-4 flex flex-col gap-3 font-medium text-slate-300">
+      <a href="#hero" class="py-2 hover:text-brand-400" onclick="toggleMobileMenu()">Inicio</a>
+      <a href="#sobre-mi" class="py-2 hover:text-brand-400" onclick="toggleMobileMenu()">Sobre Mí</a>
+      <a href="#proyectos" class="py-2 hover:text-brand-400" onclick="toggleMobileMenu()">Proyectos & IA</a>
+      <a href="#habilidades" class="py-2 hover:text-brand-400" onclick="toggleMobileMenu()">Habilidades</a>
+      <a href="#experiencia" class="py-2 hover:text-brand-400" onclick="toggleMobileMenu()">Trayectoria</a>
+      <a href="#contacto" class="py-2 hover:text-brand-400" onclick="toggleMobileMenu()">Contacto</a>
+      <div class="pt-3 border-t border-dark-border flex flex-col gap-2">
+        <button onclick="toggleChatDrawer(true); toggleMobileMenu();" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-accent-violet/20 border border-accent-violet/40 text-sm font-semibold text-accent-violet">
+          <i data-lucide="bot" class="w-4 h-4"></i>
+          <span>Consultar al Agente de IA</span>
+        </button>
+        <a href="https://wa.me/5491155232198?text=Hola%20B%C3%A1rbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad%20laboral" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-brand-600 to-accent-cyan text-sm font-semibold text-white">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Hablemos por WhatsApp</span>
+        </a>
+        <button onclick="openCvModal(); toggleMobileMenu();" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-dark-card border border-dark-border text-sm font-medium text-white">
+          <i data-lucide="file-text" class="w-4 h-4 text-brand-400"></i>
+          Visualizar CV en PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-24">
+
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="min-h-[85vh] flex flex-col justify-center tech-grid px-4 sm:px-6 lg:px-8 py-16">
+      <div class="max-w-6xl mx-auto w-full">
+        
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            Disponible para Nuevos Desafíos
+          </div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-dark-card border border-dark-border text-slate-300 text-xs">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-400"></i>
+            Francisco Álvarez, Buenos Aires (Híbrido / Remoto)
+          </div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-dark-card border border-dark-border text-slate-300 text-xs">
+            <i data-lucide="globe" class="w-3.5 h-3.5 text-accent-cyan"></i>
+            Ciudadana Italiana
+          </div>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+          Bárbara Noelia <br>
+          <span class="bg-gradient-to-r from-brand-400 via-accent-cyan to-brand-600 bg-clip-text text-transparent">
+            Covarrubias
+          </span>
+        </h1>
+
+        <p class="text-xl sm:text-2xl font-semibold text-slate-200 mb-4 max-w-3xl">
+          IT Lead · Medios de Pago, Integraciones & Soluciones de IA Generativa
+        </p>
+
+        <p class="text-base sm:text-lg text-slate-400 max-w-3xl leading-relaxed mb-10">
+          Ingeniera en Sistemas conectando la visión estratégica de producto con ingeniería de misión crítica: 
+          <span class="text-white font-medium">arquitecturas orientadas a eventos</span>, 
+          <span class="text-white font-medium">APIs de cobro de alta concurrencia</span> y 
+          <span class="text-white font-medium">ecosistemas de IA agéntica (MCP & RAG)</span> desplegados en producción real.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 mb-16">
+          <a href="#proyectos" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-accent-cyan text-white font-bold text-sm shadow-xl shadow-brand-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+            Ver Casos Técnicos & Proyectos
+          </a>
+          <button onclick="toggleChatDrawer(true)" class="px-6 py-3.5 rounded-xl bg-accent-violet/20 border border-accent-violet/50 hover:bg-accent-violet/30 text-accent-violet font-bold text-sm transition-all flex items-center gap-2">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+            Consultar al Agente de IA
+          </button>
+          <button onclick="openCvModal()" class="px-6 py-3.5 rounded-xl bg-dark-card border border-dark-border hover:border-brand-500/60 text-white font-semibold text-sm hover:bg-dark-cardHover transition-all flex items-center gap-2">
+            <i data-lucide="download" class="w-4 h-4 text-brand-400"></i>
+            Descargar CV Ejecutivo (PDF)
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl bg-dark-card/90 border border-dark-border shadow-2xl backdrop-blur-md">
+          <div class="p-3 border-r border-dark-border/60 last:border-none">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono text-brand-400 flex items-center gap-1">
+              1T → 1sem
+            </div>
+            <div class="text-xs text-dark-muted font-medium mt-1">
+              Ciclo por feature con SDD + IA
+            </div>
+          </div>
+          <div class="p-3 border-r border-dark-border/60 last:border-none">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono text-accent-cyan">
+              100%
+            </div>
+            <div class="text-xs text-dark-muted font-medium mt-1">
+              Autogestión de integradores
+            </div>
+          </div>
+          <div class="p-3 border-r border-dark-border/60 last:border-none">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono text-accent-violet">
+              1er MCP
+            </div>
+            <div class="text-xs text-dark-muted font-medium mt-1">
+              Servidor desplegado en producción
+            </div>
+          </div>
+          <div class="p-3">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono text-emerald-400">
+              99.9%
+            </div>
+            <div class="text-xs text-dark-muted font-medium mt-1">
+              Disponibilidad operativa en APIs
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. SOBRE MÍ SECTION -->
+    <section id="sobre-mi" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-dark-border/60">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-brand-400 mb-3">
+              <i data-lucide="user-check" class="w-4 h-4"></i>
+              Perfil Profesional
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">
+              Liderazgo de ingeniería con raíces técnicas sólidas y visión de negocio.
+            </h2>
+            <div class="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+              <p>
+                Soy <strong class="text-white">Ingeniera en Sistemas de Información</strong> graduada de la UAI y actualmente cursando la <strong class="text-white">Diplomatura Superior en IA Aplicada</strong> en la UNO. Durante más de 8 años en el sector tecnológico —con foco exclusivo en Fintech, pasarelas de pago y grandes cuentas corporativas— he transitado desde el testing técnico y análisis funcional hasta la conducción de células técnicas multidisciplinarias.
+              </p>
+              <p>
+                En mi paso reciente por <strong class="text-white">Payway</strong> y <strong class="text-white">Prisma Medios de Pago</strong>, lideré la evolución del <a href="https://docs.payway.com.ar" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-accent-cyan font-semibold underline decoration-brand-500/50 hover:decoration-accent-cyan inline-flex items-center gap-1 transition-colors">Portal de Integraciones <i data-lucide="external-link" class="w-3.5 h-3.5 inline"></i></a>, un producto central que procesa la interoperabilidad de medios de pago presenciales (terminales POS vía API) y virtuales (plugins para VTEX, WooCommerce y checkout web).
+              </p>
+              <p>
+                Me caracterizo por un perfil <strong class="text-white">híbrido y resolutivo</strong>: interlocución natural con comités de arquitectura, InfoSec y stakeholders comerciales, respaldada por un entendimiento profundo del código, observabilidad en Grafana, seguridad con Keycloak y la adopción pragmática de LLMs sin humo comercial.
+              </p>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl bg-dark-card border border-dark-border flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-brand-500/10 text-brand-400 mt-1">
+                  <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-sm">Gobernanza & InfoSec</h4>
+                  <p class="text-xs text-dark-muted mt-1">Mitigación activa de IDOR, Zero Secrets, rate limiting y guardrails de contenido en IA.</p>
+                </div>
+              </div>
+              <div class="p-4 rounded-xl bg-dark-card border border-dark-border flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-accent-cyan/10 text-accent-cyan mt-1">
+                  <i data-lucide="layers" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-sm">Spec-Driven Delivery</h4>
+                  <p class="text-xs text-dark-muted mt-1">Contratos OpenAPI como fuente única de verdad, acelerando desarrollo ágil con IA.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-dark-card to-[#0d1424] border border-dark-border shadow-2xl">
+              
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 via-accent-cyan to-accent-violet p-0.5 shadow-lg">
+                  <div class="w-full h-full bg-dark-card rounded-[14px] flex items-center justify-center font-bold text-2xl text-white">
+                    BN
+                  </div>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg text-white">Bárbara Covarrubias</h3>
+                  <p class="text-xs font-mono text-brand-400">IT Lead / Engineering Lead</p>
+                  <p class="text-xs text-dark-muted mt-0.5">Especialista en Medios de Pago & IA</p>
+                </div>
+              </div>
+
+              <div class="space-y-3 py-4 border-y border-dark-border/80 text-xs text-slate-300">
+                <div class="flex justify-between">
+                  <span class="text-dark-muted">Formación Base:</span>
+                  <span class="font-medium text-white">Ingeniera en Sistemas (UAI)</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-dark-muted">Posgrado:</span>
+                  <span class="font-medium text-white">Dip. Sup. IA Aplicada (UNO)</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-dark-muted">Especialización:</span>
+                  <span class="font-medium text-white">Project Management (ITBA)</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-dark-muted">Stack Primario:</span>
+                  <span class="font-medium text-brand-300 font-mono">Bedrock / MCP / Kafka / Spring</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-dark-muted">Idiomas:</span>
+                  <span class="font-medium text-white">Español (Nativo) | Inglés (B2)</span>
+                </div>
+              </div>
+
+              <div class="mt-6 p-4 rounded-xl bg-dark-bg/80 border border-dark-border">
+                <span class="text-[11px] font-mono text-dark-muted uppercase tracking-wider block mb-1">
+                  Referencia Laboral Comprobada
+                </span>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm font-bold text-white">Juan Pablo Cazzasa</p>
+                    <p class="text-xs text-accent-cyan">IT Manager – Payway / Prisma</p>
+                  </div>
+                  <a href="https://wa.me/5491131013044" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:text-emerald-300 text-xs font-semibold transition-all" title="Enviar WhatsApp a Juan Pablo Cazzasa">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. PROYECTOS & CASOS TÉCNICOS -->
+    <section id="proyectos" class="py-20 px-4 sm:px-6 lg:px-8 bg-[#090d19]/60 border-t border-dark-border/60">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-accent-cyan mb-3">
+              <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+              Casos de Éxito & Arquitectura
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+              Sistemas e IA en Producción
+            </h2>
+            <p class="text-slate-400 text-sm mt-2 max-w-xl">
+              Proyectos reales diseñados, arquitectados y desplegados en ecosistemas financieros de alta exigencia técnica.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="projectFilters">
+            <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold bg-brand-600 text-white transition-all" data-category="all">
+              Todos (3)
+            </button>
+            <button onclick="filterProjects('ia')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-dark-card border border-dark-border text-slate-300 hover:text-white transition-all" data-category="ia">
+              IA & LLMs
+            </button>
+            <button onclick="filterProjects('pagos')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-dark-card border border-dark-border text-slate-300 hover:text-white transition-all" data-category="pagos">
+              Medios de Pago & APIs
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsContainer">
+          
+          <!-- Card 1 -->
+          <div class="project-card group rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 p-6 flex flex-col justify-between transition-all hover:-translate-y-1 shadow-xl" data-category="ia">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-accent-violet/10 text-accent-violet border border-accent-violet/30">
+                  Model Context Protocol
+                </span>
+                <span class="text-xs font-mono text-dark-muted">AWS ECS / Docker</span>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors mb-2">
+                Servidor MCP para Developers
+              </h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Arquitectura e implementación de un servidor MCP en Node.js para conectar herramientas de cobro, contratos OpenAPI y RAG directamente en los IDEs (Cursor, VS Code), acelerando drásticamente el onboarding técnico.
+              </p>
+              
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">MCP Specification</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">Node.js</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">AWS ECS/ECR</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">OpenAPI</span>
+              </div>
+            </div>
+
+            <button onclick="openProjectModal('mcp')" class="w-full py-2.5 px-4 rounded-xl bg-dark-bg hover:bg-brand-600/20 border border-dark-border hover:border-brand-500 text-xs font-semibold text-brand-400 hover:text-white transition-all flex items-center justify-center gap-2">
+              <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+              Ver Arquitectura & Hitos
+            </button>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="project-card group rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 p-6 flex flex-col justify-between transition-all hover:-translate-y-1 shadow-xl" data-category="ia">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/30">
+                  Agentic AI & RAG
+                </span>
+                <span class="text-xs font-mono text-dark-muted">AWS Bedrock</span>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors mb-2">
+                Asistente Inteligente de Integraciones
+              </h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Asistente agéntico orquestado con n8n y AWS Bedrock consumiendo modelos fundacionales de Anthropic. RAG híbrido (Bedrock Knowledge Bases + PostgreSQL pgvector), memoria en Redis y auditoría con framework RAGAS.
+              </p>
+              
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">Anthropic Claude</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">RAGAS</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">n8n</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">pgvector</span>
+              </div>
+            </div>
+
+            <button onclick="openProjectModal('agent')" class="w-full py-2.5 px-4 rounded-xl bg-dark-bg hover:bg-brand-600/20 border border-dark-border hover:border-brand-500 text-xs font-semibold text-brand-400 hover:text-white transition-all flex items-center justify-center gap-2">
+              <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+              Ver Arquitectura & Hitos
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="project-card group rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 p-6 flex flex-col justify-between transition-all hover:-translate-y-1 shadow-xl" data-category="pagos">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  Fintech & Payments Core
+                </span>
+                <span class="text-xs font-mono text-dark-muted">Microservicios</span>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors mb-2">
+                Portal de Integraciones Payway
+              </h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Ecosistema público y privado de documentación, testing y homologación (docs.payway.com.ar). Microservicios en Java Spring Boot, React, Apache Kafka para eventos y soporte a conectores VTEX, WooCommerce y POS vía API.
+              </p>
+              
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">Java Spring Boot</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">Apache Kafka</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">VTEX / Woo</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-dark-bg text-slate-300 border border-dark-border">Keycloak</span>
+              </div>
+            </div>
+
+            <button onclick="openProjectModal('portal')" class="w-full py-2.5 px-4 rounded-xl bg-dark-bg hover:bg-brand-600/20 border border-dark-border hover:border-brand-500 text-xs font-semibold text-brand-400 hover:text-white transition-all flex items-center justify-center gap-2">
+              <i data-lucide="credit-card" class="w-3.5 h-3.5"></i>
+              Ver Arquitectura & Hitos
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. HABILIDADES TÉCNICAS Y GESTIÓN -->
+    <section id="habilidades" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-dark-border/60">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-brand-400 mb-3">
+            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+            Stack & Competencias
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Solvencia Técnica & Capacidad de Gestión
+          </h2>
+          <p class="text-slate-400 text-sm mt-3">
+            Habilidades comprobadas en despliegue de soluciones, evaluadas sin porcentajes ficticios y agrupadas por dominio operativo.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-accent-violet/10 text-accent-violet flex items-center justify-center mb-4">
+              <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">IA Generativa & LLMs</h3>
+            <p class="text-xs text-dark-muted mb-4">Arquitecturas agénticas y evaluación continua en entornos de producción.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Model Context Protocol (MCP)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">AWS Bedrock (Anthropic Claude)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Agentic Workflows (n8n)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">RAG Semántico (Bedrock KB)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Framework RAGAS (LLM-judge)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Prompt Engineering</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">PostgreSQL (pgvector)</span>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-accent-cyan/10 text-accent-cyan flex items-center justify-center mb-4">
+              <i data-lucide="credit-card" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Medios de Pago & E-commerce</h3>
+            <p class="text-xs text-dark-muted mb-4">Integraciones de cobro de alto volumen tanto online como presencial.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Terminales POS (vía API)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Conectores VTEX</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Plugins WooCommerce</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Pasarelas de Cobro Web</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Contratos OpenAPI / Swagger</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Certificación de Comercios</span>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4">
+              <i data-lucide="server" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Arquitectura, Backend & Eventos</h3>
+            <p class="text-xs text-dark-muted mb-4">Sistemas escalables basados en eventos y microservicios resilientes.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Java (Spring Boot)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Apache Kafka (Event-Driven)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Webhooks Asíncronos</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Node.js & Python</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">React Frontend</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">APIs RESTful</span>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="cloud" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Cloud, DevOps & Infraestructura</h3>
+            <p class="text-xs text-dark-muted mb-4">Infraestructura sobre AWS y pipelines automatizados de entrega.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Amazon AWS (ECS, ECR, S3)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Docker Containers</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">GitLab CI/CD</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">CloudWatch</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">GitHub</span>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center mb-4">
+              <i data-lucide="shield" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Seguridad & Observabilidad</h3>
+            <p class="text-xs text-dark-muted mb-4">Blindaje de endpoints, autenticación distribuida y telemetría activa.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Keycloak (OAuth2 / JWT)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Prevención IDOR</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Políticas Zero Secrets</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Grafana Dashboards</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Redis & Postgre</span>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Liderazgo & Metodología</h3>
+            <p class="text-xs text-dark-muted mb-4">Coordinación de ingeniería ágil con foco en Time-to-Market y calidad.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Liderazgo de Células (8+ devs)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Scrum / Kanban</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Spec-Driven Dev (SDD)</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Priorización Backlog Jira</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-dark-bg border border-dark-border text-slate-200">Gestión de Stakeholders</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. EXPERIENCIA & FORMACIÓN (CRONOLOGÍA) -->
+    <section id="experiencia" class="py-20 px-4 sm:px-6 lg:px-8 bg-[#090d19]/60 border-t border-dark-border/60">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-brand-400 mb-3">
+              <i data-lucide="briefcase" class="w-4 h-4"></i>
+              Trayectoria Laboral
+            </div>
+            <h2 class="text-3xl font-extrabold text-white mb-8">
+              Experiencia Profesional
+            </h2>
+
+            <div class="relative pl-6 border-l-2 border-dark-border space-y-10">
+              
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-brand-500 border-4 border-[#090d19]"></span>
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                  <h3 class="text-lg font-bold text-white">Payway</h3>
+                  <span class="text-xs font-mono font-semibold text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded border border-brand-500/20">
+                    jul 2025 – Actualidad
+                  </span>
+                </div>
+                <div class="text-sm font-semibold text-accent-cyan mb-2">
+                  IT Lead – Portal de Integraciones & AI Solutions
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                  Liderazgo técnico de célula multidisciplinaria (8+ ingenieros). Implementación del ecosistema de IA del Portal (asistente inteligente con n8n, AWS Bedrock y modelos Anthropic Claude, memoria en Redis y servidor MCP en Node.js sobre AWS ECS/ECR).
+                </p>
+                <ul class="text-xs text-slate-400 space-y-1.5 list-disc pl-4">
+                  <li>Pipeline en Python con RAGAS para evaluar Faithfulness y Answer Relevance contra OpenAPI.</li>
+                  <li>Conducción backend en Java Spring Boot, React, Apache Kafka y Webhooks para terminales de pago vía API y e-commerce (VTEX / WooCommerce).</li>
+                  <li>Seguridad y gobernanza: JWT/Keycloak, prevención de IDOR y políticas Zero Secrets.</li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#090d19]"></span>
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                  <h3 class="text-lg font-bold text-white">Prisma Medios de Pago</h3>
+                  <span class="text-xs font-mono text-dark-muted">abr 2023 – jun 2025</span>
+                </div>
+                <div class="text-sm font-semibold text-accent-cyan mb-2">
+                  IT Lead / Technical Product Owner – Portal de Integraciones
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  Conducción de la célula técnica; articulación directa con comités de arquitectura, InfoSec y comercios integradores. Supervisión y homologación de especificaciones OpenAPI/Swagger, observabilidad con Grafana y CI/CD en GitLab sobre AWS y PostgreSQL.
+                </p>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#090d19]"></span>
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                  <h3 class="text-lg font-bold text-white">Prisma Medios de Pago</h3>
+                  <span class="text-xs font-mono text-dark-muted">may 2022 – nov 2023</span>
+                </div>
+                <div class="text-sm font-semibold text-accent-cyan mb-2">
+                  Project Manager – Integraciones Payway
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  Planificación, testing y homologación de pasarelas de cobro con grandes comercios, plugins y terminales punto de venta junto a Desarrollo y QA bajo marco ágil Scrum.
+                </p>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-700 border-4 border-[#090d19]"></span>
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                  <h3 class="text-lg font-bold text-white">QServices & Accenture</h3>
+                  <span class="text-xs font-mono text-dark-muted">2016 – 2022</span>
+                </div>
+                <div class="text-sm font-semibold text-slate-400 mb-2">
+                  Analista Funcional Técnico Sr & QA Tester
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Análisis técnico e integraciones de Gateway en QServices (Visa/Decidir y Cloud AWS/Edenor). Aseguramiento de calidad, interfaces críticas y procesos batch en Accenture para clientes como YPF y Telecom Italia.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-accent-violet mb-3">
+              <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+              Formación Continua
+            </div>
+            <h2 class="text-3xl font-extrabold text-white mb-8">
+              Estudios & Certificaciones
+            </h2>
+
+            <div class="space-y-4">
+              
+              <div class="p-5 rounded-xl bg-dark-card border border-dark-border">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono text-accent-cyan font-semibold">En Curso · Postgrado</span>
+                  <i data-lucide="sparkles" class="w-4 h-4 text-accent-cyan"></i>
+                </div>
+                <h4 class="text-base font-bold text-white mt-1">Diplomatura Superior en IA Aplicada</h4>
+                <p class="text-xs text-slate-400">Universidad Nacional del Oeste (UNO)</p>
+                <p class="text-[11px] text-dark-muted mt-2">Tecnologías emergentes, arquitecturas neuronales y modelos fundacionales.</p>
+              </div>
+
+              <div class="p-5 rounded-xl bg-dark-card border border-dark-border">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono text-brand-400 font-semibold">Graduada · Dic 2022</span>
+                  <i data-lucide="award" class="w-4 h-4 text-brand-400"></i>
+                </div>
+                <h4 class="text-base font-bold text-white mt-1">Ingeniería en Sistemas Informáticos</h4>
+                <p class="text-xs text-slate-400">Universidad Abierta Interamericana (UAI)</p>
+              </div>
+
+              <div class="p-5 rounded-xl bg-dark-card border border-dark-border">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono text-emerald-400 font-semibold">Certificación Ejecutiva · 2023</span>
+                  <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+                </div>
+                <h4 class="text-base font-bold text-white mt-1">Professional Project Management</h4>
+                <p class="text-xs text-slate-400">Instituto Tecnológico de Buenos Aires (ITBA)</p>
+              </div>
+
+              <div class="p-5 rounded-xl bg-dark-card border border-dark-border">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-dark-muted mb-3">Otras Certificaciones Clave</h4>
+                <div class="space-y-2 text-xs">
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <i data-lucide="badge-check" class="w-4 h-4 text-brand-400 shrink-0"></i>
+                    <span>Workshop Amazon Q Developer (AWS, 2025)</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <i data-lucide="badge-check" class="w-4 h-4 text-brand-400 shrink-0"></i>
+                    <span>Gerencia en Tecnología / Engineering Lead (2025)</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <i data-lucide="badge-check" class="w-4 h-4 text-brand-400 shrink-0"></i>
+                    <span>Scrum Foundation Certificate (CertiProf)</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. CONTACTO DIRECTO & CENTRO DE CONEXIÓN -->
+    <section id="contacto" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-dark-border">
+      <div class="max-w-5xl mx-auto">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 mb-2">
+            <i data-lucide="radio" class="w-4 h-4"></i>
+            Canales de Contacto Directo
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Conectemos para el próximo gran desafío
+          </h2>
+          <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+            Abierta a conversaciones con empresas de producto digital, Fintechs y líderes tecnológicos para asumir posiciones de <span class="text-white font-medium">IT Lead, Engineering Lead o Tech Lead</span>.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+          
+          <!-- WhatsApp Card Direct -->
+          <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustaría%20contactarte" target="_blank" rel="noopener noreferrer" class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-emerald-500/60 flex items-center justify-between transition-all group shadow-xl">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="message-circle" class="w-7 h-7"></i>
+              </div>
+              <div>
+                <span class="text-xs text-dark-muted font-mono block">WhatsApp Directo</span>
+                <span class="text-base sm:text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">
+                  +54 9 11 5523-2198
+                </span>
+                <span class="text-xs text-emerald-400/80 block mt-0.5">Respuesta rápida</span>
+              </div>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-dark-muted group-hover:text-emerald-400 transition-colors"></i>
+          </a>
+
+          <!-- Email Card Direct with Copy -->
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/60 flex items-center justify-between transition-all group shadow-xl">
+            <div class="flex items-center gap-4 min-w-0">
+              <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-400 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                <i data-lucide="mail" class="w-7 h-7"></i>
+              </div>
+              <div class="min-w-0">
+                <span class="text-xs text-dark-muted font-mono block">Correo Electrónico</span>
+                <a href="mailto:barbara.covarrubias@hotmail.com" class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 truncate block transition-colors">
+                  barbara.covarrubias@hotmail.com
+                </a>
+                <span class="text-xs text-slate-400 block mt-0.5">Contacto profesional</span>
+              </div>
+            </div>
+            <button onclick="copyToClipboard('barbara.covarrubias@hotmail.com', '¡Email copiado al portapapeles!')" class="p-2.5 rounded-xl bg-dark-bg border border-dark-border text-slate-300 hover:text-white hover:border-brand-500 transition-colors shrink-0" title="Copiar email">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- LinkedIn Card -->
+          <a href="https://www.linkedin.com/in/ing-bárbara-noelia-covarrubias-42166b109" target="_blank" rel="noopener noreferrer" class="p-6 rounded-2xl bg-dark-card border border-dark-border hover:border-[#0A66C2]/70 flex items-center justify-between transition-all group shadow-xl">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-[#0A66C2]/15 text-[#0A66C2] flex items-center justify-center group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs text-dark-muted font-mono block">Perfil Profesional</span>
+                <span class="text-base sm:text-lg font-bold text-white group-hover:text-[#0A66C2] transition-colors">
+                  LinkedIn Oficial
+                </span>
+                <span class="text-xs text-slate-400 block mt-0.5">Red de contactos y recomendaciones</span>
+              </div>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-5 h-5 text-dark-muted group-hover:text-[#0A66C2] transition-colors"></i>
+          </a>
+
+          <!-- Ubicación & Modalidad -->
+          <div class="p-6 rounded-2xl bg-dark-card border border-dark-border flex items-center gap-4 shadow-xl">
+            <div class="w-14 h-14 rounded-2xl bg-accent-cyan/10 text-accent-cyan flex items-center justify-center shrink-0">
+              <i data-lucide="map-pin" class="w-7 h-7"></i>
+            </div>
+            <div>
+              <span class="text-xs text-dark-muted font-mono block">Ubicación y Alcance</span>
+              <span class="text-base font-bold text-white block">
+                Francisco Álvarez, Buenos Aires
+              </span>
+              <span class="text-xs text-slate-400 block mt-0.5">Modalidad Remoto / Híbrido AMBA · Disponibilidad para viajar</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Banner especial del Agente de IA en el Contacto -->
+        <div class="p-6 rounded-2xl bg-gradient-to-r from-accent-violet/20 via-brand-600/15 to-accent-cyan/15 border border-accent-violet/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-accent-violet/30 text-accent-violet flex items-center justify-center shrink-0 shadow-lg shadow-accent-violet/20">
+              <i data-lucide="bot" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base">¿Dudas específicas para un proceso de selección?</h4>
+              <p class="text-xs text-slate-300 mt-0.5">Consultale a mi Agente de IA sobre disponibilidad horaria, proyectos o stack técnico.</p>
+            </div>
+          </div>
+          <button onclick="toggleChatDrawer(true)" class="px-5 py-2.5 rounded-xl bg-accent-violet hover:bg-accent-violet/90 text-white font-bold text-xs tracking-wide shrink-0 transition-all flex items-center gap-2 shadow-lg shadow-accent-violet/30">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+            Abrir Bárbara AI
+          </button>
+        </div>
+
+        <!-- Footer strip -->
+        <div class="mt-16 pt-8 border-t border-dark-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-dark-muted">
+          <p>© 2026 Bárbara Noelia Covarrubias. IT Lead Medios de Pago & IA.</p>
+          <div class="flex items-center gap-6">
+            <a href="#hero" class="hover:text-white transition-colors">Volver arriba</a>
+            <button onclick="openCvModal()" class="hover:text-white transition-colors">Currículum Vitae</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- WIDGET FLOTANTE: AGENTE DE IA (Trigger) -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <button onclick="toggleChatDrawer(true)" class="group flex items-center gap-3 px-4 py-3 rounded-full bg-gradient-to-r from-accent-violet via-brand-600 to-accent-cyan text-white shadow-2xl shadow-accent-violet/40 hover:scale-105 active:scale-95 transition-all" aria-label="Abrir asistente inteligente">
+      <div class="relative">
+        <i data-lucide="bot" class="w-5 h-5"></i>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-slate-900"></span>
+      </div>
+      <span class="text-xs font-bold tracking-wide pr-1">Bárbara AI</span>
+    </button>
+  </div>
+
+  <!-- DRAWER LATERAL / MODAL: AGENTE DE CARRERA INTERACTIVO -->
+  <div id="aiChatDrawer" class="fixed inset-0 z-50 hidden">
+    <!-- Backdrop -->
+    <div onclick="toggleChatDrawer(false)" class="absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity"></div>
+    
+    <!-- Chat Window Container -->
+    <div class="absolute right-0 top-0 bottom-0 w-full max-w-lg bg-[#070a12] border-l border-dark-border flex flex-col shadow-2xl z-10">
+      
+      <!-- Chat Header -->
+      <div class="p-4 sm:p-5 border-b border-dark-border bg-dark-card flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-violet to-brand-600 flex items-center justify-center text-white shadow-lg shadow-accent-violet/20">
+            <i data-lucide="bot" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-bold text-white text-sm">Bárbara AI Assistant</h3>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                Online
+              </span>
+            </div>
+            <p class="text-[11px] text-dark-muted font-mono">Agente de Carrera & Especialidad Técnica</p>
+          </div>
+        </div>
+
+        <button onclick="toggleChatDrawer(false)" class="p-2 rounded-lg bg-dark-bg text-slate-400 hover:text-white border border-dark-border" aria-label="Cerrar chat">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Quick Prompt Suggestion Chips -->
+      <div class="p-3 bg-dark-bg/90 border-b border-dark-border/80 overflow-x-auto whitespace-nowrap flex gap-2">
+        <button onclick="sendQuickPrompt('¿Cuál fue su rol y aporte de IA en Payway?')" class="text-[11px] font-medium px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border text-slate-300 hover:text-white hover:border-brand-500/50 transition-all shrink-0">
+          🤖 IA en Payway
+        </button>
+        <button onclick="sendQuickPrompt('¿Cómo implementó el servidor MCP para desarrolladores?')" class="text-[11px] font-medium px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border text-slate-300 hover:text-white hover:border-brand-500/50 transition-all shrink-0">
+          ⚡ Servidor MCP
+        </button>
+        <button onclick="sendQuickPrompt('¿Qué stack maneja en Medios de Pago y E-commerce?')" class="text-[11px] font-medium px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border text-slate-300 hover:text-white hover:border-brand-500/50 transition-all shrink-0">
+          💳 Medios de Pago
+        </button>
+        <button onclick="sendQuickPrompt('¿Cómo utilizaba el framework RAGAS contra alucinaciones?')" class="text-[11px] font-medium px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border text-slate-300 hover:text-white hover:border-brand-500/50 transition-all shrink-0">
+          📊 RAGAS (LLM-as-judge)
+        </button>
+        <button onclick="sendQuickPrompt('¿Cuál es su formación académica y certificaciones?')" class="text-[11px] font-medium px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border text-slate-300 hover:text-white hover:border-brand-500/50 transition-all shrink-0">
+          🎓 Formación
+        </button>
+        <button onclick="sendQuickPrompt('¿Cuáles son sus datos de contacto y disponibilidad laboral?')" class="text-[11px] font-medium px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border text-slate-300 hover:text-white hover:border-brand-500/50 transition-all shrink-0">
+          📞 Contacto
+        </button>
+      </div>
+
+      <!-- Chat Messages Container -->
+      <div id="chatMessages" class="flex-1 p-4 sm:p-5 overflow-y-auto space-y-4 text-xs sm:text-sm">
+        
+        <!-- Welcome Message -->
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-lg bg-accent-violet/20 text-accent-violet flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div class="chat-bubble-ai p-3.5 max-w-[85%] leading-relaxed">
+            <p class="font-semibold text-white mb-1">¡Hola! Soy el agente virtual de Bárbara Covarrubias.</p>
+            <p class="text-slate-300">
+              Estoy entrenado para responderte en profundidad sobre su experiencia como <strong class="text-white">IT Lead</strong>, arquitectura en medios de pago, implementación del <strong class="text-brand-400">servidor MCP</strong>, flujos agénticos en <strong class="text-accent-cyan">AWS Bedrock</strong> y evaluación con <strong class="text-accent-violet">RAGAS</strong>.
+            </p>
+            <p class="text-[11px] text-dark-muted mt-2">
+              ¿Qué te gustaría consultar para tu equipo o búsqueda laboral?
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Chat Input Field -->
+      <div class="p-3 sm:p-4 border-t border-dark-border bg-dark-card">
+        <form id="chatForm" onsubmit="handleChatSubmit(event)" class="flex items-center gap-2">
+          <input type="text" id="chatInput" placeholder="Preguntame sobre su stack, proyectos o experiencia..." class="flex-1 px-4 py-2.5 rounded-xl bg-dark-bg border border-dark-border text-white text-xs sm:text-sm focus:outline-none focus:border-accent-violet transition-colors">
+          <button type="submit" id="chatSendBtn" class="p-2.5 rounded-xl bg-gradient-to-r from-accent-violet to-brand-600 text-white font-semibold hover:opacity-95 transition-all shrink-0" aria-label="Enviar mensaje">
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+        <span class="text-[10px] text-dark-muted font-mono block text-center mt-2">
+          Potenciado por IA generativa & arquitectura de conocimiento oficial
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: DETALLES DE ARQUITECTURA DE PROYECTO -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-[#0f172a] border border-dark-border rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeProjectModal()" class="absolute top-5 right-5 p-2 rounded-lg bg-dark-bg text-slate-400 hover:text-white border border-dark-border">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- MODAL: VISOR DE CV EJECUTIVO -->
+  <div id="cvModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-[#0f172a] border border-dark-border rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeCvModal()" class="absolute top-5 right-5 p-2 rounded-lg bg-dark-bg text-slate-400 hover:text-white border border-dark-border">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-6">
+        <div class="p-3 rounded-xl bg-brand-500/10 text-brand-400">
+          <i data-lucide="file-text" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-white">Currículum Vitae Ejecutivo</h3>
+          <p class="text-xs text-dark-muted">Versión 1 página calibrada para ATS y Dirección Técnica</p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-dark-bg border border-dark-border text-xs text-slate-300 space-y-3 mb-6">
+        <div class="flex justify-between border-b border-dark-border/60 pb-2">
+          <span class="text-dark-muted">Candidata:</span>
+          <span class="font-bold text-white">Bárbara Noelia Covarrubias</span>
+        </div>
+        <div class="flex justify-between border-b border-dark-border/60 pb-2">
+          <span class="text-dark-muted">Ubicación:</span>
+          <span class="text-white">Francisco Álvarez, Buenos Aires</span>
+        </div>
+        <div class="flex justify-between border-b border-dark-border/60 pb-2">
+          <span class="text-dark-muted">Rol:</span>
+          <span class="text-brand-400 font-semibold">IT Lead · Medios de Pago &amp; AI Solutions</span>
+        </div>
+        <div class="flex justify-between border-b border-dark-border/60 pb-2">
+          <span class="text-dark-muted">Métricas clave:</span>
+          <span class="text-white">1T → 1sem feature cycle · 1er MCP producción · 99.9% uptime</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-dark-muted">Referencia:</span>
+          <span class="text-accent-cyan">Juan Pablo Cazzasa (IT Manager Payway)</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button onclick="printOrDownloadCv()" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-brand-600 to-accent-cyan text-white text-xs font-bold flex items-center justify-center gap-2 shadow-lg hover:opacity-95 transition-all">
+          <i data-lucide="printer" class="w-4 h-4"></i>
+          Imprimir / Guardar como PDF
+        </button>
+        <button onclick="copyToClipboard('barbara.covarrubias@hotmail.com', 'Email copiado para solicitar CV completo')" class="py-3 px-4 rounded-xl bg-dark-bg border border-dark-border text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Solicitar CV por Correo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 left-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 border border-brand-500/50 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-sm">
+    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toastMessage">Acción realizada</span>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    lucide.createIcons();
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+    document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      toastMessage.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    function copyToClipboard(text, successMessage) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMessage || 'Copiado al portapapeles');
+      } catch (err) {
+        showToast('No se pudo copiar automáticamente');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function filterProjects(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-category') === category) {
+          btn.classList.add('bg-brand-600', 'text-white');
+          btn.classList.remove('bg-dark-card', 'text-slate-300');
+        } else {
+          btn.classList.remove('bg-brand-600', 'text-white');
+          btn.classList.add('bg-dark-card', 'text-slate-300');
+        }
+      });
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    const projectDetails = {
+      mcp: {
+        title: "Servidor MCP (Model Context Protocol) para Developers",
+        badge: "Arquitectura IA & Developer Experience",
+        description: "Implementación en producción del estándar abierto de Anthropic para desacoplar y orquestar herramientas técnicas directamente dentro del entorno de desarrollo de los ingenieros de Payway.",
+        hightlights: [
+          "Arquitectura de microservicio en Node.js empaquetado en Docker y desplegado sobre AWS ECS/ECR.",
+          "Exposición de contratos OpenAPI, esquemas JSON y documentación viva directamente en Cursor y VS Code.",
+          "Reducción sustancial en los tiempos de onboarding de desarrolladores e integradores externos.",
+          "Gobernanza mediante JWT y aislamiento de credenciales bajo esquema Zero Secrets."
+        ],
+        stack: ["Node.js", "Model Context Protocol", "AWS ECS", "Docker", "OpenAPI", "JSON Schema"]
+      },
+      agent: {
+        title: "Asistente Inteligente & Agentic RAG de Integraciones",
+        badge: "Generative AI & LLM Systems",
+        description: "Solución conversacional técnica orientada a responder consultas de integración, mitigar fallas en homologaciones y resolver dudas sobre la API de pagos.",
+        hightlights: [
+          "Orquestación de flujos agénticos autónomos con n8n y Amazon Bedrock invocando modelos fundacionales de Anthropic (Claude).",
+          "Arquitectura RAG semántica combinando Amazon Bedrock Knowledge Bases / S3 con búsqueda vectorial relacional en PostgreSQL (pgvector).",
+          "Memoria contextual de sesión implementada en Redis de baja latencia.",
+          "Pipeline continuo de auditoría en Python con RAGAS (LLM-as-a-judge) para certificar métricas de Faithfulness y Answer Relevance."
+        ],
+        stack: ["AWS Bedrock", "Anthropic Claude", "Python", "RAGAS", "PostgreSQL (pgvector)", "Redis", "n8n"]
+      },
+      portal: {
+        title: "Portal de Integraciones Payway & E-commerce Hub",
+        badge: "Fintech & Core Payments",
+        description: "Plataforma integral de documentación técnica pública y gestión privada para partners comerciales de medios de pago.",
+        hightlights: [
+          "Backend en Java Spring Boot y frontend reactivo en React, orquestando microservicios de cobro de alta concurrencia.",
+          "Arquitectura orientada a eventos con Apache Kafka para notificaciones asíncronas y Webhooks en tiempo real.",
+          "Soporte y homologación técnica para pasarelas online (VTEX, WooCommerce) y cobro presencial (POS / Terminales vía API).",
+          "Blindaje de seguridad con Keycloak (OAuth2/JWT) y prevención activa de vulnerabilidades IDOR."
+        ],
+        stack: ["Java Spring Boot", "Apache Kafka", "React", "Webhooks", "VTEX", "WooCommerce", "Keycloak", "Grafana"]
+      }
+    };
+
+    function openProjectModal(key) {
+      const p = projectDetails[key];
+      if (!p) return;
+      const modal = document.getElementById('projectModal');
+      const content = document.getElementById('modalContent');
+      
+      content.innerHTML = `
+        <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/30">
+          ${p.badge}
+        </span>
+        <h3 class="text-2xl font-bold text-white mt-3 mb-2">${p.title}</h3>
+        <p class="text-sm text-slate-300 leading-relaxed mb-6">${p.description}</p>
+        
+        <h4 class="text-xs font-mono uppercase tracking-wider text-dark-muted mb-3 font-semibold">Aspectos Técnicos Destacados</h4>
+        <ul class="text-xs text-slate-300 space-y-2 mb-6">
+          ${p.hightlights.map(item => `<li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i><span>${item}</span></li>`).join('')}
+        </ul>
+
+        <h4 class="text-xs font-mono uppercase tracking-wider text-dark-muted mb-3 font-semibold">Tecnologías Involucradas</h4>
+        <div class="flex flex-wrap gap-2">
+          ${p.stack.map(st => `<span class="px-2.5 py-1 rounded bg-dark-bg border border-dark-border text-xs font-mono text-slate-200">${st}</span>`).join('')}
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeProjectModal() {
+      document.getElementById('projectModal').classList.add('hidden');
+    }
+
+    function openCvModal() {
+      document.getElementById('cvModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+    function closeCvModal() {
+      document.getElementById('cvModal').classList.add('hidden');
+    }
+
+    function printOrDownloadCv() {
+      const cvHtml = `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>CV - Bárbara Noelia Covarrubias</title>
+<style>
+  @page { margin: 0; size: A4; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 12mm 14mm 10mm 14mm;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1e293b; font-size: 8.6pt; line-height: 1.25; background: #fff;
+  }
+  .header { border-bottom: 2px solid #0f172a; padding-bottom: 5px; margin-bottom: 6px; }
+  .name-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .name { font-size: 16.5pt; font-weight: 800; color: #0f172a; text-transform: uppercase; }
+  .subtitle { font-size: 9.3pt; font-weight: 700; color: #0369a1; }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 8px; font-size: 7.9pt; color: #475569; margin-top: 3px; }
+  .metrics-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 6px 0; padding: 4px 6px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; }
+  .metric-box { text-align: center; border-right: 1px solid #cbd5e1; }
+  .metric-box:last-child { border-right: none; }
+  .metric-value { font-size: 11pt; font-weight: 800; color: #0f172a; }
+  .metric-label { font-size: 6.8pt; color: #475569; font-weight: 600; text-transform: uppercase; }
+  .section-title { font-size: 9pt; font-weight: 800; text-transform: uppercase; color: #0f172a; border-bottom: 1.5px solid #cbd5e1; padding-bottom: 1px; margin-top: 5px; margin-bottom: 4px; }
+  .profile-text { font-size: 8.35pt; line-height: 1.26; color: #334155; text-align: justify; margin-bottom: 5px; }
+  .job-block { margin-bottom: 4px; }
+  .job-header { display: flex; justify-content: space-between; align-items: baseline; }
+  .job-company { font-size: 8.9pt; font-weight: 700; color: #0f172a; }
+  .job-role { font-weight: 700; color: #0369a1; }
+  .job-date { font-size: 7.8pt; font-weight: 600; color: #64748b; }
+  .job-bullets { margin: 2px 0 0 0; padding-left: 14px; }
+  .job-bullets li { font-size: 8.1pt; line-height: 1.22; color: #334155; margin-bottom: 1.5px; }
+  .grid-bottom { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 10px; margin-top: 4px; }
+  .skill-line { font-size: 8pt; line-height: 1.21; color: #334155; margin-bottom: 2.5px; }
+  .skill-label { font-weight: 700; color: #0f172a; }
+  .edu-block { margin-bottom: 3.5px; font-size: 8pt; line-height: 1.2; }
+  .edu-title { font-weight: 700; color: #0f172a; }
+  .edu-sub { color: #475569; }
+  .reference-card { margin-top: 4px; padding: 4px 6px; background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #0369a1; border-radius: 3px; font-size: 7.6pt; }
+  .reference-name { font-weight: 700; color: #0f172a; }
+  .reference-role { color: #0369a1; font-weight: 600; }
+  .footer { margin-top: 6px; padding-top: 3px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; font-size: 7.5pt; color: #64748b; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="name-row">
+      <span class="name">Bárbara Noelia Covarrubias</span>
+      <span class="subtitle">IT Lead · Integraciones, Medios de Pago &amp; Soluciones IA</span>
+    </div>
+    <div class="contact-row">
+      <span>📍 Francisco Álvarez, Buenos Aires</span>
+      <span>📞 +54 9 11 5523-2198</span>
+      <span>✉️ barbara.covarrubias@hotmail.com</span>
+      <span>🔗 linkedin.com/in/ing-bárbara-noelia-covarrubias-42166b109</span>
+      <span>🌐 Ciudadanía Italiana</span>
+      <span>🗣️ Español (Nativo) | Inglés (B2)</span>
+    </div>
+  </div>
+
+  <div class="metrics-strip">
+    <div class="metric-box"><div class="metric-value">1T → 1sem</div><div class="metric-label">Ciclo por feature con IA</div></div>
+    <div class="metric-box"><div class="metric-value">100%</div><div class="metric-label">Autogestión de Integradores</div></div>
+    <div class="metric-box"><div class="metric-value">8+</div><div class="metric-label">Equipo técnico</div></div>
+    <div class="metric-box"><div class="metric-value">1er MCP</div><div class="metric-label">Implementado en producción</div></div>
+    <div class="metric-box"><div class="metric-value">99,9%</div><div class="metric-label">Disponibilidad en APIs</div></div>
+  </div>
+
+  <div class="section-title">Perfil</div>
+  <div class="profile-text">
+    <strong>Ingeniera en Sistemas e IT Lead</strong> con sólida trayectoria técnica y de gestión liderando células ágiles de ingeniería en el ecosistema <strong>Prisma Medios de Pago / Payway</strong>. Especializada en la arquitectura técnica, delivery y puesta en producción de soluciones de <strong>Inteligencia Artificial Generativa</strong> (Agentic AI, RAG en AWS Bedrock con modelos de Anthropic, PostgreSQL con extensión pgvector, servidores MCP y auditoría continua RAGAS sobre AWS) y en plataformas de integración de alta concurrencia. Liderazgo técnico en la construcción del Portal de Integraciones bajo microservicios y arquitecturas reactivas (Java Spring Boot, React, Kafka, Webhooks, PostgreSQL), coordinando la integración de <strong>E-commerce (WooCommerce, VTEX) y Terminales de Pago vía API</strong>. Capacidad probada para coordinar equipos de desarrollo, definir estándares de ingeniería y traducir la visión estratégica de producto en soluciones robustas y escalables.
+  </div>
+
+  <div class="section-title">Experiencia</div>
+  <div class="job-block">
+    <div class="job-header">
+      <div><span class="job-company">Payway</span> · <span class="job-role">IT Lead – Portal de Integraciones &amp; AI Solutions</span></div>
+      <span class="job-date">jul 2025 – Actualidad</span>
+    </div>
+    <ul class="job-bullets">
+      <li><strong>Liderazgo Técnico de Célula:</strong> Coordinación técnica y delivery ágil del equipo de ingeniería asignado al Portal de Integraciones público y privado (https://docs.payway.com.ar), orquestando ceremonias técnicas, priorización de deuda técnica y backlog de desarrollo en Jira y GitLab.</li>
+      <li><strong>Implementación de IA &amp; Agentic Workflows:</strong> Liderazgo en el diseño técnico y despliegue del primer asistente inteligente de integración: flujos agénticos orquestados con n8n, AWS Bedrock consumiendo Foundation Models de Anthropic, memoria contextual en Redis y RAG sobre Amazon Bedrock Knowledge Bases / S3, junto con búsqueda vectorial relacional en PostgreSQL (pgvector).</li>
+      <li><strong>Servidor MCP (Model Context Protocol):</strong> Arquitectura y desarrollo en Node.js sobre AWS (ECS/ECR) del primer servidor MCP para exponer herramientas de cobro, contratos OpenAPI y RAG directamente en los IDEs de desarrollo, acelerando drásticamente el onboarding técnico.</li>
+      <li><strong>Arquitectura de Eventos, E-commerce &amp; Terminales:</strong> Conducción técnica de servicios en Java Spring Boot y frontend en React con mensajería asíncrona mediante Apache Kafka y Webhooks; soporte y homologación técnica para conectores VTEX, WooCommerce y POS vía API.</li>
+      <li><strong>Evaluación RAGAS:</strong> Construcción de pipeline de calidad en Python para auditar métricas oficiales de <em>Faithfulness, Answer Relevance y Semantic Similarity</em>; implementación de autenticación Keycloak/JWT, prevención de IDOR y políticas Zero Secrets.</li>
+    </ul>
+  </div>
+
+  <div class="job-block">
+    <div class="job-header">
+      <div><span class="job-company">Prisma Medios de Pago</span> · <span class="job-role">IT Lead / Technical Product Owner – Portal de Integraciones</span></div>
+      <span class="job-date">abr 2023 – jun 2025</span>
+    </div>
+    <ul class="job-bullets">
+      <li><strong>Liderazgo de Célula Técnica:</strong> Conducción del equipo multidisciplinario de desarrollo y QA; definición y refinamiento técnico de user stories, garantizando consistencia técnica entre comités de arquitectura, infoSec y negocio.</li>
+      <li><strong>Estandarización de APIs &amp; Monitoreo:</strong> Supervisión y homologación de especificaciones OpenAPI/Swagger para medios de pago presencial y online; observabilidad continua de microservicios con Grafana y pipelines CI/CD sobre AWS y PostgreSQL.</li>
+    </ul>
+  </div>
+
+  <div class="job-block">
+    <div class="job-header">
+      <div><span class="job-company">Prisma Medios de Pago</span> · <span class="job-role">Project Manager – Integraciones Payway</span></div>
+      <span class="job-date">may 2022 – nov 2023</span>
+    </div>
+    <ul class="job-bullets">
+      <li>Liderazgo y seguimiento operativo de proyectos de integración con grandes comercios y partners; coordinación de homologaciones técnicas de pasarelas de pago y terminales punto de venta junto a Desarrollo y QA bajo Scrum.</li>
+    </ul>
+  </div>
+
+  <div class="job-block">
+    <div class="job-header">
+      <div><span class="job-company">QServices &amp; Accenture</span> · <span class="job-role">Analista Funcional Técnico Sr &amp; QA Tester</span></div>
+      <span class="job-date">2016 – 2022</span>
+    </div>
+    <ul class="job-bullets">
+      <li><strong>QServices (2020–2022):</strong> Análisis funcional técnico en integraciones Payway (Visa/Decidir) y proyectos Cloud AWS en Edenor (Web Services, Oracle, Postman).</li>
+      <li><strong>Accenture (2016–2020):</strong> QA y análisis técnico en interfaces críticas y procesos batch SQL/SAP para YPF y Telecom Italia.</li>
+    </ul>
+  </div>
+
+  <div class="grid-bottom">
+    <div>
+      <div class="section-title">Competencias Técnicas &amp; Stack</div>
+      <div class="skill-line"><span class="skill-label">Liderazgo &amp; Delivery:</span> Liderazgo de Células Técnicas, Scrum, Jira, GitLab CI/CD, Spec-Driven Development (SDD), Gestión de Stakeholders.</div>
+      <div class="skill-line"><span class="skill-label">Medios de Pago &amp; Integración:</span> E-commerce (WooCommerce, VTEX, Ventas Online), POS vía API, OpenAPI/Swagger, Pasarelas Web / Checkout.</div>
+      <div class="skill-line"><span class="skill-label">IA Generativa &amp; LLMs:</span> Model Context Protocol (MCP), Agentic Workflows, AWS Bedrock (Anthropic), RAG, Framework RAGAS, n8n, Prompt Engineering.</div>
+      <div class="skill-line"><span class="skill-label">Arquitectura &amp; Backend:</span> Java (Spring Boot), Node.js, Python, Apache Kafka, Webhooks, APIs REST, React, AWS (ECS, ECR, S3), Docker.</div>
+      <div class="skill-line"><span class="skill-label">Datos &amp; Seguridad:</span> PostgreSQL (pgvector), Redis, SQL Server, Keycloak (OAuth2/JWT), Grafana, Guardrails.</div>
+    </div>
+    <div>
+      <div class="section-title">Formación &amp; Referencias</div>
+      <div class="edu-block">
+        <div class="edu-title">Diplomatura Sup. en IA Aplicada</div>
+        <div class="edu-sub">Univ. Nacional del Oeste (UNO) · <em>En Curso</em></div>
+      </div>
+      <div class="edu-block">
+        <div class="edu-title">Ingeniería en Sistemas Informáticos</div>
+        <div class="edu-sub">Univ. Abierta Interamericana (UAI) · <em>Graduada 2022</em></div>
+      </div>
+      <div class="edu-block">
+        <div class="edu-title">Certificación Project Management</div>
+        <div class="edu-sub">Instituto Tecnológico de Buenos Aires (ITBA, 2023)</div>
+      </div>
+      <div class="reference-card">
+        <div class="reference-name">Juan Pablo Cazzasa</div>
+        <div class="reference-role">IT Manager – Payway</div>
+        <div class="reference-contact">📞 +54 9 11 3101-3044</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Bárbara Noelia Covarrubias — Currículum Vitae</span>
+    <span>IT Lead · Integraciones, Medios de Pago &amp; Soluciones IA</span>
+    <span>Página 1 de 1</span>
+  </div>
+
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        window.print();
+      }, 300);
+    };
+  <\/script>
+</body>
+</html>`;
+
+      const printWindow = window.open('', '_blank');
+      if (printWindow) {
+        printWindow.document.open();
+        printWindow.document.write(cvHtml);
+        printWindow.document.close();
+      } else {
+        showToast('Por favor habilita las ventanas emergentes para imprimir o guardar el CV en PDF');
+      }
+    }
+
+    /* =========================================================
+       AGENTE DE IA (BÁRBARA AI ASSISTANT) - LÓGICA & CONOCIMIENTO
+       ========================================================= */
+
+    const barbaraSystemPrompt = `Eres "Bárbara AI", el asistente inteligente y agente de carrera de Bárbara Noelia Covarrubias.
+Tu misión es responder con solvencia técnica, precisión ejecutiva y tono cálido-profesional en español a reclutadores, líderes técnicos, VPs de Ingeniería y directores interesados en su perfil.
+
+Información oficial de Bárbara Noelia Covarrubias:
+- Perfil: Ingeniera en Sistemas Informáticos (UAI, graduada en 2022) e IT Lead / Engineering Lead con trayectoria liderando células ágiles de ingeniería y producto en el sector de Medios de Pago, Fintech y Consultoría Corporativa. Especialista en la arquitectura, integración y puesta en producción de soluciones de Inteligencia Artificial Generativa.
+- Ubicación: Francisco Álvarez, Buenos Aires, Argentina. Ciudadanía Italiana. Modalidad Híbrido / Remoto. Disponibilidad para viajar.
+- Idiomas: Español nativo, Inglés intermedio B2.
+- Contacto: WhatsApp +54 9 11 5523-2198 | Email: barbara.covarrubias@hotmail.com | LinkedIn: in/ing-bárbara-noelia-covarrubias-42166b109.
+- Referencia Laboral: Juan Pablo Cazzasa (IT Manager en Payway / Prisma Medios de Pago, Tel: +54 9 11 3101-3044).
+
+Experiencia y Logros Clave:
+1. Payway (jul 2025 - Actualidad):
+   - Rol: IT Lead – Portal de Integraciones & AI Solutions.
+   - Lideró célula de ingeniería (8+ desarrolladores) bajo Scrum, Jira y GitLab CI/CD.
+   - Puso en producción el primer Servidor MCP (Model Context Protocol) de la compañía en Node.js sobre AWS (ECS/ECR), conectando herramientas de cobro, esquemas JSON, contratos OpenAPI y RAG directamente a los IDEs de desarrollo (Cursor, VS Code), acelerando drásticamente el onboarding técnico.
+   - Diseñó e implementó el asistente inteligente para el Portal de Integraciones (https://docs.payway.com.ar): flujos agénticos con n8n, AWS Bedrock consumiendo Foundation Models de Anthropic (Claude 3.5 Sonnet / Haiku), memoria contextual en Redis y RAG semántico combinando Amazon Bedrock Knowledge Bases / S3 con búsqueda vectorial relacional en PostgreSQL (pgvector).
+   - Diseñó un pipeline automatizado de evaluación de calidad en Python con el framework RAGAS (enfoque LLM-as-a-judge) para auditar métricas oficiales de Faithfulness, Answer Relevance y Semantic Similarity contra especificaciones OpenAPI de medios de pago, mitigando alucinaciones.
+   - Coordinó servicios backend en Java Spring Boot y frontend en React con mensajería asíncrona mediante Apache Kafka y notificaciones en tiempo real vía Webhooks.
+   - Homologó conectores de E-commerce (WooCommerce, VTEX, Ventas Online) y Terminales de Pago (POS) integradas vía API.
+   - Gobernanza e InfoSec: JWT/Keycloak, prevención activa de vulnerabilidades IDOR, políticas estrictas de Zero Secrets y rate limiting.
+2. Prisma Medios de Pago (abr 2023 - jun 2025):
+   - IT Lead / Technical Product Owner – Portal de Integraciones. Definición de roadmap técnico, articulación con comités de arquitectura e InfoSec, observabilidad con Grafana sobre AWS y PostgreSQL.
+3. Prisma Medios de Pago (may 2022 - nov 2023):
+   - Project Manager – Integraciones Payway. Homologaciones técnicas y certificación de pasarelas de pago y terminales punto de venta.
+4. Trayectoria previa (2016 - 2022):
+   - QServices (2020-2022): Analista Funcional Técnico Sr en Gateway Decidir/Visa y Cloud AWS en Edenor.
+   - Accenture (2016-2020): QA Tester y analista funcional en interfaces críticas, AS400, SAP y procesos batch para clientes como YPF y Telecom Italia.
+
+Formación:
+- Diplomatura Superior en IA aplicada y Tecnologías Emergentes (Univ. Nacional del Oeste - UNO, en curso).
+- Ingeniería en Sistemas Informáticos (Univ. Abierta Interamericana - UAI, 2022).
+- Certificación Profesional en Project Management (ITBA, 2023).
+- Amazon Q Developer (AWS, 2025) y Engineering Lead (2025).
+
+Reglas de respuesta:
+- Responde siempre de forma clara, directa, profesional y en primera o tercera persona referida a Bárbara con respeto.
+- Usa formato legible con viñetas cuando detalles tecnologías o hitos.
+- Cuando pregunten por contacto o contratación, brinda el WhatsApp (+54 9 11 5523-2198) y el email barbara.covarrubias@hotmail.com.
+- Si no sabes algo no lo inventes.`;
+
+    let chatHistory = [];
+
+    function toggleChatDrawer(open) {
+      const drawer = document.getElementById('aiChatDrawer');
+      if (open) {
+        drawer.classList.remove('hidden');
+        document.getElementById('chatInput').focus();
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    function appendMessage(sender, htmlText) {
+      const container = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = "flex items-start gap-3 " + (sender === 'user' ? 'justify-end' : '');
+
+      if (sender === 'ai') {
+        div.innerHTML = `
+          <div class="w-8 h-8 rounded-lg bg-accent-violet/20 text-accent-violet flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div class="chat-bubble-ai p-3.5 max-w-[85%] leading-relaxed">
+            ${htmlText}
+          </div>
+        `;
+      } else {
+        div.innerHTML = `
+          <div class="chat-bubble-user p-3.5 max-w-[85%] leading-relaxed">
+            ${htmlText}
+          </div>
+        `;
+      }
+
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+      lucide.createIcons();
+    }
+
+    function showTypingIndicator() {
+      const container = document.getElementById('chatMessages');
+      const id = 'typing-' + Date.now();
+      const div = document.createElement('div');
+      div.id = id;
+      div.className = "flex items-start gap-3";
+      div.innerHTML = `
+        <div class="w-8 h-8 rounded-lg bg-accent-violet/20 text-accent-violet flex items-center justify-center shrink-0 mt-0.5">
+          <i data-lucide="bot" class="w-4 h-4"></i>
+        </div>
+        <div class="chat-bubble-ai p-3 max-w-[85%] flex items-center gap-1.5 text-slate-400">
+          <span class="w-2 h-2 rounded-full bg-accent-violet animate-bounce"></span>
+          <span class="w-2 h-2 rounded-full bg-accent-violet animate-bounce" style="animation-delay: 0.2s"></span>
+          <span class="w-2 h-2 rounded-full bg-accent-violet animate-bounce" style="animation-delay: 0.4s"></span>
+          <span class="text-xs ml-1 text-dark-muted font-mono">Bárbara AI procesando...</span>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+      lucide.createIcons();
+      return id;
+    }
+
+    function removeTypingIndicator(id) {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+
+    function formatMarkdown(text) {
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-dark-bg text-brand-300 font-mono text-[11px]">$1</code>')
+        .replace(/\n\n/g, '<br><br>')
+        .replace(/\n- (.*?)/g, '<br>• $1')
+        .replace(/\n/g, '<br>');
+    }
+
+    // Fallback de alta fidelidad si la API no está disponible
+    function generateFallbackResponse(query) {
+      const q = query.toLowerCase();
+      if (q.includes('mcp') || q.includes('model context protocol')) {
+        return "Bárbara diseñó e implementó en **Payway** el primer servidor **MCP (Model Context Protocol)** de la compañía en Node.js sobre AWS (ECS/ECR). Esto permitió conectar herramientas operativas de cobro, contratos OpenAPI y RAG directamente a los IDEs de los ingenieros (Cursor y VS Code), acelerando drásticamente el onboarding técnico y asegurando consistencia con las APIs de pago.";
+      }
+      if (q.includes('payway') || q.includes('rol') || q.includes('lider')) {
+        return "En **Payway**, Bárbara se desempeñó como **IT Lead – Portal de Integraciones & AI Solutions**, coordinando una célula técnica multidisciplinaria (8+ ingenieros). Lideró el diseño del asistente agéntico con n8n y AWS Bedrock (modelos de Anthropic), el servidor MCP, pipelines en Python con RAGAS para evaluar alucinaciones y la arquitectura orientada a eventos con **Java Spring Boot, Apache Kafka y Webhooks** para cobros presenciales y online.";
+      }
+      if (q.includes('ragas') || q.includes('alucinaci') || q.includes('calidad')) {
+        return "Para garantizar la precisión de las respuestas del asistente del Portal de Integraciones, Bárbara implementó un pipeline automatizado en Python con **RAGAS (LLM-as-a-judge)**. Este proceso evalúa cuantitativamente métricas de **Faithfulness**, **Answer Relevance** y **Semantic Similarity** contra los contratos oficiales OpenAPI de medios de pago, auditando que el modelo nunca alucine ni exponga parámetros erróneos.";
+      }
+      if (q.includes('stack') || q.includes('tecnolog') || q.includes('pagos') || q.includes('e-commerce') || q.includes('pos')) {
+        return "El stack principal de Bárbara comprende:\n• **IA Generativa:** Model Context Protocol (MCP), AWS Bedrock (Anthropic Claude), RAG semántico (Bedrock Knowledge Bases / S3 + PostgreSQL pgvector), RAGAS, n8n, Prompt Engineering.\n• **Medios de Pago:** Terminales POS vía API, pasarelas de pago, conectores para VTEX y WooCommerce, checkout web y contratos OpenAPI/Swagger.\n• **Backend & Eventos:** Java Spring Boot, Apache Kafka, Webhooks en tiempo real, Node.js y Python.\n• **Cloud & Seguridad:** AWS (ECS, ECR, S3), Docker, Keycloak (JWT/OAuth2), prevención de IDOR y Grafana.";
+      }
+      if (q.includes('estudio') || q.includes('educaci') || q.includes('universidad') || q.includes('formaci')) {
+        return "Bárbara es **Ingeniera en Sistemas Informáticos** (graduada en 2022 de la Universidad Abierta Interamericana - UAI), cuenta con la **Certificación Profesional en Project Management** del ITBA (2023) y actualmente está cursando la **Diplomatura Superior en IA Aplicada y Tecnologías Emergentes** en la Universidad Nacional del Oeste (UNO).";
+      }
+      if (q.includes('contacto') || q.includes('telefono') || q.includes('mail') || q.includes('whatsapp') || q.includes('disponib')) {
+        return "Bárbara está disponible para oportunidades de **IT Lead / Engineering Lead**: \n• **WhatsApp Directo:** +54 9 11 5523-2198 \n• **Email:** barbara.covarrubias@hotmail.com \n• **Ubicación:** Francisco Álvarez, Buenos Aires (Híbrido / Remoto) \n• **Referente Laboral:** Juan Pablo Cazzasa (IT Manager Payway, Tel: +54 9 11 3101-3044).";
+      }
+      return "Bárbara es **Ingeniera en Sistemas e IT Lead** especializada en Medios de Pago y Soluciones de IA Generativa (AWS Bedrock, Servidor MCP, RAGAS, Kafka y Java Spring Boot). Lideró en Payway la automatización con IA y la plataforma de integraciones. Podés contactarla directamente al **+54 9 11 5523-2198** o a **barbara.covarrubias@hotmail.com**.";
+    }
+
+    async function askGemini(promptText) {
+      const apiKey = ""; // Canvas inyectará la clave en tiempo de ejecución si está disponible
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+
+      const contents = [
+        ...chatHistory,
+        { role: "user", parts: [{ text: promptText }] }
+      ];
+
+      const payload = {
+        contents: contents,
+        systemInstruction: {
+          parts: [{ text: barbaraSystemPrompt }]
+        }
+      };
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error('API request failed');
+        }
+
+        const data = await response.json();
+        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (text) {
+          chatHistory.push({ role: "user", parts: [{ text: promptText }] });
+          chatHistory.push({ role: "model", parts: [{ text: text }] });
+          return text;
+        }
+        throw new Error('Respuesta vacía');
+      } catch (err) {
+        console.warn('Fallback a base de conocimiento interna:', err);
+        return generateFallbackResponse(promptText);
+      }
+    }
+
+    async function handleChatSubmit(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('chatInput');
+      const message = input.value.trim();
+      if (!message) return;
+
+      appendMessage('user', message);
+      input.value = '';
+
+      const typingId = showTypingIndicator();
+      const reply = await askGemini(message);
+      removeTypingIndicator(typingId);
+
+      appendMessage('ai', formatMarkdown(reply));
+    }
+
+    function sendQuickPrompt(promptText) {
+      document.getElementById('chatInput').value = promptText;
+      handleChatSubmit();
+    }
+
+    // Cerrar modal de proyectos / cv al presionar afuera
+    window.addEventListener('click', (e) => {
+      const pModal = document.getElementById('projectModal');
+      const cModal = document.getElementById('cvModal');
+      if (e.target === pModal) closeProjectModal();
+      if (e.target === cModal) closeCvModal();
+    });
+  </script>
+</body>
+</html>
