@@ -35,7 +35,6 @@
     }
   </script>
   <style>
-    /* Safe-area insets & mobile scroll fixes */
     html, body {
       overflow-x: hidden;
       width: 100%;
@@ -44,25 +43,19 @@
       -webkit-tap-highlight-color: transparent;
     }
     .glass {
-      background: rgba(13, 19, 34, 0.85);
+      background: rgba(13, 19, 34, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .glass-card {
-      background: rgba(15, 23, 42, 0.65);
-      border: 1px solid rgba(30, 41, 59, 0.8);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(30, 41, 59, 0.85);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .glass-card:hover {
       border-color: rgba(59, 130, 246, 0.5);
       transform: translateY(-2px);
-    }
-    .glow-cyan {
-      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.25);
-    }
-    .glow-blue {
-      box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.25);
     }
     ::-webkit-scrollbar {
       width: 6px;
@@ -73,9 +66,6 @@
     ::-webkit-scrollbar-thumb {
       background: #1E293B;
       border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #3B82F6;
     }
   </style>
 </head>
@@ -120,17 +110,13 @@
       </div>
     </div>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden md:hidden border-t border-brand-border/60 bg-brand-dark/95 backdrop-blur-xl px-5 py-4 space-y-3">
+    <!-- Mobile Dropdown Menu (Limpio, sin atajo redundante) -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-brand-border/60 bg-brand-dark/95 backdrop-blur-xl px-5 py-3 space-y-2.5">
       <a href="#sobre-mi" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Sobre Mí</a>
       <a href="#proyectos" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Casos de Éxito & MCP</a>
       <a href="#habilidades" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Stack Técnico</a>
       <a href="#trayectoria" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Trayectoria</a>
       <a href="#contacto" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Contacto Directo</a>
-      <button onclick="openBarbaraAI()" class="w-full text-left py-2 px-3 rounded-lg bg-brand-primary/10 text-brand-primary border border-brand-primary/20 text-xs font-semibold flex items-center justify-between">
-        <span>Consultar a Bárbara AI</span>
-        <span>✨</span>
-      </button>
     </div>
   </header>
 
@@ -159,7 +145,7 @@
             Lidero la convergencia entre ecosistemas financieros transaccionales y modelos de Inteligencia Artificial (MCP, Agentes Autónomos y RAG con evaluación RAGAS). Más de 8 años convirtiendo requerimientos de misión crítica en APIs resilientes para Payway y Prisma Medios de Pago.
           </p>
 
-          <!-- Action CTA Group -->
+          <!-- Action CTA Group: Limpio con 2 botones principales sin redundancia -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
             <a href="#proyectos" class="px-5 py-3 rounded-xl bg-gradient-to-r from-brand-primary to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold text-sm text-center shadow-lg shadow-blue-500/20 transition-all">
               Explorar Proyectos & MCP
@@ -168,11 +154,7 @@
               <svg class="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
               </svg>
-              <span>Ver / Descargar CV</span>
-            </button>
-            <button onclick="openBarbaraAI()" class="px-5 py-3 rounded-xl bg-violet-600/20 hover:bg-violet-600/30 border border-violet-500/40 text-violet-300 font-semibold text-sm text-center transition-all flex items-center justify-center gap-2">
-              <span>Preguntar a Bárbara AI</span>
-              <span class="text-xs">⚡</span>
+              <span>Visualizar / Descargar CV</span>
             </button>
           </div>
         </div>
@@ -220,7 +202,6 @@
           </div>
         </div>
 
-        <!-- Pilares de Gestión y Arquitectura -->
         <div class="lg:col-span-5 glass-card p-5 sm:p-6 rounded-2xl border-l-4 border-l-brand-primary space-y-4">
           <h4 class="font-bold text-white text-base flex items-center gap-2">
             <span class="text-brand-primary">🚀</span>
@@ -496,7 +477,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <!-- WhatsApp Card -->
-          <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20te%20contacto%20desde%20tu%20portfolio" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 flex items-center gap-3 transition-colors">
+          <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustaría%20conversar%20sobre%20una%20oportunidad%20laboral." target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 flex items-center gap-3 transition-colors">
             <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
             </div>
@@ -506,30 +487,32 @@
             </div>
           </a>
 
-          <!-- Email Card with Copy button -->
-          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-brand-primary/20 text-brand-primary flex items-center justify-center">
+          <!-- Email Card with Copy icon button (sin superposición en móvil) -->
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-primary/20 text-brand-primary flex items-center justify-center">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
-              <div class="truncate">
+              <div class="min-w-0">
                 <div class="text-xs text-slate-400">Correo Profesional</div>
                 <div class="text-xs sm:text-sm font-bold text-white truncate">barbara.covarrubias@hotmail.com</div>
               </div>
             </div>
-            <button onclick="copyEmail()" id="copyEmailBtn" class="text-xs px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">
-              Copiar
+            <button onclick="copyEmail()" id="copyEmailBtn" title="Copiar correo" aria-label="Copiar correo" class="shrink-0 p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">
+              <svg id="copyIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
+              </svg>
             </button>
           </div>
 
           <!-- LinkedIn Card -->
-          <a href="https://linkedin.com/in/ing-bárbara-noelia-covarrubias" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 flex items-center gap-3 transition-colors">
+          <a href="https://www.linkedin.com/in/ing-b%C3%A1rbara-noelia-covarrubias-42166b109/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 flex items-center gap-3 transition-colors">
             <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-[#0A66C2] flex items-center justify-center">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 6.54a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z"/></svg>
             </div>
             <div>
               <div class="text-xs text-slate-400">LinkedIn Oficial</div>
-              <div class="text-sm font-bold text-white">/ing-bárbara-noelia-covarrubias</div>
+              <div class="text-sm font-bold text-white">/in/ing-barbara-noelia-covarrubias</div>
             </div>
           </a>
 
@@ -548,12 +531,12 @@
     </section>
   </main>
 
-  <!-- ================= FLOATING AI AGENT BUTTON ================= -->
-  <aside aria-label="Asistente Virtual" class="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40">
-    <button onclick="openBarbaraAI()" class="flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold text-sm shadow-xl shadow-violet-500/30 hover:scale-105 active:scale-95 transition-all">
-      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-      <span>Bárbara AI</span>
-      <span class="text-xs bg-white/20 px-1.5 py-0.5 rounded-full">Chat</span>
+  <!-- ================= FLOATING AI AGENT BUTTON (Único botón para abrir el asistente) ================= -->
+  <aside aria-label="Asistente Virtual" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30">
+    <button onclick="openBarbaraAI()" class="flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium text-xs sm:text-sm shadow-xl shadow-violet-500/25 hover:scale-105 active:scale-95 transition-all">
+      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span>Consultar a Bárbara IA</span>
+      <span class="text-[10px] bg-white/20 px-1.5 py-0.5 rounded-full">✨</span>
     </button>
   </aside>
 
@@ -611,57 +594,55 @@
         <h3 id="projectModalTitle" class="font-bold text-white text-sm sm:text-base">Detalle de Proyecto</h3>
         <button onclick="closeProjectModal()" class="p-1 rounded-lg text-slate-400 hover:text-white">✕</button>
       </div>
-      <div id="projectModalBody" class="p-5 overflow-y-auto space-y-3 text-xs sm:text-sm text-slate-300">
-        <!-- Injected via JS -->
-      </div>
+      <div id="projectModalBody" class="p-5 overflow-y-auto space-y-3 text-xs sm:text-sm text-slate-300"></div>
       <div class="p-4 border-t border-slate-800 bg-slate-950/60 flex justify-end">
-        <button onclick="closeProjectModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-white">Entendido</button>
+        <button onclick="closeProjectModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-white">Cerrar</button>
       </div>
     </div>
   </div>
 
-  <!-- ================= MODAL: BÁRBARA AI AGENT ================= -->
-  <div id="aiModal" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-md">
-    <div class="bg-slate-950 border border-violet-500/30 w-full max-w-lg h-[92vh] sm:h-[600px] rounded-2xl flex flex-col shadow-2xl overflow-hidden">
-      <!-- Header -->
-      <div class="p-3 sm:p-4 border-b border-slate-800 bg-slate-900/80 flex items-center justify-between">
+  <!-- ================= MODAL: BÁRBARA AI AGENT (Tamaño contenido y amigable en móviles) ================= -->
+  <div id="aiModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-slate-950 border-t sm:border border-violet-500/30 w-full max-w-md h-[78vh] sm:h-[560px] rounded-t-3xl sm:rounded-2xl flex flex-col shadow-2xl overflow-hidden">
+      
+      <!-- Header con botón cerrar visible -->
+      <div class="p-3.5 border-b border-slate-800 bg-slate-900/90 flex items-center justify-between shrink-0">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-violet-600 text-white flex items-center justify-center font-bold text-xs">
+          <div class="w-7 h-7 rounded-full bg-violet-600 text-white flex items-center justify-center font-bold text-xs">
             AI
           </div>
           <div>
-            <h4 class="font-bold text-white text-xs sm:text-sm">Bárbara AI Assistant</h4>
-            <p class="text-[10px] text-emerald-400 flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Conectado a la trayectoria de Bárbara
-            </p>
+            <h4 class="font-bold text-white text-xs sm:text-sm">Bárbara AI • IT Lead Assistant</h4>
+            <p class="text-[10px] text-slate-400">Preguntas precisas sobre su perfil y experiencia</p>
           </div>
         </div>
-        <button onclick="closeBarbaraAI()" class="p-1.5 rounded-lg text-slate-400 hover:text-white">✕</button>
+        <button onclick="closeBarbaraAI()" class="p-1 px-2.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold">✕ Cerrar</button>
       </div>
 
-      <!-- Quick Chips -->
-      <div class="px-3 py-2 bg-slate-900/40 border-b border-slate-800/80 flex gap-2 overflow-x-auto text-[11px] no-scrollbar">
+      <!-- Quick Chips: Preguntas frecuentes -->
+      <div class="px-3 py-2 bg-slate-900/50 border-b border-slate-800/80 flex gap-2 overflow-x-auto text-[11px] shrink-0">
+        <button onclick="sendQuickPrompt('¿Cuál es su rol y seniority actual?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Seniority</button>
         <button onclick="sendQuickPrompt('¿Cómo implementó el servidor MCP en Payway?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Servidor MCP</button>
-        <button onclick="sendQuickPrompt('¿Cuál es su experiencia liderando equipos en fintech?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Liderazgo</button>
-        <button onclick="sendQuickPrompt('¿Cómo evalúa los asistentes con RAGAS?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Métricas RAGAS</button>
+        <button onclick="sendQuickPrompt('¿Qué tecnologías domina en backend e IA?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Stack</button>
+        <button onclick="sendQuickPrompt('¿Cómo contactarla para una entrevista?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Contacto</button>
       </div>
 
       <!-- Chat Messages Container -->
-      <div id="aiChatContainer" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs sm:text-sm">
+      <div id="aiChatContainer" class="flex-1 p-3.5 overflow-y-auto space-y-2.5 text-xs sm:text-sm">
         <div class="flex gap-2 items-start">
           <div class="w-6 h-6 rounded-full bg-violet-600/40 text-violet-300 text-[10px] flex items-center justify-center shrink-0">AI</div>
-          <div class="p-3 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[85%]">
-            ¡Hola! Soy el asistente virtual de <strong>Bárbara Covarrubias</strong>. Puedo contarte sobre su rol como IT Lead, su implementación del servidor MCP en Payway, pipelines RAGAS o coordinar una entrevista. ¿Qué te gustaría saber?
+          <div class="p-2.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[90%]">
+            Hola. Soy el asistente técnico de <strong>Bárbara Covarrubias</strong>. Respondé o elegí una consulta para conocer detalles precisos sobre su arquitectura en Payway, proyectos MCP, stack o datos de contacto.
           </div>
         </div>
       </div>
 
-      <!-- Input Bar -->
-      <div class="p-3 border-t border-slate-800 bg-slate-900/60">
+      <!-- Input Bar (sin auto-focus intrusivo) -->
+      <div class="p-2.5 border-t border-slate-800 bg-slate-900/90 shrink-0">
         <form id="aiChatForm" onsubmit="handleAiChatSubmit(event)" class="flex gap-2">
-          <input type="text" id="aiChatInput" placeholder="Pregunta sobre proyectos, stack o experiencia..." 
+          <input type="text" id="aiChatInput" placeholder="Escribe tu consulta aquí..." autocomplete="off"
                  class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-violet-500">
-          <button type="submit" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-xs transition-colors">
+          <button type="submit" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-xs transition-colors shrink-0">
             Enviar
           </button>
         </form>
@@ -687,11 +668,17 @@
       const email = 'barbara.covarrubias@hotmail.com';
       navigator.clipboard.writeText(email).then(() => {
         const btn = document.getElementById('copyEmailBtn');
-        btn.innerText = '¡Copiado!';
-        btn.classList.add('bg-emerald-600', 'text-white');
+        btn.innerHTML = `
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+          </svg>`;
+        btn.classList.add('bg-emerald-500/20', 'border', 'border-emerald-500/40');
         setTimeout(() => {
-          btn.innerText = 'Copiar';
-          btn.classList.remove('bg-emerald-600', 'text-white');
+          btn.innerHTML = `
+            <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
+            </svg>`;
+          btn.classList.remove('bg-emerald-500/20', 'border', 'border-emerald-500/40');
         }, 2000);
       });
     }
@@ -715,7 +702,7 @@
       });
     }
 
-    // --- CV Modal & Printable View ---
+    // --- CV Modal ---
     function openCvModal() {
       const modal = document.getElementById('cvModal');
       modal.classList.remove('hidden');
@@ -752,7 +739,7 @@
         <body>
           <h1>Bárbara Noelia Covarrubias</h1>
           <div class="role">IT Lead | Arquitectura de Medios de Pago & IA Generativa | Ingeniera en Sistemas</div>
-          <div class="contact">Francisco Álvarez, Buenos Aires, Argentina · +54 9 11 5523-2198 · barbara.covarrubias@hotmail.com · linkedin.com/in/ing-bárbara-noelia-covarrubias</div>
+          <div class="contact">Francisco Álvarez, Buenos Aires, Argentina · +54 9 11 5523-2198 · barbara.covarrubias@hotmail.com · linkedin.com/in/in/ing-barbara-noelia-covarrubias</div>
           
           <h2>Resumen Ejecutivo</h2>
           <p style="font-size: 12px; color: #334155;">Ingeniera en Sistemas con más de 8 años de experiencia liderando integraciones de misión crítica en medios de pago y adquirencia (Payway / Prisma). Especialista en la implementación de Servidores MCP (Model Context Protocol), orquestación de agentes con AWS Bedrock (Claude 3.5 Sonnet) y evaluación de calidad con métricas RAGAS.</p>
@@ -847,12 +834,11 @@
       modal.classList.remove('flex');
     }
 
-    // --- Bárbara AI Assistant Modal & Logic ---
+    // --- Bárbara AI Assistant Modal ---
     function openBarbaraAI() {
       const modal = document.getElementById('aiModal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-      document.getElementById('aiChatInput').focus();
     }
     function closeBarbaraAI() {
       const modal = document.getElementById('aiModal');
@@ -877,8 +863,8 @@
 
       const bubble = document.createElement('div');
       bubble.className = isAI 
-        ? 'p-3 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[85%]'
-        : 'p-3 rounded-2xl rounded-tr-none bg-brand-primary text-white leading-relaxed max-w-[85%]';
+        ? 'p-2.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[88%]'
+        : 'p-2.5 rounded-2xl rounded-tr-none bg-brand-primary text-white leading-relaxed max-w-[88%]';
       bubble.innerHTML = text;
 
       if (isAI) {
@@ -892,24 +878,35 @@
       container.scrollTop = container.scrollHeight;
     }
 
+    // Respuestas precisas, concisas y orientadas a valor técnico real
     function getLocalAiResponse(query) {
       const q = query.toLowerCase();
-      if (q.includes('mcp') || q.includes('model context protocol')) {
-        return "Bárbara diseñó e implementó el primer servidor corporativo <strong>MCP (Model Context Protocol)</strong> en Node.js/TypeScript para Payway. Esto permite que modelos como Claude 3.5 Sonnet ejecuten herramientas que consultan liquidaciones y cobros de forma segura bajo estrictos esquemas de gobernanza.";
+
+      if (q.includes('seniority') || q.includes('rol') || q.includes('cargo') || q.includes('actual') || q.includes('puesto')) {
+        return "Bárbara se desempeña como <strong>Product Integrations Lead / IT Lead</strong> en Payway (Prisma Medios de Pago). Es Ingeniera en Sistemas con más de 8 años en la industria fintech y lidera comités de arquitectura, seguridad y desarrollo.";
       }
-      if (q.includes('ragas') || q.includes('rag') || q.includes('evalua')) {
-        return "Para evitar alucinaciones en entornos financieros, Bárbara utiliza el framework <strong>RAGAS</strong> (evaluando Faithfulness, Answer Relevance y Context Recall), logrando umbrales consistentes por encima del 94% sobre bases vectoriales en pgvector.";
+
+      if (q.includes('mcp') || q.includes('protocol') || q.includes('context')) {
+        return "Desarrolló en Node.js el <strong>servidor MCP corporativo</strong> de Payway para conectar agentes autónomos (Claude 3.5 Sonnet / AWS Bedrock) con bases de cobros y liquidaciones, aislando credenciales adquirentes bajo estrictos estándares de seguridad.";
       }
-      if (q.includes('payway') || q.includes('portal') || q.includes('medios de pago') || q.includes('prisma')) {
-        return "En Payway / Prisma Medios de Pago, Bárbara lidera las integraciones técnicas y la evolución de <a href='https://docs.payway.com.ar' target='_blank' class='text-brand-cyan underline'>docs.payway.com.ar</a>, permitiendo a comercios y partners reducir su onboarding de 3 meses a menos de 1 semana.";
+
+      if (q.includes('ragas') || q.includes('rag') || q.includes('alucin') || q.includes('metrica')) {
+        return "Para los asistentes técnicos utiliza el framework <strong>RAGAS</strong> evaluando Context Recall, Faithfulness y Answer Relevance, manteniendo niveles superiores al 94% sobre bases vectoriales en pgvector para asegurar respuestas financieras exactas.";
       }
-      if (q.includes('lider') || q.includes('equipo') || q.includes('lead') || q.includes('gestion')) {
-        return "Como IT Lead, Bárbara articula comités de arquitectura, seguridad de la información y negocio, gestionando equipos multidisciplinarios bajo metodologías ágiles (Scrum/Kanban) con foco en Developer Experience y estabilidad transaccional.";
+
+      if (q.includes('stack') || q.includes('tecnologia') || q.includes('lenguaje') || q.includes('backend')) {
+        return "Su stack principal incluye: <strong>Backend:</strong> Java Spring Boot, Node.js/Express, Apache Kafka, PostgreSQL. <strong>IA:</strong> MCP, AWS Bedrock, n8n, pgvector, RAGAS. <strong>DevOps & Calidad:</strong> Grafana, Loki, Jenkins, Postman y SonarQube.";
       }
-      if (q.includes('contacto') || q.includes('mail') || q.includes('telefono') || q.includes('whatsapp') || q.includes('entrevista')) {
-        return "Podés contactarla directamente a su WhatsApp <strong>+54 9 11 5523-2198</strong> o a su correo <strong>barbara.covarrubias@hotmail.com</strong>. Vive en Francisco Álvarez y está disponible para posiciones híbridas o remotas.";
+
+      if (q.includes('payway') || q.includes('portal') || q.includes('medios de pago') || q.includes('adquirencia')) {
+        return "Lideró técnicamente el portal de documentación y sandboxes <a href='https://docs.payway.com.ar' target='_blank' class='text-brand-cyan underline'>docs.payway.com.ar</a>, logrando reducir los tiempos de integración de los comercios de 3 meses a solo 1 semana.";
       }
-      return "Bárbara es Ingeniera en Sistemas (UAI) y Diplomada en Inteligencia Artificial (UNO), desempeñándose como IT Lead en Payway / Prisma Medios de Pago. Posee amplia experiencia uniendo arquitecturas de pagos de alta disponibilidad con IA Generativa (MCP, RAGAS, Bedrock). ¿Te gustaría profundizar en algún proyecto o coordinar una entrevista?";
+
+      if (q.includes('contacto') || q.includes('entrevista') || q.includes('telefono') || q.includes('whatsapp') || q.includes('mail') || q.includes('correo')) {
+        return "Podés escribirle directo a su WhatsApp al <strong>+54 9 11 5523-2198</strong> o por correo a <strong>barbara.covarrubias@hotmail.com</strong>. Está disponible para oportunidades híbridas o remotas.";
+      }
+
+      return "Bárbara es IT Lead e Ingeniera en Sistemas especialista en pagos digitales e Inteligencia Artificial Generativa aplicada a entornos corporativos (MCP, RAGAS, APIs transaccionales). Podés consultarme sobre su stack, proyectos en Payway o sus datos de contacto.";
     }
 
     function handleAiChatSubmit(e) {
@@ -924,7 +921,7 @@
       setTimeout(() => {
         const reply = getLocalAiResponse(val);
         appendMessage('AI', reply);
-      }, 500);
+      }, 350);
     }
   </script>
 </body>
