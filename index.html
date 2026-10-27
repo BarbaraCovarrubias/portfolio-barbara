@@ -683,10 +683,14 @@
       </div>
 
       <div class="px-3 py-2 bg-slate-900/50 border-b border-slate-800/80 flex gap-2 overflow-x-auto text-[11px] shrink-0">
+        <button onclick="sendQuickPrompt('¿Quién es Bárbara? (Resumen)')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">¿Quién es Bárbara?</button>
+        <button onclick="sendQuickPrompt('Resumen detallado de 300 palabras')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Resumen 300 palabras</button>
         <button onclick="sendQuickPrompt('¿Cuál es su rol y experiencia en Payway?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Rol en Payway</button>
         <button onclick="sendQuickPrompt('¿Qué proyectos personales desarrolló?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Proyectos Personales</button>
-        <button onclick="sendQuickPrompt('¿Cómo funciona el servidor MCP Travel Copilot?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Travel Copilot MCP</button>
-        <button onclick="sendQuickPrompt('¿Cuáles son sus datos de contacto?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Contacto</button>
+        <button onclick="sendQuickPrompt('Travel Copilot MCP')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Travel Copilot MCP</button>
+        <button onclick="sendQuickPrompt('Stack Tecnológico')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Stack</button>
+        <button onclick="sendQuickPrompt('Métricas oficiales')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Métricas</button>
+        <button onclick="sendQuickPrompt('Datos de contacto')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Contacto</button>
       </div>
 
       <div id="aiChatContainer" class="flex-1 p-3.5 overflow-y-auto space-y-2.5 text-xs sm:text-sm">
@@ -757,7 +761,7 @@
     window.addEventListener('scroll', checkReveal);
     window.addEventListener('load', checkReveal);
 
-    // Bárbara AI Modal & Strict CV Logic
+    // Bárbara AI Modal & Interactive Logic
     function openBarbaraAI() {
       const modal = document.getElementById('aiModal');
       modal.classList.remove('hidden');
@@ -786,7 +790,7 @@
 
       const bubble = document.createElement('div');
       bubble.className = isAI 
-        ? 'p-2.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[88%]'
+        ? 'p-2.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[92%]'
         : 'p-2.5 rounded-2xl rounded-tr-none bg-brand-primary text-white leading-relaxed max-w-[88%]';
       bubble.innerHTML = text;
 
@@ -801,85 +805,224 @@
       container.scrollTop = container.scrollHeight;
     }
 
-// Motor de respuestas gobernado estrictamente por el portfolio profesional y directivas anti-alucinación
-    function getLocalAiResponse(query) {
-      const q = query.toLowerCase().trim();
-      const fallback = "Esa información no se encuentra especificada en el portfolio profesional disponible.";
+    function buildSuggestionChips(chips) {
+      if (!chips || !chips.length) return '';
+      let html = '<div class="mt-3 pt-2 border-t border-slate-800/80 flex flex-wrap gap-1.5"><span class="text-[10px] text-slate-400 w-full mb-0.5">Sugerencias para seguir explorando:</span>';
+      chips.forEach(c => {
+        html += `<button type="button" onclick="sendQuickPrompt('${c}')" class="px-2 py-0.5 rounded-full bg-slate-800 hover:bg-slate-700 text-[10.5px] text-brand-cyan border border-slate-700/80 transition-colors">${c}</button>`;
+      });
+      html += '</div>';
+      return html;
+    }
 
-      // 1. ¿Quién es Bárbara? / Resumen profesional en ~100 palabras
-      if (q.includes('quien es') || q.includes('quién es') || q.includes('quien sos') || q.includes('quién sos') || 
-          q.includes('resumen') || q.includes('sobre barbara') || q.includes('sobre ella') || q.includes('perfil') || 
-          q.includes('presentate') || q.includes('presentación') || q.includes('presentacion') || q.includes('introduccion')) {
-        return "<strong>Bárbara Noelia Covarrubias</strong> es Ingeniera en Sistemas Informáticos e IT Lead con destacada trayectoria técnica y de gestión en Prisma Medios de Pago y Payway. Especializada en la arquitectura, delivery y despliegue productivo de soluciones de Inteligencia Artificial Generativa (RAG en AWS Bedrock con modelos de Anthropic, PostgreSQL con pgvector, servidores MCP y auditoría RAGAS) y plataformas transaccionales de alta concurrencia. Lidera células ágiles en la evolución del Portal de Integraciones bajo microservicios reactivos en Java Spring Boot, React, Kafka y Webhooks, diseñando contratos de API para la integración escalable de e-commerce y terminales de pago.";
+    // Normalizador de texto para búsquedas semánticas flexibles
+    function normalizeQuery(text) {
+      return text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-z0-9 ]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    // Motor de Respuestas Semántico & Dinámico sobre el CV de Bárbara Covarrubias
+    function getLocalAiResponse(rawQuery) {
+      const q = normalizeQuery(rawQuery);
+      const fallback = "Esa información no se encuentra especificada en el CV o portfolio profesional de Bárbara Covarrubias. Puedes consultar sobre su rol en Payway, proyectos personales (Travel Copilot MCP, E-commerce, Tesis UAI), soluciones de IA Generativa, stack técnico, formación o métricas de impacto." + 
+        buildSuggestionChips(['¿Quién es Bárbara?', '¿Cuál es su rol en Payway?', 'Proyectos Personales', 'Stack Tecnológico']);
+
+      // 1. Resumen de 300 palabras o versión extendida
+      if ((q.includes('300') || q.includes('extenso') || q.includes('largo') || q.includes('detallado') || q.includes('completo')) && 
+          (q.includes('resum') || q.includes('hace') || q.includes('perfil') || q.includes('barbara') || q.includes('quien'))) {
+        return "<strong>Bárbara Noelia Covarrubias</strong> es Ingeniera en Sistemas Informáticos (UAI) e IT Lead especializada en la arquitectura, delivery técnico y despliegue productivo de soluciones de <strong>Inteligencia Artificial Generativa</strong> y plataformas transaccionales de alta concurrencia en el ecosistema <strong>Prisma Medios de Pago / Payway</strong>.<br><br>" +
+               "En su rol como <strong>IT Lead de Plataforma de Integraciones & AI Solutions</strong> en Payway (desde abril de 2023), lidera equipos de más de 10 profesionales técnicos, coordinando backlog en Jira, ceremonias ágiles y pipelines en GitLab. Lideró la puesta en producción de flujos agénticos con <strong>n8n</strong>, modelos fundacionales de <strong>Anthropic en AWS Bedrock</strong>, memoria en <strong>Redis</strong>, búsqueda vectorial relacional en <strong>PostgreSQL (pgvector)</strong> y auditoría de alucinaciones con <strong>RAGAS</strong> (0% incidentes en release). Además, diseñó el servidor corporativo <strong>MCP (Model Context Protocol)</strong> en Node.js sobre AWS para exponer herramientas de cobro y contratos OpenAPI directo en los IDEs de desarrollo.<br><br>" +
+               "En la capa transaccional, conduce microservicios reactivos en <strong>Java Spring Boot</strong> y frontends en <strong>React</strong> comunicados vía <strong>Apache Kafka y Webhooks</strong>, gobernando las APIs para e-commerce (WooCommerce, VTEX) y terminales POS. Cuenta con experiencia previa como Project Manager en Prisma (2022–2023) y 6 años como Analista Funcional Técnico Sr & QA Tester (QServices/Accenture en Edenor, YPF y Telecom Italia).<br><br>" +
+               "Desarrolló proyectos destacados como el copiloto autónomo <strong>Travel Copilot MCP</strong>, una plataforma e-commerce con checkout <strong>Mercado Pago</strong> y su tesis hospitalaria integral." +
+               buildSuggestionChips(['¿Qué tecnologías usa en Payway?', 'Detalles del Servidor MCP', 'Proyectos Personales', 'Descargar CV']);
       }
 
-      // 2. Proyectos Personales & Arquitecturas de Software
-      if (q.includes('travel copilot') || (q.includes('viaje') && (q.includes('mcp') || q.includes('agente') || q.includes('proyecto')))) {
-        return "<strong>1. Servidor MCP Travel Copilot (Agente Orquestador Multiciudad):</strong><br>Desarrollado en TypeScript (Node.js) con almacenamiento en SQLite y JSON estructurado. Actúa como copiloto inteligente para estructurar y orquestar viajes complejos multiciudad, conexiones de transporte, hotelería y presupuestos multidivisa con validación temporal.<br>• <strong>Tools:</strong> <code>add_itinerary_segment</code> (registra traslados y reservas con horarios), <code>check_schedule_conflicts</code> (valida tiempos viables y detecta solapamientos), <code>track_budget_expense</code> (control de gastos estimados vs. reales en EUR, USD y ARS con conversión cambiaria).<br>• <strong>Resources:</strong> <code>trip://itinerary/current</code> (cronograma consolidado día a día en JSON para inyección de contexto al LLM).<br>• <strong>Prompts:</strong> <code>suggest-daily-route</code> (recorrido diario geográficamente lógico para optimizar tiempos).";
+      // 2. Resumen ejecutivo / Quién es / Qué hace / Presentación
+      if (q.includes('quien es') || q.includes('quien sos') || q.includes('que hace') || q.includes('resum') || 
+          q.includes('perfil') || q.includes('present') || q.includes('sobre ella') || q.includes('sobre barbara') || q.includes('biografia')) {
+        return "<strong>Bárbara Noelia Covarrubias</strong> es Ingeniera en Sistemas Informáticos e IT Lead con sólida trayectoria técnica y de gestión en Prisma Medios de Pago y Payway.<br><br>" +
+               "Especializada en arquitectura técnica, delivery ágil y puesta en producción de soluciones de <strong>Inteligencia Artificial Generativa</strong> (RAG en AWS Bedrock con modelos Anthropic, PostgreSQL pgvector, servidores MCP y evaluación continua RAGAS) y en plataformas de integración transaccionales de alta concurrencia. Conduce la evolución del Portal de Integraciones bajo microservicios reactivos (Java Spring Boot, React, Kafka, Webhooks), diseñando contratos de API que habilitan la integración escalable de e-commerce y terminales de pago." +
+               buildSuggestionChips(['Resumen extendido (300 palabras)', 'Rol en Payway', 'Proyectos de IA y MCP', 'Datos de contacto']);
       }
 
-      if (q.includes('limpieza') || (q.includes('distribuidora') && (q.includes('ecommerce') || q.includes('e-commerce') || q.includes('articulos'))) || (q.includes('mercado pago') && q.includes('proyecto'))) {
-        return "<strong>2. Plataforma E-commerce Full-Stack Mayorista y Minorista:</strong><br>Arquitectura y desarrollo end-to-end para una distribuidora de artículos de limpieza con operatoria B2B y B2C. Incluye catálogo público con filtrado dinámico, carrito reactivo, pasarela de checkout integrada con múltiples medios de pago (Mercado Pago vía API y transferencias), panel administrativo de gestión de órdenes y stock, y pipeline de emails transaccionales asíncronos.";
+      // 3. Travel Copilot MCP (Herramientas, prompts, resources)
+      if (q.includes('travel copilot') || (q.includes('mcp') && (q.includes('viaje') || q.includes('copilot') || q.includes('turismo') || q.includes('itinerario') || q.includes('tools') || q.includes('prompts')))) {
+        return "<strong>Servidor MCP Travel Copilot (Agente Orquestador Multiciudad):</strong><br>" +
+               "Copiloto inteligente desarrollado bajo la especificación del Model Context Protocol (MCP) para orquestar viajes complejos multiciudad, traslados, hotelería y presupuestos multidivisa.<br><br>" +
+               "• <strong>Stack:</strong> TypeScript (Node.js) con almacenamiento estructurado en SQLite y JSON.<br>" +
+               "• <strong>Tools (Herramientas):</strong><br>" +
+               "  - <code>add_itinerary_segment</code>: registra traslados (vuelos, trenes, buses) y reservas con horarios check-in/out, estaciones y códigos.<br>" +
+               "  - <code>check_schedule_conflicts</code>: valida viabilidad temporal y detecta solapamientos o conexiones con margen crítico.<br>" +
+               "  - <code>track_budget_expense</code>: control de presupuestos estimados vs. reales en EUR, USD y ARS con conversión cambiaria.<br>" +
+               "• <strong>Resources (Recursos):</strong> <code>trip://itinerary/current</code> (expone el itinerario consolidado día a día en JSON para inyección de contexto al LLM).<br>" +
+               "• <strong>Prompts:</strong> <code>suggest-daily-route</code> (analiza atracciones seleccionadas y genera recorridos geográficamente eficientes)." +
+               buildSuggestionChips(['¿Qué es el servidor MCP de Payway?', 'E-commerce artículos de limpieza', 'Tesis UAI Hospitalaria', 'Stack Tecnológico']);
       }
 
-      if (q.includes('tesis') || q.includes('clinica') || q.includes('clínica') || q.includes('hospital') || q.includes('hospitalario') || q.includes('pacientes')) {
-        return "<strong>3. Sistema Integral para Clínicas y Hospitales (Tesis de Grado UAI):</strong><br>Desarrollo integral para la obtención del título de Ingeniera en Sistemas Informáticos (UAI). Plataforma modular hospitalaria de alta disponibilidad que contempla: admisión y administración de pacientes, gestión integral de agendas y turnos médicos en tiempo real, seguimiento de calendario oficial de vacunación y módulo seguro de historias clínicas electrónicas bajo estándares de confidencialidad y auditoría.";
+      // 4. Servidor MCP de Payway
+      if (q.includes('mcp') && (q.includes('payway') || q.includes('produccion') || q.includes('corporativo') || q.includes('empresa') || q.includes('servidor'))) {
+        return "<strong>Servidor MCP (Model Context Protocol) en Payway:</strong><br>" +
+               "Bárbara diseñó la arquitectura y lideró el desarrollo en Node.js sobre contenedores AWS (ECS/ECR) del servidor MCP corporativo para la Plataforma de Integraciones de Payway.<br><br>" +
+               "• <strong>Objetivo:</strong> Exponer herramientas de cobro transaccional, contratos OpenAPI/Swagger y capacidades de RAG directamente en los entornos de desarrollo (IDEs) de los integradores.<br>" +
+               "• <strong>Impacto:</strong> Aceleró drásticamente el onboarding técnico de desarrolladores y redujo los tiempos de integración de comercios." +
+               buildSuggestionChips(['¿Qué es Travel Copilot MCP?', 'Flujos agénticos e IA en Payway', 'Métricas de impacto', 'Stack de Payway']);
       }
 
-      if (q.includes('barbara ia') || q.includes('bárbara ia') || (q.includes('asistente') && q.includes('portfolio'))) {
-        return "<strong>4. Bárbara IA: Asistente Agéntico de Carrera y Validación Técnica:</strong><br>Diseño e implementación del agente inteligente embebido en este portfolio web profesional (barbaracovarrubias.github.io/portfolio-barbara/). Opera bajo directivas anti-alucinación estrictas, asistiendo en tiempo real a reclutadores técnicos y comités de arquitectura respondiendo únicamente sobre la información verificada de su perfil profesional.";
+      // 5. ¿Qué es MCP de forma general?
+      if (q.includes('que es mcp') || q.includes('que significa mcp') || q.includes('model context protocol')) {
+        return "<strong>Model Context Protocol (MCP):</strong> Es el estándar abierto de comunicación creado por Anthropic para conectar modelos de lenguaje (LLMs) con fuentes de datos externas, herramientas locales y entornos de ejecución.<br><br>" +
+               "Bárbara cuenta con experiencia pionera en MCP aplicándolo en dos niveles:<br>" +
+               "1. <strong>Corporativo:</strong> Servidor MCP en Payway sobre AWS para exponer APIs de cobro y RAG en IDEs.<br>" +
+               "2. <strong>Personal:</strong> Proyecto <em>Travel Copilot MCP</em> orquestando herramientas de itinerarios y presupuestos multidivisa." +
+               buildSuggestionChips(['Servidor MCP de Payway', 'Travel Copilot MCP', 'Soluciones de IA Generativa']);
       }
 
-      if (q.includes('proyectos personales') || q.includes('proyecto personal') || q.includes('proyectos')) {
-        return "Sus proyectos personales documentados en el portfolio son:<br>1. <strong>Servidor MCP Travel Copilot:</strong> Orquestador inteligente de viajes complejos multiciudad (TypeScript, Node.js, SQLite/JSON).<br>2. <strong>Plataforma E-commerce Full-Stack:</strong> Mayorista y minorista de artículos de limpieza con Mercado Pago API y panel admin.<br>3. <strong>Sistema Clínico y Hospitalario:</strong> Tesis de grado UAI con gestión de turnos, vacunación e historias clínicas.<br>4. <strong>Bárbara IA:</strong> Agente embebido con guardrails anti-alucinación en su portfolio web.";
+      // 6. E-commerce Distribuidora Artículos de Limpieza
+      if (q.includes('limpieza') || q.includes('mercado pago') || (q.includes('ecommerce') || q.includes('e commerce')) && (q.includes('mayorista') || q.includes('minorista') || q.includes('distribuidora'))) {
+        return "<strong>Plataforma E-commerce Full-Stack Mayorista y Minorista:</strong><br>" +
+               "Arquitectura y desarrollo end-to-end de una solución de comercio electrónico diseñada a medida para una distribuidora de artículos de limpieza con operativa mixta B2B y B2C.<br><br>" +
+               "• <strong>Catálogo & Experiencia:</strong> Catálogo público con filtrado reactivo de productos y carrito de compras dinámico.<br>" +
+               "• <strong>Checkout & Pagos:</strong> Integración de pasarela con múltiples medios de pago mediante API de Mercado Pago y transferencias bancarias.<br>" +
+               "• <strong>Backend & Gestión:</strong> Panel de administración para inventario y órdenes, con pipeline asíncrono de emails transaccionales." +
+               buildSuggestionChips(['Travel Copilot MCP', 'Tesis UAI Hospitalaria', 'Stack Backend & Frontend']);
       }
 
-      // 3. Experiencia Laboral
-      if (q.includes('payway') || q.includes('portal de integraciones') || q.includes('docs.payway') || (q.includes('experiencia') && q.includes('actual'))) {
-        return "<strong>Payway — IT Lead - Plataforma de Integraciones & AI Solutions (abr 2023 - Actualidad):</strong><br>• <strong>Liderazgo Técnico de Célula:</strong> Coordinación técnica y delivery ágil del equipo de ingeniería asignado al Portal (docs.payway.com.ar), orquestando ceremonias, priorización de deuda técnica y backlog en Jira y GitLab, asegurando consistencia con arquitectura, infoSec y negocio.<br>• <strong>Implementación de IA & Agentic Workflows:</strong> Diseño técnico y despliegue del asistente inteligente de integración con n8n, AWS Bedrock, memoria en Redis y RAG sobre Amazon Bedrock Knowledge Bases.<br>• <strong>Servidor MCP:</strong> Arquitectura en Node.js sobre AWS (ECS/ECR) para exponer herramientas de cobro, contratos OpenAPI y RAG directamente en los IDEs de desarrollo.<br>• <strong>Arquitectura de Eventos & Backend:</strong> Conducción técnica de microservicios en Java Spring Boot y frontend en React con Kafka y Webhooks.<br>• <strong>Evaluación RAGAS & Seguridad:</strong> Pipeline en Python (enfoque LLM) para auditar Faithfulness, Answer Relevance y Semantic Similarity.<br>• <strong>Estandarización de APIs & Monitoreo:</strong> Especificaciones OpenAPI/Swagger, observabilidad con Grafana y CI/CD sobre AWS y PostgreSQL.";
+      // 7. Sistema Clínico / Hospitalario / Tesis de Grado UAI
+      if (q.includes('tesis') || q.includes('clinica') || q.includes('hospital') || q.includes('paciente') || q.includes('vacun') || q.includes('medico') || q.includes('salud')) {
+        return "<strong>Sistema Integral para Clínicas y Hospitales (Tesis de Grado UAI):</strong><br>" +
+               "Desarrollo arquitectónico completo para la graduación como <strong>Ingeniera en Sistemas Informáticos (2022)</strong> en la Universidad Abierta Interamericana.<br><br>" +
+               "• <strong>Admisión y Pacientes:</strong> Registro, alta y administración de fichas médicas.<br>" +
+               "• <strong>Agendas & Turnos:</strong> Gestión de disponibilidad y turnos médicos en tiempo real.<br>" +
+               "• <strong>Calendario de Vacunación:</strong> Módulo de seguimiento del calendario oficial de dosis aplicadas.<br>" +
+               "• <strong>Historias Clínicas Electrónicas:</strong> Expediente clínico digital bajo estándares de auditoría, seguridad y confidencialidad." +
+               buildSuggestionChips(['Formación académica', 'Servidor MCP Travel Copilot', 'E-commerce Full-Stack']);
       }
 
-      if (q.includes('prisma') || q.includes('project manager')) {
-        return "<strong>Prisma Medios de Pago — Project Manager - Integraciones Payway (may 2022 - mar 2023):</strong><br>Liderazgo y seguimiento operativo de proyectos de integración con grandes comercios y partners; coordinación de homologaciones técnicas de pasarelas de pago y terminales punto de venta junto a Desarrollo y QA bajo metodología Scrum.";
+      // 8. Bárbara IA (El propio agente)
+      if (q.includes('barbara ia') || (q.includes('agente') && q.includes('portfolio')) || q.includes('guardrail') || q.includes('anti alucinacion')) {
+        return "<strong>Bárbara IA: Asistente Agéntico de Carrera y Validación Técnica:</strong><br>" +
+               "Es el agente inteligente embebido en este portfolio web profesional.<br><br>" +
+               "• <strong>Arquitectura:</strong> Diseñado bajo directivas anti-alucinación y guardrails estrictos para responder únicamente en base a los hechos verificados del CV y portfolio de Bárbara.<br>" +
+               "• <strong>Propósito:</strong> Permitir a reclutadores técnicos y comités de arquitectura evaluar su experiencia, stack y proyectos en tiempo real." +
+               buildSuggestionChips(['¿Quién es Bárbara?', 'Métricas oficiales', 'Rol en Payway']);
       }
 
-      if (q.includes('qservices') || q.includes('accenture') || q.includes('qa') || q.includes('tester') || q.includes('analista funcional')) {
-        return "<strong>QServices & Accenture — Analista Funcional Técnico Sr & QA Tester (2016 - 2022):</strong><br>• <strong>QServices (2020-2022):</strong> Análisis funcional técnico en integraciones Payway (Visa/Decidir) y proyectos Cloud AWS en Edenor (Web Services, Oracle, Postman).<br>• <strong>Accenture (2016-2020):</strong> QA y análisis técnico en interfaces críticas y procesos batch SQL/SAP para YPF y Telecom Italia.";
+      // 9. Todos los proyectos personales (resumen global)
+      if (q.includes('proyectos personales') || q.includes('proyecto personal') || (q.includes('proyectos') && !q.includes('payway'))) {
+        return "Bárbara desarrolló 4 proyectos personales clave destacados en su portfolio:<br><br>" +
+               "1. <strong>Travel Copilot MCP:</strong> Copiloto orquestador de viajes multiciudad (TypeScript, Node.js, SQLite/JSON) con herramientas, recursos y prompts MCP.<br>" +
+               "2. <strong>E-commerce Mayorista/Minorista:</strong> Tienda para distribuidora de limpieza con catálogo reactivo, panel admin y checkout Mercado Pago.<br>" +
+               "3. <strong>Sistema Integral Hospitalario:</strong> Tesis de grado UAI con gestión de pacientes, turnos en tiempo real, vacunación e historias clínicas.<br>" +
+               "4. <strong>Bárbara IA:</strong> Agente inteligente embebido en el portfolio con guardrails anti-alucinación." +
+               buildSuggestionChips(['Travel Copilot MCP', 'E-commerce de limpieza', 'Tesis UAI', 'Bárbara IA']);
       }
 
-      // 4. Métricas Oficiales
-      if (q.includes('metrica') || q.includes('métrica') || q.includes('kpi') || q.includes('cifra') || q.includes('rendimiento') || q.includes('time-to-market') || q.includes('ragas')) {
-        return "Métricas oficiales destacadas en el portfolio:<br>• <strong>1T → 1sem:</strong> Ciclo por feature con IA.<br>• <strong>+90%:</strong> Reducción Time-to-Market.<br>• <strong>10+:</strong> Equipo técnico liderado.<br>• <strong>MCP:</strong> Implementado en producción.<br>• <strong>> 94%:</strong> Precisión RAGAS (Cero alucinación).";
+      // 10. Payway / Rol actual / Plataforma de Integraciones
+      if (q.includes('payway') || q.includes('portal') || q.includes('liderazgo') || q.includes('rol actual') || q.includes('puesto actual') || q.includes('experiencia actual')) {
+        return "<strong>Payway — IT Lead - Plataforma de Integraciones & AI Solutions (abr 2023 - Actualidad):</strong><br><br>" +
+               "• <strong>Liderazgo Técnico de Célula:</strong> Coordinación técnica y delivery ágil de célula de más de 10 ingenieros asignados a la plataforma (<a href='https://docs.payway.com.ar' target='_blank' class='text-brand-cyan underline'>docs.payway.com.ar</a>), ceremonias Scrum, gestión de deuda técnica y backlog en Jira y GitLab.<br>" +
+               "• <strong>IA Agéntica en Producción:</strong> Asistente de integración con flujos n8n, modelos Anthropic en AWS Bedrock, Redis y RAG sobre Bedrock Knowledge Bases.<br>" +
+               "• <strong>Servidor MCP:</strong> Servidor corporativo en Node.js sobre AWS (ECS/ECR) para exponer APIs y contratos OpenAPI en IDEs.<br>" +
+               "• <strong>Arquitectura Backend:</strong> Microservicios reactivos en Java Spring Boot y React con Apache Kafka y Webhooks.<br>" +
+               "• <strong>Calidad RAGAS:</strong> Pipeline en Python para auditar fidelidad y relevancia semántica en respuestas de IA.<br>" +
+               "• <strong>Observabilidad:</strong> Monitoreo continuo con Grafana y CI/CD sobre AWS y PostgreSQL." +
+               buildSuggestionChips(['Métricas en Payway', 'Servidor MCP Payway', 'Prisma Medios de Pago', 'Stack Tecnológico']);
       }
 
-      // 5. Competencias Técnicas & Stack
-      if (q.includes('stack') || q.includes('habilidades') || q.includes('competencias') || q.includes('tecnologias') || q.includes('tecnologías') || q.includes('lenguajes') || q.includes('java') || q.includes('node') || q.includes('python') || q.includes('kafka') || q.includes('aws') || q.includes('bedrock') || q.includes('postgres') || q.includes('sqlite') || q.includes('redis')) {
-        return "Competencias Técnicas & Stack especificados en el portfolio:<br>• <strong>Liderazgo & Delivery:</strong> Células Técnicas, Scrum, Jira, GitLab CI/CD, Stakeholders.<br>• <strong>Medios de Pago:</strong> Plataformas de Integración, E-commerce (WooCommerce, VTEX), POS API, OpenAPI/Swagger, Checkouts.<br>• <strong>IA Generativa & LLMs:</strong> MCP, Agentic Workflows, AWS Bedrock (Anthropic), RAG, Framework RAGAS (LLM), n8n, Prompt Engineering, Spec-Driven Development (SDD).<br>• <strong>Arquitectura & Backend:</strong> Java Spring Boot, Node.js, Python, Apache Kafka, Webhooks, APIs REST, React, AWS (ECS, ECR, S3), Docker.<br>• <strong>Datos & Observabilidad:</strong> PostgreSQL (pgvector), SQLite, Redis, SQL Server, Keycloak (OAuth2/JWT), Grafana, Guardrails.";
+      // 11. Prisma Medios de Pago (Project Manager)
+      if (q.includes('prisma') || (q.includes('project manager') || q.includes('pm'))) {
+        return "<strong>Prisma Medios de Pago — Project Manager - Integraciones Payway (may 2022 - mar 2023):</strong><br><br>" +
+               "• Liderazgo y seguimiento de proyectos de integración con grandes comercios y partners bajo Scrum.<br>" +
+               "• Coordinación de homologaciones técnicas de pasarelas de pago online y terminales punto de venta (POS) junto a Desarrollo y QA." +
+               buildSuggestionChips(['Rol actual en Payway', 'Experiencia en QA / Accenture', 'Métricas de impacto']);
       }
 
-      // 6. Formación Académica & Certificaciones
-      if (q.includes('formacion') || q.includes('formación') || q.includes('estudio') || q.includes('educacion') || q.includes('educación') || q.includes('universidad') || q.includes('titulo') || q.includes('título') || q.includes('ingeniera') || q.includes('uai') || q.includes('uno') || q.includes('itba') || q.includes('certificacion') || q.includes('certificación') || q.includes('diplomatura')) {
-        return "Formación y Certificaciones oficiales de Bárbara:<br>• <strong>Diplomatura Sup. en IA Aplicada y Tec. Emergentes:</strong> Univ. Nacional del Oeste (UNO) - En Curso.<br>• <strong>Ingeniería en Sistemas Informáticos:</strong> Univ. Abierta Interamericana (UAI) - Graduada 2022.<br>• <strong>Certificación Profesional en Project Management:</strong> Instituto Tecnológico de Buenos Aires (ITBA, 2023).<br>• <strong>Certificaciones:</strong> Amazon Q Developer, Engineering Lead, Scrum.";
+      // 12. QServices & Accenture (QA / Análisis Funcional)
+      if (q.includes('accenture') || q.includes('qservices') || q.includes('qa') || q.includes('tester') || q.includes('testing') || q.includes('funcional')) {
+        return "<strong>QServices & Accenture — Analista Funcional Técnico Sr & QA Tester (2016 - 2022):</strong><br><br>" +
+               "• <strong>QServices (2020–2022):</strong> Análisis funcional técnico en integraciones Payway (Visa/Decidir) y proyectos Cloud AWS en Edenor (Web Services, Oracle, Postman).<br>" +
+               "• <strong>Accenture (2016–2020):</strong> QA y análisis técnico en interfaces críticas transaccionales y procesos batch SQL/SAP para empresas como YPF y Telecom Italia." +
+               buildSuggestionChips(['Experiencia en Prisma', 'Rol como IT Lead en Payway', 'Stack Tecnológico']);
       }
 
-      // 7. Contacto, Ubicación, Ciudadanía e Idiomas
-      if (q.includes('contacto') || q.includes('whatsapp') || q.includes('telefono') || q.includes('teléfono') || q.includes('celular') || q.includes('mail') || q.includes('correo') || q.includes('email') || q.includes('linkedin')) {
-        return "Datos de contacto de Bárbara Noelia Covarrubias:<br>• Teléfono / WhatsApp: +54 9 11 5523-2198<br>• Correo: barbara.covarrubias@hotmail.com<br>• LinkedIn: linkedin.com/in/ing-bárbara-noelia-covarrubias<br>• Portfolio: barbaracovarrubias.github.io/portfolio-barbara/";
+      // 13. Métricas y KPIs oficiales
+      if (q.includes('metrica') || q.includes('kpi') || q.includes('cifra') || q.includes('rendimiento') || q.includes('time to market') || q.includes('entrega') || q.includes('incidentes')) {
+        return "<strong>Métricas Oficiales de Impacto de Bárbara Covarrubias:</strong><br><br>" +
+               "• <strong>1T → 1sem:</strong> Reducción drástica del ciclo por feature integrando aceleración con IA.<br>" +
+               "• <strong>+90%:</strong> Eficiencia en entregas y cumplimiento de roadmap del equipo.<br>" +
+               "• <strong>10+:</strong> Miembros en célula técnica liderada (Desarrollo, QA y DevOps).<br>" +
+               "• <strong>MCP:</strong> Primer servidor corporativo implementado y activo en producción.<br>" +
+               "• <strong>0%:</strong> Incidentes en release a producción gracias a pipelines de calidad y auditoría RAGAS." +
+               buildSuggestionChips(['Rol en Payway', 'Servidor MCP', 'Descargar CV']);
       }
 
-      if (q.includes('ubicacion') || q.includes('ubicación') || q.includes('donde vive') || q.includes('dónde vive') || q.includes('moron') || q.includes('morón')) {
-        return "Bárbara reside en Francisco Álvarez, Buenos Aires.";
+      // 14. Stack Tecnológico / Habilidades
+      if (q.includes('stack') || q.includes('tecnolog') || q.includes('lenguaje') || q.includes('herramientas') || 
+          q.includes('java') || q.includes('python') || q.includes('node') || q.includes('react') || q.includes('kafka') || 
+          q.includes('aws') || q.includes('postgres') || q.includes('docker') || q.includes('bedrock') || q.includes('redis')) {
+        return "<strong>Competencias Técnicas & Stack:</strong><br><br>" +
+               "• <strong>Liderazgo & Delivery:</strong> Células Técnicas, Scrum, Jira, GitLab CI/CD, Stakeholders, Spec-Driven Development (SDD).<br>" +
+               "• <strong>Medios de Pago:</strong> Plataformas de Integración, E-commerce (WooCommerce, VTEX), POS API, OpenAPI/Swagger, Checkouts transaccionales.<br>" +
+               "• <strong>IA Generativa & LLMs:</strong> Model Context Protocol (MCP), Agentic Workflows, AWS Bedrock (Anthropic), RAG, Framework RAGAS, n8n, Prompt Engineering.<br>" +
+               "• <strong>Arquitectura & Backend:</strong> Java (Spring Boot), Node.js, Python, Apache Kafka, Webhooks, APIs REST, React, AWS (ECS, ECR, S3), Docker.<br>" +
+               "• <strong>Datos & Observabilidad:</strong> PostgreSQL (extensión pgvector), SQLite, Redis, SQL Server, Keycloak (OAuth2/JWT), Grafana, Guardrails." +
+               buildSuggestionChips(['Soluciones de IA en Payway', 'Proyectos Personales', 'Métricas de impacto']);
       }
 
-      if (q.includes('ciudadania') || q.includes('ciudadanía') || q.includes('nacionalidad') || q.includes('pasaporte') || q.includes('italiana')) {
-        return "Cuenta con Ciudadanía Italiana.";
+      // 15. Formación Académica & Certificaciones
+      if (q.includes('formacion') || q.includes('estudio') || q.includes('educacion') || q.includes('universidad') || 
+          q.includes('titulo') || q.includes('carrera') || q.includes('ingeniera') || q.includes('uai') || q.includes('uno') || q.includes('itba') || q.includes('certificacion')) {
+        return "<strong>Formación Académica & Certificaciones:</strong><br><br>" +
+               "• <strong>Diplomatura Superior en IA Aplicada y Tecnologías Emergentes:</strong> Universidad Nacional del Oeste (UNO) – <em>En Curso</em>.<br>" +
+               "• <strong>Ingeniería en Sistemas Informáticos:</strong> Universidad Abierta Interamericana (UAI) – <em>Graduada 2022</em>.<br>" +
+               "• <strong>Certificación Profesional en Project Management:</strong> Instituto Tecnológico de Buenos Aires (ITBA, 2023).<br>" +
+               "• <strong>Certificaciones Internacionales:</strong> Amazon Q Developer, Engineering Lead, Scrum Master." +
+               buildSuggestionChips(['Tesis de Grado UAI', 'Stack Tecnológico', 'Experiencia en Payway']);
       }
 
-      if (q.includes('idioma') || q.includes('idiomas') || q.includes('ingles') || q.includes('inglés') || q.includes('español')) {
-        return "Idiomas especificados en el portfolio:<br>• Español (Nativo)<br>• Inglés (Intermedio B1).";
+      // 16. Contacto, Ubicación, Ciudadanía, Idiomas
+      if (q.includes('contacto') || q.includes('whatsapp') || q.includes('telefono') || q.includes('celular') || q.includes('mail') || q.includes('correo') || q.includes('email') || q.includes('linkedin')) {
+        return "<strong>Canales de Contacto Directo:</strong><br><br>" +
+               "• <strong>WhatsApp / Tel:</strong> <a href='https://wa.me/5491155232198' target='_blank' class='text-brand-cyan underline'>+54 9 11 5523-2198</a><br>" +
+               "• <strong>Correo:</strong> <a href='mailto:barbara.covarrubias@hotmail.com' class='text-brand-cyan underline'>barbara.covarrubias@hotmail.com</a><br>" +
+               "• <strong>LinkedIn:</strong> <a href='https://www.linkedin.com/in/ing-barbara-noelia-covarrubias' target='_blank' class='text-brand-cyan underline'>linkedin.com/in/ing-barbara-noelia-covarrubias</a><br>" +
+               "• <strong>Portfolio:</strong> <a href='https://barbaracovarrubias.github.io/portfolio-barbara/' target='_blank' class='text-brand-cyan underline'>barbaracovarrubias.github.io/portfolio-barbara/</a>" +
+               buildSuggestionChips(['¿Dónde vive?', 'Ciudadanía e Idiomas', 'Descargar CV']);
       }
 
-      // 8. Regla de oro anti-alucinación: solo lo que está en el portfolio
+      if (q.includes('donde vive') || q.includes('ubicacion') || q.includes('zona') || q.includes('reside') || q.includes('francisco alvarez') || q.includes('moreno') || q.includes('buenos aires')) {
+        return "Bárbara reside en <strong>Francisco Álvarez, Buenos Aires, Argentina</strong>." +
+               buildSuggestionChips(['Datos de contacto', 'Ciudadanía e Idiomas', '¿Quién es Bárbara?']);
+      }
+
+      if (q.includes('ciudadania') || q.includes('nacionalidad') || q.includes('pasaporte') || q.includes('italiana')) {
+        return "Bárbara cuenta con <strong>Ciudadanía Italiana</strong> (habilitación para trabajar en la Unión Europea sin patrocinio de visa)." +
+               buildSuggestionChips(['Idiomas que habla', 'Datos de contacto', 'Descargar CV']);
+      }
+
+      if (q.includes('idioma') || q.includes('ingles') || q.includes('espanol') || q.includes('english')) {
+        return "<strong>Idiomas:</strong><br>• <strong>Español:</strong> Nativo.<br>• <strong>Inglés:</strong> Intermedio B1." +
+               buildSuggestionChips(['Ciudadanía Italiana', 'Formación Académica', 'Rol en Payway']);
+      }
+
+      // 17. Descargar CV
+      if (q.includes('descargar') || q.includes('cv') || q.includes('curriculum') || q.includes('pdf')) {
+        return "Puedes descargar el <strong>Currículum Vitae Oficial en PDF</strong> haciendo clic en el siguiente enlace:<br><br>" +
+               "<a href='CV_Barbara_Covarrubias.pdf' download='CV_Barbara_Covarrubias.pdf' target='_blank' class='inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-primary text-white text-xs font-semibold hover:bg-blue-600 transition-colors'>📥 Descargar CV Oficial (PDF)</a>" +
+               buildSuggestionChips(['¿Quién es Bárbara?', 'Métricas oficiales', 'Stack Tecnológico']);
+      }
+
+      // 18. Saludos cordiales
+      if (q === 'hola' || q === 'buenas' || q === 'buenos dias' || q === 'buenas tardes' || q === 'buenas noches' || q === 'hola como estas') {
+        return "¡Hola! Soy el asistente virtual de <strong>Bárbara Noelia Covarrubias</strong>. ¿Sobre qué aspecto de su perfil te gustaría conocer más?" +
+               buildSuggestionChips(['¿Quién es Bárbara?', 'Rol en Payway', 'Proyectos Personales', 'Métricas de impacto']);
+      }
+
       return fallback;
     }
 
@@ -895,7 +1038,7 @@
       setTimeout(() => {
         const reply = getLocalAiResponse(val);
         appendMessage('AI', reply);
-      }, 350);
+      }, 300);
     }
   </script>
 </body>
