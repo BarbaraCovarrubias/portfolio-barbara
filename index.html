@@ -688,6 +688,7 @@
         <button onclick="sendQuickPrompt('¿Cuál es su rol y experiencia en Payway?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Rol en Payway</button>
         <button onclick="sendQuickPrompt('¿Qué proyectos personales desarrolló?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Proyectos Personales</button>
         <button onclick="sendQuickPrompt('Travel Copilot MCP')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Travel Copilot MCP</button>
+        <button onclick="sendQuickPrompt('¿Qué estudia actualmente?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">¿Qué estudia?</button>
         <button onclick="sendQuickPrompt('Stack Tecnológico')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Stack</button>
         <button onclick="sendQuickPrompt('Métricas oficiales')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Métricas</button>
         <button onclick="sendQuickPrompt('Datos de contacto')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Contacto</button>
@@ -974,18 +975,31 @@
                buildSuggestionChips(['Soluciones de IA en Payway', 'Proyectos Personales', 'Métricas de impacto']);
       }
 
-      // 15. Formación Académica & Certificaciones
-      if (q.includes('formacion') || q.includes('estudio') || q.includes('educacion') || q.includes('universidad') || 
-          q.includes('titulo') || q.includes('carrera') || q.includes('ingeniera') || q.includes('uai') || q.includes('uno') || q.includes('itba') || q.includes('certificacion')) {
+      // 15. Formación Académica, Qué estudia & Diplomatura
+      if (q.includes('estudi') || q.includes('diplomat') || q.includes('curs') || q.includes('carrera') || 
+          q.includes('universidad') || q.includes('facultad') || q.includes('academ') || q.includes('formacion') || 
+          q.includes('educacion') || q.includes('titulo') || q.includes('posgrado') || q.includes('master') || 
+          q.includes('uai') || q.includes('uno') || q.includes('itba') || q.includes('certific') || q.includes('gradu')) {
+        
+        // Si preguntan específicamente qué estudia actualmente o por la diplomatura
+        if (q.includes('diplomat') || q.includes('actual') || q.includes('ahora') || q.includes('en curso') || (q.includes('que') && q.includes('estudi'))) {
+          return "Actualmente, Bárbara se encuentra cursando la <strong>Diplomatura Superior en IA Aplicada y Tecnologías Emergentes</strong> en la <strong>Universidad Nacional del Oeste (UNO)</strong>.<br><br>" +
+                 "Su trayectoria académica y acreditaciones completas:<br>" +
+                 "• <strong>Ingeniería en Sistemas Informáticos:</strong> Universidad Abierta Interamericana (UAI) – <em>Graduada 2022</em>.<br>" +
+                 "• <strong>Certificación Profesional en Project Management:</strong> Instituto Tecnológico de Buenos Aires (ITBA, 2023).<br>" +
+                 "• <strong>Certificaciones Internacionales:</strong> Amazon Q Developer, Engineering Lead, Scrum Master." +
+                 buildSuggestionChips(['Tesis de Grado UAI', 'Stack Tecnológico', 'Rol en Payway', 'Descargar CV']);
+        }
+
         return "<strong>Formación Académica & Certificaciones:</strong><br><br>" +
                "• <strong>Diplomatura Superior en IA Aplicada y Tecnologías Emergentes:</strong> Universidad Nacional del Oeste (UNO) – <em>En Curso</em>.<br>" +
                "• <strong>Ingeniería en Sistemas Informáticos:</strong> Universidad Abierta Interamericana (UAI) – <em>Graduada 2022</em>.<br>" +
                "• <strong>Certificación Profesional en Project Management:</strong> Instituto Tecnológico de Buenos Aires (ITBA, 2023).<br>" +
                "• <strong>Certificaciones Internacionales:</strong> Amazon Q Developer, Engineering Lead, Scrum Master." +
-               buildSuggestionChips(['Tesis de Grado UAI', 'Stack Tecnológico', 'Experiencia en Payway']);
+               buildSuggestionChips(['¿Qué estudia actualmente?', 'Tesis de Grado UAI', 'Stack Tecnológico', 'Descargar CV']);
       }
 
-      // 16. Contacto, Ubicación, Ciudadanía, Idiomas
+      // 16. Contacto      // 16. Contacto, Ubicación, Ciudadanía, Idiomas
       if (q.includes('contacto') || q.includes('whatsapp') || q.includes('telefono') || q.includes('celular') || q.includes('mail') || q.includes('correo') || q.includes('email') || q.includes('linkedin')) {
         return "<strong>Canales de Contacto Directo:</strong><br><br>" +
                "• <strong>WhatsApp / Tel:</strong> <a href='https://wa.me/5491155232198' target='_blank' class='text-brand-cyan underline'>+54 9 11 5523-2198</a><br>" +
