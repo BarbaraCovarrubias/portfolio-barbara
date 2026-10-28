@@ -1137,15 +1137,28 @@
       return html;
     }
 
-    // Normalizador de texto para búsquedas semánticas flexibles
+    // Normalizador de texto para búsquedas semánticas flexibles y sinónimos tech
     function normalizeQuery(text) {
-      return text
+      let cleaned = text
         .toLowerCase()
         .normalize('NFD')
         .replace(/[̀-ͯ]/g, '')
         .replace(/[^a-z0-9 ]/g, ' ')
         .replace(/\s+/g, ' ')
         .trim();
+
+      // Expansión de siglas y normalización de plurales técnicos
+      cleaned = (' ' + cleaned + ' ')
+        .replace(/ itl /g, ' it lead ')
+        .replace(/ tl /g, ' tech lead ')
+        .replace(/ rags /g, ' rag ')
+        .replace(/ mcps /g, ' mcp ')
+        .replace(/ llms /g, ' llm ')
+        .replace(/ apis /g, ' api ')
+        .replace(/ kpis /g, ' kpi ')
+        .trim();
+
+      return cleaned;
     }
 
     // Motor de Respuestas Semántico & Dinámico sobre el CV de Bárbara Covarrubias
@@ -1153,6 +1166,27 @@
       const q = normalizeQuery(rawQuery);
       const fallback = "Esa información no se encuentra especificada en el CV o portfolio profesional de Bárbara Covarrubias. Puedes consultar sobre su rol en Payway, proyectos personales (Travel Copilot MCP, E-commerce, Tesis UAI), soluciones de IA Generativa, stack técnico, formación o métricas de impacto." + 
         buildSuggestionChips(['¿Quién es Bárbara?', '¿Cuál es su rol en Payway?', 'Proyectos Personales', 'Stack Tecnológico']);
+
+            // 0. FIT DIRECTO: IT Lead especializada en IA, RAGs, MCPs & Puesta en Producción
+      if ((q.includes('rag') || q.includes('mcp') || q.includes('ia') || q.includes('inteligencia artificial') || q.includes('genai')) && 
+          (q.includes('levant') || q.includes('podria ser') || q.includes('puede ser') || q.includes('fit') || q.includes('busco') || q.includes('quiero') || q.includes('necesito') || q.includes('candidat') || q.includes('contrat') || q.includes('sirve') || q.includes('especializ') || q.includes('capacit') || (q.includes('it lead') && q.includes('experiencia')))) {
+        return "<strong>¡Sí, definitivamente! Bárbara encaja al 100% con ese perfil.</strong><br><br>" +
+               "Como <strong>IT Lead en Payway</strong> y en sus desarrollos de arquitectura aplicada, cuenta con experiencia comprobada y puesta en producción real en ambos frentes:<br><br>" +
+               "• <strong>Arquitecturas RAG en Producción:</strong> Diseñó e implementó pipelines RAG sobre <strong>AWS Bedrock</strong> (Foundation Models de Anthropic) integrando bases de conocimiento vectoriales en <strong>PostgreSQL con extensión pgvector</strong>, memoria conversacional en <strong>Redis</strong> y flujos agénticos con <strong>n8n</strong>. Además, valida y audita la calidad contra alucinaciones mediante el framework oficial <strong>RAGAS</strong> (alcanzando 0% de incidentes en release).<br>" +
+               "• <strong>Servidores MCP (Model Context Protocol):</strong> Diseñó y desplegó en producción el servidor corporativo MCP en <strong>Node.js sobre AWS (ECS/ECR)</strong> para exponer herramientas de cobro y contratos OpenAPI directo en los IDEs. Adicionalmente desarrolló <strong>Travel Copilot MCP</strong> (TypeScript/SQLite), implementando herramientas (<code>Tools</code>), recursos dinámicos (<code>Resources</code>) y plantillas contextuales (<code>Prompts</code>).<br>" +
+               "• <strong>Liderazgo Técnico (IT Lead):</strong> Conduce células de más de 10 ingenieros bajo Scrum, garantizando gobierno de APIs, observabilidad con Grafana y delivery predecible (+90% de eficiencia).<br><br>" +
+               "Está actualmente cursando la <strong>Diplomatura Superior en IA Aplicada (UNO)</strong> y disponible para coordinar una entrevista técnica." +
+               buildSuggestionChips(['Ver proyectos de MCP y RAG', 'Métricas de impacto', 'Contactar por WhatsApp', 'Descargar CV Oficial']);
+      }
+
+      // RAG, RAGAS & IA Generativa
+      if (q.includes('rag') || q.includes('ragas') || (q.includes('ia') && (q.includes('generativ') || q.includes('solucion') || q.includes('experiencia')))) {
+        return "<strong>Experiencia de Bárbara en RAG, RAGAS e IA Generativa:</strong><br><br>" +
+               "• <strong>RAG & Vector Search:</strong> Implementación de arquitecturas RAG utilizando <strong>Amazon Bedrock Knowledge Bases</strong> con modelos de <strong>Anthropic</strong>, junto con indexación y búsqueda semántica en <strong>PostgreSQL (pgvector)</strong> y caché de sesiones en <strong>Redis</strong>.<br>" +
+               "• <strong>Orquestación Agéntica:</strong> Flujos inteligentes orquestados con <strong>n8n</strong> y servidores MCP para integración directa con APIs transaccionales.<br>" +
+               "• <strong>Evaluación RAGAS:</strong> Construcción de pipeline de auditoría continua en Python para medir métricas oficiales de <em>Faithfulness</em> (fidelidad), <em>Answer Relevance</em> y <em>Semantic Similarity</em>, logrando <strong>0% de incidentes en release</strong> y erradicación de alucinaciones en entornos productivos." +
+               buildSuggestionChips(['Experiencia en MCP', 'Rol en Payway', 'Diplomatura en IA (UNO)', 'Descargar CV']);
+      }
 
       // 1. Resumen de 300 palabras o versión extendida
       if ((q.includes('300') || q.includes('extenso') || q.includes('largo') || q.includes('detallado') || q.includes('completo')) && 
