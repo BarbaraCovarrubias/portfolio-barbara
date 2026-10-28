@@ -111,6 +111,61 @@
       background: #1E293B;
       border-radius: 9999px;
     }
+
+    /* Light Theme Overrides */
+    body.light-theme {
+      background-color: #F8FAFC;
+      color: #0F172A;
+    }
+    body.light-theme .bg-grid {
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    }
+    body.light-theme .glass {
+      background: rgba(255, 255, 255, 0.92);
+      border-color: rgba(226, 232, 240, 0.8);
+    }
+    body.light-theme .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.06);
+    }
+    body.light-theme .glass-card:hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 12px 25px -4px rgba(59, 130, 246, 0.12);
+    }
+    body.light-theme .text-white {
+      color: #0F172A !important;
+    }
+    body.light-theme .text-slate-200,
+    body.light-theme .text-slate-300 {
+      color: #334155 !important;
+    }
+    body.light-theme .text-slate-400 {
+      color: #64748B !important;
+    }
+    body.light-theme .text-slate-500 {
+      color: #94A3B8 !important;
+    }
+    body.light-theme .bg-slate-900,
+    body.light-theme .bg-slate-950 {
+      background-color: #F1F5F9 !important;
+    }
+    body.light-theme .bg-slate-800 {
+      background-color: #E2E8F0 !important;
+      color: #1E293B !important;
+    }
+    body.light-theme .border-slate-800,
+    body.light-theme .border-slate-700 {
+      border-color: #CBD5E1 !important;
+    }
+    body.light-theme #aiModal > div {
+      background-color: #FFFFFF !important;
+      border-color: #CBD5E1 !important;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
   </style>
 </head>
 <body class="selection:bg-brand-primary selection:text-white bg-grid relative">
@@ -145,6 +200,11 @@
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Theme Toggle Button -->
+        <button id="themeToggleBtn" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema claro/oscuro" class="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-slate-700/80 text-slate-300 hover:text-white transition-all active:scale-95">
+          <span id="themeIcon">🌙</span>
+        </button>
+
         <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustaría%20conversar%20sobre%20una%20oportunidad%20laboral." 
            target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold hover:bg-emerald-500/25 transition-all">
@@ -266,22 +326,40 @@
       <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Innovación & Soluciones Aplicadas</h2>
         <h3 class="text-2xl sm:text-3xl font-bold text-white">Proyectos Personales & Arquitecturas de Software</h3>
-        <p class="text-xs sm:text-sm text-slate-400 mt-2">Soluciones completas de Inteligencia Artificial, e-commerce transaccional y plataformas distribuidas.</p>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Arquitecturas completas de Inteligencia Artificial agéntica, e-commerce transaccional y plataformas distribuidas.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         <!-- Proyecto 1: Travel Copilot MCP -->
         <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-brand-cyan">
-          <div class="space-y-3">
+          <div class="space-y-4">
             <div class="flex items-center justify-between gap-2">
               <span class="px-2.5 py-0.5 rounded bg-brand-cyan/15 text-brand-cyan text-xs font-mono font-semibold">Agente Orquestador Multiciudad</span>
               <span class="text-xs text-slate-400 font-mono">TypeScript · Node.js · SQLite / JSON</span>
             </div>
+            
             <h4 class="text-lg sm:text-xl font-bold text-white">1. Servidor MCP Travel Copilot</h4>
+            
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Desarrollo de un Model Context Protocol (MCP) que actúa como copiloto inteligente para estructurar y orquestar viajes complejos multiciudad, conexiones de transporte, hotelería y presupuestos multidivisa con validación temporal.
+              Desarrollo de un <strong>Model Context Protocol (MCP)</strong> que actúa como copiloto inteligente para estructurar y orquestar viajes complejos multiciudad, conexiones de transporte, hotelería y presupuestos multidivisa con validación temporal.
             </p>
+
+            <!-- Mini Diagrama Arquitectura MCP -->
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] font-mono text-slate-300 space-y-1">
+              <div class="text-[10px] uppercase font-bold text-brand-cyan tracking-wider flex items-center justify-between">
+                <span>Arquitectura & Flujo MCP</span>
+                <span class="text-emerald-400">● Validado en IDEs</span>
+              </div>
+              <div class="flex items-center justify-between text-[10.5px] pt-1 text-slate-300 overflow-x-auto gap-1">
+                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">LLM Host (Claude)</span>
+                <span class="text-brand-cyan">⇄ MCP ⇄</span>
+                <span class="px-2 py-0.5 rounded bg-brand-primary/20 border border-brand-primary/40 text-blue-300">Node Server</span>
+                <span class="text-brand-cyan">→</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">SQLite & Prompts</span>
+              </div>
+            </div>
+
             <div class="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2 text-xs text-slate-300">
               <div class="font-bold text-brand-cyan text-[11px] uppercase tracking-wider">Capacidades Técnicas & Primitivas MCP:</div>
               <ul class="space-y-1.5 list-disc pl-4 text-[11.5px] leading-relaxed text-slate-300">
@@ -291,65 +369,153 @@
               </ul>
             </div>
           </div>
+
+          <div class="pt-4 flex flex-wrap items-center gap-2">
+            <button type="button" onclick="sendQuickPrompt('¿Cómo funciona el servidor MCP Travel Copilot?'); openBarbaraAI();" class="px-3 py-1.5 rounded-lg bg-brand-cyan/15 hover:bg-brand-cyan/25 border border-brand-cyan/40 text-brand-cyan text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <span>Preguntar a Bárbara IA</span>
+              <span>💬</span>
+            </button>
+            <a href="https://github.com/barbaracovarrubias" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>Ver en GitHub</span>
+            </a>
+          </div>
         </div>
 
         <!-- Proyecto 2: E-commerce Full-Stack -->
         <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-brand-primary">
-          <div class="space-y-3">
+          <div class="space-y-4">
             <div class="flex items-center justify-between gap-2">
               <span class="px-2.5 py-0.5 rounded bg-blue-500/15 text-blue-400 text-xs font-mono font-semibold">E-commerce Transaccional</span>
               <span class="text-xs text-slate-400 font-mono">Full-Stack · Mercado Pago API · Webhooks</span>
             </div>
+
             <h4 class="text-lg sm:text-xl font-bold text-white">2. Plataforma E-commerce Full-Stack Mayorista y Minorista</h4>
+
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Arquitectura y desarrollo end-to-end de una plataforma de comercio electrónico para una distribuidora de artículos de limpieza con operativa B2B y B2C. Cuenta con catálogo público con filtrado dinámico, carrito de compras reactivo, pasarela de checkout integrada con múltiples medios de pago (Mercado Pago vía API y transferencias), panel administrativo de gestión de órdenes y stock, y pipeline de emails transaccionales asíncronos.
             </p>
-            <div class="flex flex-wrap gap-1.5 pt-2">
+
+            <!-- Mini Diagrama Flujo Checkout -->
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] font-mono text-slate-300 space-y-1">
+              <div class="text-[10px] uppercase font-bold text-brand-primary tracking-wider flex items-center justify-between">
+                <span>Flujo Transaccional & Pagos</span>
+                <span class="text-emerald-400">● Producción</span>
+              </div>
+              <div class="flex items-center justify-between text-[10.5px] pt-1 text-slate-300 overflow-x-auto gap-1">
+                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Catálogo React</span>
+                <span class="text-brand-primary">→</span>
+                <span class="px-2 py-0.5 rounded bg-blue-500/20 border border-blue-500/40 text-blue-300">Mercado Pago API</span>
+                <span class="text-brand-primary">⇄ Webhook ⇄</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Admin Orders</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 pt-1">
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Checkout API</span>
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Mercado Pago</span>
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Panel Admin B2B/B2C</span>
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Emails Asíncronos</span>
             </div>
           </div>
+
+          <div class="pt-4 flex flex-wrap items-center gap-2">
+            <button type="button" onclick="sendQuickPrompt('¿Cómo es la plataforma de e-commerce con Mercado Pago?'); openBarbaraAI();" class="px-3 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 text-blue-300 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <span>Consultar arquitectura</span>
+              <span>💬</span>
+            </button>
+            <a href="https://github.com/barbaracovarrubias" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>Ver en GitHub</span>
+            </a>
+          </div>
         </div>
 
         <!-- Proyecto 3: Sistema Hospitalario UAI -->
         <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-brand-emerald">
-          <div class="space-y-3">
+          <div class="space-y-4">
             <div class="flex items-center justify-between gap-2">
               <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400 text-xs font-mono font-semibold">Tesis de Grado UAI</span>
               <span class="text-xs text-slate-400 font-mono">Arquitectura Clínica · Tesis Aprobada</span>
             </div>
+
             <h4 class="text-lg sm:text-xl font-bold text-white">3. Sistema Integral para Clínicas y Hospitales</h4>
+
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Desarrollo integral para la obtención del título de <strong>Ingeniera en Sistemas Informáticos (UAI)</strong>. Plataforma modular de gestión hospitalaria de alta disponibilidad que contempla: admisión y administración de pacientes, gestión integral de agendas y turnos médicos en tiempo real, seguimiento de calendario oficial de vacunación y módulo seguro de historias clínicas electrónicas bajo estándares de confidencialidad y auditoría.
             </p>
-            <div class="flex flex-wrap gap-1.5 pt-2">
+
+            <div class="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-1.5 text-xs text-slate-300">
+              <div class="font-bold text-emerald-400 text-[11px] uppercase tracking-wider">Módulos Críticos de Alta Disponibilidad:</div>
+              <ul class="space-y-1 list-disc pl-4 text-[11.5px] leading-relaxed text-slate-300">
+                <li><strong>Admisión Centralizada:</strong> Gestión de fichas y turnos concurrentes con locking optimista.</li>
+                <li><strong>Calendario Oficial:</strong> Esquema dinámico de inmunización según esquemas de salud pública.</li>
+                <li><strong>Historias Clínicas:</strong> Trazabilidad y auditoría completa de prescripciones y consultas.</li>
+              </ul>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 pt-1">
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Historias Clínicas</span>
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Turnos en Tiempo Real</span>
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Calendario de Vacunación</span>
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Auditoría Clínica</span>
             </div>
           </div>
+
+          <div class="pt-4 flex flex-wrap items-center gap-2">
+            <button type="button" onclick="sendQuickPrompt('¿De qué trata la tesis de grado en la UAI?'); openBarbaraAI();" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <span>Consultar detalles de tesis</span>
+              <span>💬</span>
+            </button>
+            <a href="https://github.com/barbaracovarrubias" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>Ver en GitHub</span>
+            </a>
+          </div>
         </div>
 
         <!-- Proyecto 4: Bárbara IA -->
         <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-violet-500">
-          <div class="space-y-3">
+          <div class="space-y-4">
             <div class="flex items-center justify-between gap-2">
               <span class="px-2.5 py-0.5 rounded bg-violet-500/15 text-violet-300 text-xs font-mono font-semibold">Agente Embebido en Portfolio</span>
               <span class="text-xs text-slate-400 font-mono">Agentic AI · Strict RAG · Guardrails</span>
             </div>
+
             <h4 class="text-lg sm:text-xl font-bold text-white">4. Bárbara IA: Asistente Agéntico de Carrera y Validación Técnica</h4>
+
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Diseño e implementación del agente inteligente embebido en este mismo portfolio web profesional (<a href="https://barbaracovarrubias.github.io/portfolio-barbara/" class="text-brand-cyan underline">barbaracovarrubias.github.io/portfolio-barbara/</a>). Diseñado bajo directivas anti-alucinación rigurosas, asiste en tiempo real a reclutadores técnicos y comités de arquitectura respondiendo consultas exactas sobre su stack, trayectoria en Payway y proyectos MCP.
             </p>
-            <div class="pt-2">
-              <button onclick="openBarbaraAI()" class="px-3.5 py-1.5 rounded-lg bg-violet-600/30 hover:bg-violet-600/50 border border-violet-500/40 text-violet-200 text-xs font-semibold flex items-center gap-1.5 transition-colors">
-                <span>Probar Agente en Vivo</span>
-                <span class="text-xs">✨</span>
-              </button>
+
+            <!-- Mini Diagrama Guardrails -->
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] font-mono text-slate-300 space-y-1">
+              <div class="text-[10px] uppercase font-bold text-violet-400 tracking-wider flex items-center justify-between">
+                <span>Arquitectura de Guardrails</span>
+                <span class="text-emerald-400">● Cero Alucinación</span>
+              </div>
+              <div class="flex items-center justify-between text-[10.5px] pt-1 text-slate-300 overflow-x-auto gap-1">
+                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Prompt Usuario</span>
+                <span class="text-violet-400">→</span>
+                <span class="px-2 py-0.5 rounded bg-violet-500/20 border border-violet-500/40 text-violet-300">RAG Normalizado</span>
+                <span class="text-violet-400">→</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Respuesta + Chips</span>
+              </div>
             </div>
+
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Strict Guardrails</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Fidelidad 100%</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Chips Dinámicos</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Streaming UX</span>
+            </div>
+          </div>
+
+          <div class="pt-4 flex items-center gap-2">
+            <button type="button" onclick="openBarbaraAI()" class="px-3.5 py-1.5 rounded-lg bg-violet-600/30 hover:bg-violet-600/50 border border-violet-500/40 text-violet-200 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <span>Probar Agente en Vivo</span>
+              <span class="text-xs">✨</span>
+            </button>
           </div>
         </div>
 
@@ -576,14 +742,35 @@
         </div>
 
         <!-- Certificaciones -->
-        <div class="glass-card p-5 rounded-2xl">
-          <div class="text-xs font-mono text-blue-400 mb-1">Acreditaciones Internacionales</div>
-          <h4 class="font-bold text-white text-sm sm:text-base">Certificaciones Profesionales</h4>
-          <p class="text-xs text-slate-300 mt-1.5 flex flex-wrap gap-1.5">
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 text-xs font-mono">Amazon Q Developer</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 text-xs font-mono">Engineering Lead</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 text-xs font-mono">Scrum</span>
-          </p>
+        <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-blue-400 mb-1 flex items-center justify-between">
+              <span>Acreditaciones Internacionales</span>
+              <span class="text-emerald-400 font-bold text-[10px]">✓ Verificadas</span>
+            </div>
+            <h4 class="font-bold text-white text-sm sm:text-base">Certificaciones Profesionales</h4>
+            <div class="mt-2.5 flex flex-wrap gap-2 text-xs">
+              <a href="https://www.linkedin.com/in/ing-barbara-noelia-covarrubias/details/certifications/" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 flex items-center gap-1.5 transition-colors group">
+                <span class="text-amber-400">⚡</span>
+                <span class="font-mono text-[11px]">Amazon Q Developer</span>
+                <span class="text-[9px] text-slate-400 group-hover:text-white">↗</span>
+              </a>
+              <a href="https://www.linkedin.com/in/ing-barbara-noelia-covarrubias/details/certifications/" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 flex items-center gap-1.5 transition-colors group">
+                <span class="text-blue-400">🎯</span>
+                <span class="font-mono text-[11px]">Engineering Lead</span>
+                <span class="text-[9px] text-slate-400 group-hover:text-white">↗</span>
+              </a>
+              <a href="https://www.linkedin.com/in/ing-barbara-noelia-covarrubias/details/certifications/" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 flex items-center gap-1.5 transition-colors group">
+                <span class="text-emerald-400">🔄</span>
+                <span class="font-mono text-[11px]">Scrum Master</span>
+                <span class="text-[9px] text-slate-400 group-hover:text-white">↗</span>
+              </a>
+            </div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10.5px] text-slate-400 flex items-center justify-between">
+            <span>Acreditaciones técnicas en agilidad y cloud</span>
+            <a href="https://www.linkedin.com/in/ing-barbara-noelia-covarrubias/details/certifications/" target="_blank" class="text-brand-cyan hover:underline">Ver en LinkedIn →</a>
+          </div>
         </div>
       </div>
 
@@ -717,6 +904,29 @@
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
+
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    
+    // Check saved theme or system preference
+    if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.body.classList.add('light-theme');
+      if (themeIcon) themeIcon.textContent = '☀️';
+    } else {
+      document.body.classList.remove('light-theme');
+      if (themeIcon) themeIcon.textContent = '🌙';
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        if (themeIcon) themeIcon.textContent = isLight ? '☀️' : '🌙';
+      });
+    }
+
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
