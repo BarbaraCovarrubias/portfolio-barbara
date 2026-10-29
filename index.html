@@ -292,6 +292,9 @@
       }
     }
   </style>
+  <!-- GoatCounter Analytics (Visitas diarias y métricas sin cookies) -->
+  <script data-goatcounter="https://barbaracovarrubias.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="selection:bg-brand-primary selection:text-white bg-grid relative">
 
@@ -1379,57 +1382,56 @@
       return html;
     }
 
-        // ================= JOB DESCRIPTION (JD) MATCHER ENGINE ROBUSTO =================
+            // ================= JOB DESCRIPTION (JD) MATCHER ENGINE DE ALTA PRECISIÓN =================
     const BARBARA_TECH_MODULES = [
       {
         id: 'ai_gen',
-        label: 'IA Generativa, RAG & Servidores MCP',
+        label: 'Ingeniería AI-Native & Flujos Agénticos (RAG, MCP, RAGAS)',
         weight: 25,
-        regex: /\b(ia|ai|genai|llm|llms|rag|ragas|bedrock|anthropic|mcp|model context protocol|pgvector|embeddings|vectorial|n8n|prompt engineering|guardrails)\b/i
+        regex: /\b(ia|ai|ai-native|ai native|genai|llm|llms|rag|ragas|bedrock|anthropic|mcp|model context protocol|pgvector|embeddings|vectorial|n8n|agentes|agente|agentic|prompt|prompt engineering|guardrails)\b/i
       },
       {
         id: 'it_leadership',
-        label: 'IT Leadership & Células de Ingeniería',
+        label: 'Rol Player-Coach & Liderazgo Senior (Tech Manager / IT Lead)',
         weight: 25,
-        regex: /\b(it lead|tech lead|lider tecnico|lider de ingenieria|engineering lead|engineering manager|liderar equipo|liderazgo tecnico|celula|celulas tecnicas)\b/i
+        regex: /\b(tech manager|engineering manager|it lead|tech lead|player-coach|player coach|lider tecnico|lider de ingenieria|engineering lead|liderar equipo|liderazgo tecnico|celula|celulas tecnicas|team lead|head of engineering)\b/i
       },
       {
-        id: 'agile_delivery',
-        label: 'Metodologías Ágiles (Scrum, Jira, SDD)',
-        weight: 15,
-        regex: /\b(scrum|agile|agilidad|scrum master|jira|gitlab|sprints|backlog|sdd|spec driven)\b/i
+        id: 'fintech_payments',
+        label: 'Ecosistema de Pagos, Cobranzas & Fintech (Payway / Biller / APIs)',
+        weight: 25,
+        regex: /\b(pagos|pago|cobranzas|cobranza|fintech|fintechs|biller|billers|medios de pago|pasarela|pasarelas|checkout|terminales|pos|vtex|woocommerce|mercado pago|payway|prisma|transaccional|transaccionales|adquirencia|recaudacion)\b/i
       },
       {
         id: 'backend_arch',
-        label: 'Microservicios & Backend (Java Spring Boot, APIs)',
+        label: 'Arquitectura de Software & APIs Distribuidas (Java, Kafka, Microservicios)',
         weight: 20,
-        regex: /\b(java|spring|spring boot|microservicios|microservicio|api|apis|rest|restful|openapi|swagger|backend|node|nodejs|python|docker)\b/i
+        regex: /\b(arquitectura|arquitecturas|java|spring|spring boot|microservicios|microservicio|api|apis|rest|restful|openapi|swagger|backend|node|nodejs|python|docker|escalabilidad|alta concurrencia|contratos)\b/i
       },
       {
         id: 'streaming_data',
-        label: 'Arquitectura Event-Driven (Kafka, Webhooks, SQL)',
+        label: 'Event-Driven Architecture & Datos (Kafka, Webhooks, SQL)',
         weight: 15,
         regex: /\b(kafka|apache kafka|webhooks|webhook|eventos|asincrono|asincrona|postgresql|postgres|redis|sql|sql server)\b/i
       },
       {
-        id: 'fintech_payments',
-        label: 'Medios de Pago & Plataformas Transaccionales',
-        weight: 10,
-        regex: /\b(medios de pago|pasarela|pasarelas|checkout|terminales|pos|vtex|woocommerce|mercado pago|payway|prisma|transaccional|transaccionales)\b/i
+        id: 'agile_delivery',
+        label: 'Gestión Ágil & Delivery Predecible (Scrum, Jira, SDD)',
+        weight: 15,
+        regex: /\b(scrum|agile|agilidad|scrum master|jira|gitlab|sprints|backlog|sdd|spec driven|delivery)\b/i
       }
     ];
 
-    // Detector de dominio estricto de Ingeniería de Software / TI
-    const STRICT_IT_DOMAIN_REGEX = /\b(software|sistemas|programador|programacion|desarrollador|developer|it lead|tech lead|backend|frontend|fullstack|devops|qa|cloud|aws|docker|microservicios|api|apis|java|python|scrum|base de datos|ingenieria en sistemas|computacion|informatica)\b/i;
+    // Detector de dominio estricto de Ingeniería de Software / TI / Fintech
+    const STRICT_IT_DOMAIN_REGEX = /\b(software|sistemas|programador|programacion|desarrollador|developer|it lead|tech lead|tech manager|engineering manager|backend|frontend|fullstack|devops|qa|cloud|aws|docker|microservicios|api|apis|java|python|scrum|base de datos|ingenieria en sistemas|computacion|informatica|fintech|pagos|cobranzas|ai-native|ia)\b/i;
 
     function loadSampleJd() {
-      const sample = `Buscamos un/a IT Lead especializado/a en Inteligencia Artificial Generativa y Medios de Pago.
+      const sample = `Buscamos un/a Tech Manager (Player-Coach) para liderar equipos en fintech de pagos y cobranzas en LATAM.
 Requisitos técnicos:
-- Conducción técnica de células ágiles de ingeniería bajo Scrum y Jira.
-- Experiencia en diseño e implementación productiva de arquitecturas RAG (AWS Bedrock, pgvector) y servidores MCP (Model Context Protocol).
-- Microservicios en Java Spring Boot, mensajería asíncrona con Apache Kafka y Webhooks.
-- Control de calidad de respuestas de LLM con framework RAGAS y observabilidad continua con Grafana.
-- Background sólido en pasarelas de pago y contratos OpenAPI / Swagger.`;
+- Liderazgo técnico senior (Player-coach) guiando decisiones de arquitectura y código en células ágiles.
+- Enfoque AI-Native: integración de IA al ciclo de desarrollo (flujos agénticos, RAG, MCP, automatización).
+- Diseño y escalabilidad de APIs, microservicios backend y mensajería orientada a eventos.
+- Visión de producto aplicada a pasarelas, plataformas de cobro y contratos OpenAPI / Swagger.`;
       const input = document.getElementById('jdInputText');
       if (input) input.value = sample;
     }
@@ -1457,16 +1459,18 @@ Requisitos técnicos:
         const hasItDomain = STRICT_IT_DOMAIN_REGEX.test(normJd);
 
         let matches = [];
-        let calculatedScore = 0;
+        let matchedIds = new Set();
+        let rawWeight = 0;
 
         BARBARA_TECH_MODULES.forEach(mod => {
           if (mod.regex.test(normJd)) {
             matches.push(mod.label);
-            calculatedScore += mod.weight;
+            matchedIds.add(mod.id);
+            rawWeight += mod.weight;
           }
         });
 
-        // Caso 1: Puesto totalmente ajeno a Software / TI (Ej: Plomería, Oficios, Construcción, Gastronomía, etc.)
+        // Caso 1: Puesto fuera del dominio de TI / Software (Ej: Plomería, Oficios, etc.)
         if (!hasItDomain || matches.length === 0) {
           output.innerHTML = `
             <div class="p-3.5 sm:p-4 rounded-2xl bg-slate-900 border border-red-500/30 space-y-3.5">
@@ -1493,13 +1497,13 @@ Requisitos técnicos:
                   Esta vacante corresponde a un área operativa / de oficio técnico no informático y <strong>no requiere competencias de ingeniería de software, arquitectura tecnológica ni liderazgo de desarrollo</strong>.
                 </p>
                 <p class="text-slate-400 text-[11px]">
-                  El perfil de Bárbara Noelia Covarrubias está estrictamente especializado en <strong>IT Leadership, Arquitectura de IA Generativa (RAG, MCP), Microservicios y Plataformas Transaccionales</strong>.
+                  El perfil de Bárbara Noelia Covarrubias está estrictamente especializado en <strong>IT Leadership / Tech Management, Arquitectura de IA Generativa (RAG, MCP), Microservicios y Plataformas Fintech / Medios de Pago</strong>.
                 </p>
               </div>
 
               <div class="pt-1 flex items-center justify-between">
                 <button type="button" onclick="loadSampleJd()" class="text-[11px] text-brand-cyan hover:underline">
-                  Probar con vacante de IT Lead IA →
+                  Probar con vacante Tech Manager Fintech →
                 </button>
                 <a href="CV_Barbara_Covarrubias.pdf" download="CV_Barbara_Covarrubias.pdf" target="_blank"
                    class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 flex items-center gap-1.5 transition-colors">
@@ -1510,8 +1514,24 @@ Requisitos técnicos:
           return;
         }
 
-        // Caso 2: Puesto de TI / Software (Cálculo real de afinidad)
-        const finalScore = Math.min(100, Math.max(25, calculatedScore));
+        // Caso 2: Puesto de TI / Software / Fintech
+        // Ponderación dinámica contextual:
+        // Si combina Liderazgo/Management + Fintech/Pagos + IA / AI-Native, la afinidad es excepcional (>95%)
+        let finalScore = 65;
+        if (matches.length === 1) finalScore = 70;
+        else if (matches.length === 2) finalScore = 82;
+        else if (matches.length === 3) finalScore = 90;
+        else if (matches.length >= 4) finalScore = 96;
+
+        // Bonus por sinergia crítica (Tech Management + Fintech/Pagos + AI-Native)
+        if (matchedIds.has('it_leadership') && matchedIds.has('fintech_payments')) {
+          finalScore = Math.max(finalScore, 92);
+        }
+        if (matchedIds.has('it_leadership') && matchedIds.has('fintech_payments') && matchedIds.has('ai_gen')) {
+          finalScore = Math.max(finalScore, 98);
+        }
+
+        finalScore = Math.min(100, finalScore);
 
         const matchBadges = matches.map(m => `
           <div class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-medium flex items-center gap-1.5">
@@ -1527,18 +1547,18 @@ Requisitos técnicos:
                 <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Afinidad Técnica Estimada</span>
                 <h6 class="text-base font-extrabold text-white flex items-center gap-2">
                   <span>Match de Rol:</span>
-                  <span class="text-emerald-400 text-lg">${finalScore}%</span>
+                  <span class="text-emerald-400 text-lg font-bold">${finalScore}%</span>
                 </h6>
               </div>
               <div class="text-right">
-                <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs">
-                  ${finalScore >= 80 ? '🌟 Fit Altamente Recomendado' : '✓ Perfil Compatible'}
+                <span class="px-2.5 py-1 rounded-full ${finalScore >= 90 ? 'bg-emerald-500/20 text-emerald-300' : 'bg-blue-500/20 text-blue-300'} font-bold text-xs">
+                  ${finalScore >= 95 ? '🌟 Encaje Excepcional (10/10)' : (finalScore >= 90 ? '🌟 Fit Altamente Recomendado' : '✓ Perfil Compatible')}
                 </span>
               </div>
             </div>
 
             <div>
-              <span class="text-[11px] font-bold text-slate-300 block mb-1.5">Competencias y stacks detectados en tu búsqueda:</span>
+              <span class="text-[11px] font-bold text-slate-300 block mb-1.5">Pilares estratégicos detectados en tu búsqueda:</span>
               <div class="flex flex-wrap gap-1.5">
                 ${matchBadges}
               </div>
@@ -1549,12 +1569,15 @@ Requisitos técnicos:
                 <span>⚡ Executive Pitch de Candidatura</span>
               </div>
               <p>
-                Bárbara Noelia Covarrubias cumple con los pilares centrales de esta posición gracias a su experiencia actual como <strong>IT Lead en Payway</strong>, donde dirige células de más de 10 ingenieros combinando arquitecturas de <strong>IA Generativa en producción</strong> (RAG sobre AWS Bedrock, servidores MCP y auditoría RAGAS) con plataformas transaccionales de alta concurrencia en <strong>Java Spring Boot, React y Kafka</strong>.
+                Bárbara Noelia Covarrubias es un encaje natural y de alto impacto para esta posición: se desempeña actualmente como <strong>IT Lead en Payway / Prisma Medios de Pago</strong> con rol <em>player-coach</em>, liderando células técnicas de más de 10 ingenieros y comités de arquitectura, ciberseguridad y negocio.
+              </p>
+              <p class="text-slate-400 text-[11.5px]">
+                Aporta especialización crítica en <strong>ingeniería AI-Native</strong> (AWS Bedrock, servidores MCP en producción, flujos agénticos con n8n y calidad RAGAS) sumada a un dominio integral de <strong>APIs transaccionales de medios de pago y cobranzas en LATAM</strong>.
               </p>
             </div>
 
             <div class="pt-1 flex flex-wrap items-center gap-2">
-              <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20analicé%20mi%20búsqueda%20en%20tu%20portfolio%20y%20me%20gustaría%20coordinar%20una%20entrevista." 
+              <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20analicé%20el%20puesto%20de%20Tech%20Manager%20en%20tu%20portfolio%20y%20me%20gustaría%20coordinar%20una%20entrevista." 
                  target="_blank" rel="noopener noreferrer"
                  class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-md">
                 <span>📱 Contactar por WhatsApp</span>
