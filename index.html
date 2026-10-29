@@ -1379,21 +1379,48 @@
       return html;
     }
 
-    // ================= JOB DESCRIPTION (JD) MATCHER ENGINE =================
-    const BARBARA_KNOWLEDGE_BASE = [
-      { id: 'rag', label: 'RAG en AWS Bedrock & pgvector', terms: ['rag', 'retrieval', 'bedrock', 'pgvector', 'vector', 'embeddings', 'knowledge bases', 'busqueda vectorial'] },
-      { id: 'mcp', label: 'Servidores MCP (Model Context Protocol)', terms: ['mcp', 'model context protocol', 'tools', 'resources', 'ide integration'] },
-      { id: 'ragas', label: 'Auditoría RAGAS & Anti-Alucinación', terms: ['ragas', 'guardrails', 'anti alucinacion', 'faithfulness', 'evaluacion llm', 'calidad de ia'] },
-      { id: 'lead', label: 'IT Lead & Liderazgo de Células Técnicas', terms: ['it lead', 'tech lead', 'liderazgo', 'celulas', 'gestion de equipo', 'engineering manager', 'coordinacion'] },
-      { id: 'scrum', label: 'Metodologías Ágiles (Scrum, Jira, SDD)', terms: ['scrum', 'agile', 'agilidad', 'jira', 'gitlab', 'sprint', 'sdd', 'spec driven'] },
-      { id: 'java', label: 'Java Spring Boot & Microservicios', terms: ['java', 'spring', 'spring boot', 'microservicios', 'backend', 'rest', 'api rest'] },
-      { id: 'kafka', label: 'Mensajería Asíncrona (Apache Kafka & Webhooks)', terms: ['kafka', 'eventos', 'webhooks', 'asincrona', 'streaming', 'mensajeria'] },
-      { id: 'react', label: 'Frontend React & E-commerce', terms: ['react', 'frontend', 'ui', 'ecommerce', 'e commerce', 'vtex', 'woocommerce'] },
-      { id: 'payments', label: 'Plataformas de Medios de Pago & POS', terms: ['medios de pago', 'pasarelas', 'pos', 'checkout', 'mercado pago', 'payway', 'prisma'] },
-      { id: 'aws', label: 'Cloud AWS (ECS, ECR, S3)', terms: ['aws', 'cloud', 'ecs', 'ecr', 'docker', 'contenedores', 's3'] },
-      { id: 'edu', label: 'Ingeniería en Sistemas & Diplomatura en IA', terms: ['ingenieria', 'sistemas', 'diplomatura', 'uno', 'uai', 'itba', 'pm'] },
-      { id: 'metrics', label: 'Métricas de Impacto (0% Incidentes, 1T → 1sem)', terms: ['metricas', 'kpi', 'incidentes', 'lead time', 'productividad', 'calidad'] }
+        // ================= JOB DESCRIPTION (JD) MATCHER ENGINE ROBUSTO =================
+    const BARBARA_TECH_MODULES = [
+      {
+        id: 'ai_gen',
+        label: 'IA Generativa, RAG & Servidores MCP',
+        weight: 25,
+        regex: /\b(ia|ai|genai|llm|llms|rag|ragas|bedrock|anthropic|mcp|model context protocol|pgvector|embeddings|vectorial|n8n|prompt engineering|guardrails)\b/i
+      },
+      {
+        id: 'it_leadership',
+        label: 'IT Leadership & Células de Ingeniería',
+        weight: 25,
+        regex: /\b(it lead|tech lead|lider tecnico|lider de ingenieria|engineering lead|engineering manager|liderar equipo|liderazgo tecnico|celula|celulas tecnicas)\b/i
+      },
+      {
+        id: 'agile_delivery',
+        label: 'Metodologías Ágiles (Scrum, Jira, SDD)',
+        weight: 15,
+        regex: /\b(scrum|agile|agilidad|scrum master|jira|gitlab|sprints|backlog|sdd|spec driven)\b/i
+      },
+      {
+        id: 'backend_arch',
+        label: 'Microservicios & Backend (Java Spring Boot, APIs)',
+        weight: 20,
+        regex: /\b(java|spring|spring boot|microservicios|microservicio|api|apis|rest|restful|openapi|swagger|backend|node|nodejs|python|docker)\b/i
+      },
+      {
+        id: 'streaming_data',
+        label: 'Arquitectura Event-Driven (Kafka, Webhooks, SQL)',
+        weight: 15,
+        regex: /\b(kafka|apache kafka|webhooks|webhook|eventos|asincrono|asincrona|postgresql|postgres|redis|sql|sql server)\b/i
+      },
+      {
+        id: 'fintech_payments',
+        label: 'Medios de Pago & Plataformas Transaccionales',
+        weight: 10,
+        regex: /\b(medios de pago|pasarela|pasarelas|checkout|terminales|pos|vtex|woocommerce|mercado pago|payway|prisma|transaccional|transaccionales)\b/i
+      }
     ];
+
+    // Detector de dominio estricto de Ingeniería de Software / TI
+    const STRICT_IT_DOMAIN_REGEX = /\b(software|sistemas|programador|programacion|desarrollador|developer|it lead|tech lead|backend|frontend|fullstack|devops|qa|cloud|aws|docker|microservicios|api|apis|java|python|scrum|base de datos|ingenieria en sistemas|computacion|informatica)\b/i;
 
     function loadSampleJd() {
       const sample = `Buscamos un/a IT Lead especializado/a en Inteligencia Artificial Generativa y Medios de Pago.
@@ -1427,25 +1454,64 @@ Requisitos técnicos:
 
       setTimeout(() => {
         const normJd = normalizeQuery(input);
-        let matches = [];
+        const hasItDomain = STRICT_IT_DOMAIN_REGEX.test(normJd);
 
-        BARBARA_KNOWLEDGE_BASE.forEach(category => {
-          let foundInCat = false;
-          category.terms.forEach(term => {
-            if (normJd.includes(term)) {
-              foundInCat = true;
-            }
-          });
-          if (foundInCat) {
-            matches.push(category.label);
+        let matches = [];
+        let calculatedScore = 0;
+
+        BARBARA_TECH_MODULES.forEach(mod => {
+          if (mod.regex.test(normJd)) {
+            matches.push(mod.label);
+            calculatedScore += mod.weight;
           }
         });
 
-        let score = 75;
-        if (matches.length >= 2) score = 84;
-        if (matches.length >= 4) score = 92;
-        if (matches.length >= 6) score = 97;
-        if (matches.length >= 8) score = 99;
+        // Caso 1: Puesto totalmente ajeno a Software / TI (Ej: Plomería, Oficios, Construcción, Gastronomía, etc.)
+        if (!hasItDomain || matches.length === 0) {
+          output.innerHTML = `
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-slate-900 border border-red-500/30 space-y-3.5">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div>
+                  <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Afinidad Técnica Estimada</span>
+                  <h6 class="text-base font-extrabold text-white flex items-center gap-2">
+                    <span>Match de Rol:</span>
+                    <span class="text-red-400 text-lg">0%</span>
+                  </h6>
+                </div>
+                <div class="text-right">
+                  <span class="px-2.5 py-1 rounded-full bg-red-500/15 border border-red-500/30 text-red-300 font-bold text-xs">
+                    ❌ Sin Afinidad (Puesto Fuera de Dominio)
+                  </span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed space-y-1.5">
+                <div class="font-bold text-red-400 text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+                  <span>Diagnóstico del Asistente</span>
+                </div>
+                <p>
+                  Esta vacante corresponde a un área operativa / de oficio técnico no informático y <strong>no requiere competencias de ingeniería de software, arquitectura tecnológica ni liderazgo de desarrollo</strong>.
+                </p>
+                <p class="text-slate-400 text-[11px]">
+                  El perfil de Bárbara Noelia Covarrubias está estrictamente especializado en <strong>IT Leadership, Arquitectura de IA Generativa (RAG, MCP), Microservicios y Plataformas Transaccionales</strong>.
+                </p>
+              </div>
+
+              <div class="pt-1 flex items-center justify-between">
+                <button type="button" onclick="loadSampleJd()" class="text-[11px] text-brand-cyan hover:underline">
+                  Probar con vacante de IT Lead IA →
+                </button>
+                <a href="CV_Barbara_Covarrubias.pdf" download="CV_Barbara_Covarrubias.pdf" target="_blank"
+                   class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 flex items-center gap-1.5 transition-colors">
+                  <span>📥 Ver CV Oficial</span>
+                </a>
+              </div>
+            </div>`;
+          return;
+        }
+
+        // Caso 2: Puesto de TI / Software (Cálculo real de afinidad)
+        const finalScore = Math.min(100, Math.max(25, calculatedScore));
 
         const matchBadges = matches.map(m => `
           <div class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-medium flex items-center gap-1.5">
@@ -1461,12 +1527,12 @@ Requisitos técnicos:
                 <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Afinidad Técnica Estimada</span>
                 <h6 class="text-base font-extrabold text-white flex items-center gap-2">
                   <span>Match de Rol:</span>
-                  <span class="text-emerald-400 text-lg">${score}%</span>
+                  <span class="text-emerald-400 text-lg">${finalScore}%</span>
                 </h6>
               </div>
               <div class="text-right">
                 <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs">
-                  ${score >= 90 ? '🌟 Fit Altamente Recomendado' : '✓ Perfil Compatible'}
+                  ${finalScore >= 80 ? '🌟 Fit Altamente Recomendado' : '✓ Perfil Compatible'}
                 </span>
               </div>
             </div>
@@ -1474,7 +1540,7 @@ Requisitos técnicos:
             <div>
               <span class="text-[11px] font-bold text-slate-300 block mb-1.5">Competencias y stacks detectados en tu búsqueda:</span>
               <div class="flex flex-wrap gap-1.5">
-                ${matchBadges || '<span class="text-slate-400 text-xs">Se detectó afinidad general de ingeniería.</span>'}
+                ${matchBadges}
               </div>
             </div>
 
@@ -1499,7 +1565,7 @@ Requisitos técnicos:
               </a>
             </div>
           </div>`;
-      }, 500);
+      }, 450);
     }
 
     // Normalizador de texto para búsquedas semánticas flexibles y sinónimos tech
