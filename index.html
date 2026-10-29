@@ -1239,16 +1239,32 @@
       const fallback = "Esa información no se encuentra especificada en el CV o portfolio profesional de Bárbara Covarrubias. Puedes consultar sobre su rol en Payway, proyectos personales (Travel Copilot MCP, E-commerce, Tesis UAI), soluciones de IA Generativa, stack técnico, formación o métricas de impacto." + 
         buildSuggestionChips(['¿Quién es Bárbara?', '¿Cuál es su rol en Payway?', 'Proyectos Personales', 'Stack Tecnológico']);
 
-            // 0. FIT DIRECTO: IT Lead especializada en IA, RAGs, MCPs & Puesta en Producción
-      if ((q.includes('rag') || q.includes('mcp') || q.includes('ia') || q.includes('inteligencia artificial') || q.includes('genai')) && 
-          (q.includes('levant') || q.includes('podria ser') || q.includes('puede ser') || q.includes('fit') || q.includes('busco') || q.includes('quiero') || q.includes('necesito') || q.includes('candidat') || q.includes('contrat') || q.includes('sirve') || q.includes('especializ') || q.includes('capacit') || (q.includes('it lead') && q.includes('experiencia')))) {
-        return "<strong>¡Sí, definitivamente! Bárbara encaja al 100% con ese perfil.</strong><br><br>" +
-               "Como <strong>IT Lead en Payway</strong> y en sus desarrollos de arquitectura aplicada, cuenta con experiencia comprobada y puesta en producción real en ambos frentes:<br><br>" +
-               "• <strong>Arquitecturas RAG en Producción:</strong> Diseñó e implementó pipelines RAG sobre <strong>AWS Bedrock</strong> (Foundation Models de Anthropic) integrando bases de conocimiento vectoriales en <strong>PostgreSQL con extensión pgvector</strong>, memoria conversacional en <strong>Redis</strong> y flujos agénticos con <strong>n8n</strong>. Además, valida y audita la calidad contra alucinaciones mediante el framework oficial <strong>RAGAS</strong> (alcanzando 0% de incidentes en release).<br>" +
-               "• <strong>Servidores MCP (Model Context Protocol):</strong> Diseñó y desplegó en producción el servidor corporativo MCP en <strong>Node.js sobre AWS (ECS/ECR)</strong> para exponer herramientas de cobro y contratos OpenAPI directo en los IDEs. Adicionalmente desarrolló <strong>Travel Copilot MCP</strong> (TypeScript/SQLite), implementando herramientas (<code>Tools</code>), recursos dinámicos (<code>Resources</code>) y plantillas contextuales (<code>Prompts</code>).<br>" +
-               "• <strong>Liderazgo Técnico (IT Lead):</strong> Conduce células de más de 10 ingenieros bajo Scrum, garantizando gobierno de APIs, observabilidad con Grafana y delivery predecible (+90% de eficiencia).<br><br>" +
-               "Está actualmente cursando la <strong>Diplomatura Superior en IA Aplicada (UNO)</strong> y disponible para coordinar una entrevista técnica." +
-               buildSuggestionChips(['Ver proyectos de MCP y RAG', 'Métricas de impacto', 'Contactar por WhatsApp', 'Descargar CV Oficial']);
+                  // -1. FILTRO DE TERCERAS PERSONAS (Evitar responder con datos de Bárbara si preguntan por otra persona)
+      const otherPersonMatch = q.match(/(?:quien es|que hace|conoces a|quien fue|hablame de|que podes decir de)\s+([a-z]+)/i);
+      if (otherPersonMatch) {
+        const target = otherPersonMatch[1].trim();
+        const validSelf = ['barbara', 'noelia', 'covarrubias', 'vos', 'ella', 'el', 'este', 'tu', 'asistente', 'agente', 'este'];
+        if (!validSelf.includes(target) && target.length > 2) {
+          const capitalized = target.charAt(0).toUpperCase() + target.slice(1);
+          return `No dispongo de información sobre <strong>${capitalized}</strong>.<br><br>` +
+                 `Como asistente virtual especializado, mi base de conocimientos está enfocada exclusivamente en la trayectoria profesional, proyectos y liderazgo técnico de <strong>Bárbara Noelia Covarrubias</strong>.` +
+                 buildSuggestionChips(['¿Quién es Bárbara?', '¿Cuál es su rol en Payway?', 'Proyectos Personales', 'Descargar CV']);
+        }
+      }
+
+      // 0. FIT DIRECTO: ¿Bárbara sirve como IT Lead / Tech Lead / Líder Técnico / Puesto de Liderazgo?
+      const isLeadQuery = q.includes('it lead') || q.includes('tech lead') || q.includes('lider') || q.includes('itl') || q.includes('tl') || q.includes('engineering manager') || q.includes('leadership');
+      const isFitQuery = q.includes('sirve') || q.includes('fit') || q.includes('puede') || q.includes('podria') || q.includes('encaja') || q.includes('califica') || q.includes('capacit') || q.includes('apta') || q.includes('perfil') || q.includes('rol') || q.includes('puesto') || q.includes('contrat') || q.includes('candidat') || q.includes('busco') || q.includes('quiero') || q.includes('necesito');
+
+      if (isLeadQuery && (isFitQuery || q.includes('experiencia'))) {
+        return "<strong>¡Sí, definitivamente! Bárbara encaja al 100% como IT Lead (ITL).</strong><br><br>" +
+               "De hecho, es su rol profesional actual: se desempeña como <strong>IT Lead de Plataforma de Integraciones & AI Solutions en Payway</strong> (desde abril de 2023), con un perfil técnico-estratégico comprobado:<br><br>" +
+               "• <strong>Liderazgo y Gestión de Células:</strong> Conduce equipos multidisciplinarios de más de 10 ingenieros (Backend, Frontend, QA y DevOps) bajo metodología <strong>Scrum</strong>, gestionando deuda técnica, backlog y sprints en Jira y GitLab con una eficiencia de entrega superior al <strong>+90%</strong>.<br>" +
+               "• <strong>Arquitectura de Software & Microservicios:</strong> Liderazgo técnico en la evolución del Portal de Integraciones bajo microservicios en <strong>Java Spring Boot y React</strong>, mensajería asíncrona distribuida con <strong>Apache Kafka</strong>, Webhooks transaccionales y contratos <strong>OpenAPI/Swagger</strong> para medios de pago y e-commerce.<br>" +
+               "• <strong>Puesta en Producción de Soluciones de IA:</strong> Diseñó e implementó el asistente de integración con flujos agénticos (n8n, AWS Bedrock con modelos Anthropic, memoria en Redis y RAG sobre Bedrock Knowledge Bases con PostgreSQL pgvector), gobernado con evaluación continua <strong>RAGAS</strong> (alcanzando <strong>0% de incidentes en release</strong>).<br>" +
+               "• <strong>Servidor MCP Corporativo:</strong> Arquitectura en Node.js sobre AWS (ECS/ECR) para exponer APIs y herramientas de cobro directamente en los IDEs de desarrollo.<br><br>" +
+               "Cuenta con formación de grado como <strong>Ingeniera en Sistemas Informáticos (UAI)</strong>, certificación en <strong>Project Management (ITBA)</strong> y actualmente cursa la <strong>Diplomatura Superior en IA Aplicada (UNO)</strong>." +
+               buildSuggestionChips(['Rol detallado en Payway', 'Métricas de impacto', 'Contactar por WhatsApp', 'Descargar CV Oficial']);
       }
 
       // RAG, RAGAS & IA Generativa
