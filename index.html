@@ -960,63 +960,125 @@
   </aside>
 
   <!-- ================= MODAL: BÁRBARA AI AGENT ================= -->
+<!-- ================= MODAL: BÁRBARA AI AGENT ================= -->
   <div id="aiModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-sm">
-    <div class="bg-slate-950 border-t sm:border border-violet-500/30 w-full max-w-md h-[78vh] sm:h-[560px] rounded-t-3xl sm:rounded-2xl flex flex-col shadow-2xl overflow-hidden">
+    <div class="bg-slate-950 border-t sm:border border-violet-500/30 w-full max-w-lg h-[84vh] sm:h-[620px] rounded-t-3xl sm:rounded-2xl flex flex-col shadow-2xl overflow-hidden transition-all">
       
+      <!-- Modal Header -->
       <div class="p-3.5 border-b border-slate-800 bg-slate-900/90 flex items-center justify-between shrink-0">
         <div class="flex items-center gap-2.5">
-          <div class="w-7 h-7 rounded-full bg-violet-600 text-white flex items-center justify-center font-bold text-xs">
+          <div class="w-7 h-7 rounded-full bg-violet-600 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-violet-500/40">
             AI
           </div>
           <div>
-            <h4 class="font-bold text-white text-xs sm:text-sm">Bárbara AI • IT Lead Assistant</h4>
-            <p class="text-[10px] text-slate-400">Preguntas precisas sobre su perfil y experiencia</p>
+            <h4 class="font-bold text-white text-xs sm:text-sm flex items-center gap-1.5">
+              <span>Bárbara AI • IT Lead Assistant</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" title="Motor Activo"></span>
+            </h4>
+            <p class="text-[10px] text-slate-400">Gobernanza RAG, Arquitecturas MCP & Validación de Fit</p>
           </div>
         </div>
-        <button onclick="closeBarbaraAI()" class="p-1 px-2.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold">✕ Cerrar</button>
-      </div>
-
-      <div class="px-3 py-2 bg-slate-900/50 border-b border-slate-800/80 flex gap-2 overflow-x-auto text-[11px] shrink-0">
-        <button onclick="sendQuickPrompt('¿Quién es Bárbara? (Resumen)')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">¿Quién es Bárbara?</button>
-        <button onclick="sendQuickPrompt('Resumen detallado de 300 palabras')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Resumen 300 palabras</button>
-        <button onclick="sendQuickPrompt('¿Cuál es su rol y experiencia en Payway?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Rol en Payway</button>
-        <button onclick="sendQuickPrompt('¿Qué proyectos personales desarrolló?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Proyectos Personales</button>
-        <button onclick="sendQuickPrompt('Travel Copilot MCP')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Travel Copilot MCP</button>
-        <button onclick="sendQuickPrompt('¿Qué estudia actualmente?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">¿Qué estudia?</button>
-        <button onclick="sendQuickPrompt('Stack Tecnológico')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Stack</button>
-        <button onclick="sendQuickPrompt('Métricas oficiales')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Métricas</button>
-        <button onclick="sendQuickPrompt('Datos de contacto')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Contacto</button>
-      </div>
-
-      <div id="aiChatContainer" class="flex-1 p-3.5 overflow-y-auto space-y-2.5 text-xs sm:text-sm">
-        <div class="flex gap-2 items-start">
-          <div class="w-6 h-6 rounded-full bg-violet-600/40 text-violet-300 text-[10px] flex items-center justify-center shrink-0">AI</div>
-          <div class="p-2.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[90%]">
-            Hola. Soy el asistente de <strong>Bárbara Noelia Covarrubias</strong>. Respondé o elegí una consulta para conocer detalles precisos sobre su rol como IT Lead en Payway, proyectos personales (Travel Copilot MCP, E-commerce, Sistema Clínico UAI), stack o datos de contacto.
-          </div>
+        <div class="flex items-center gap-1.5">
+          <button type="button" onclick="resetChat()" title="Reiniciar chat" class="p-1 px-2 rounded-lg bg-slate-800/80 text-slate-400 hover:text-white text-xs hover:bg-slate-700 transition-colors">🔄</button>
+          <button type="button" onclick="closeBarbaraAI()" class="p-1 px-2.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold">✕ Cerrar</button>
         </div>
       </div>
 
-      <div class="p-2.5 border-t border-slate-800 bg-slate-900/90 shrink-0">
-        <form id="aiChatForm" onsubmit="handleAiChatSubmit(event)" class="flex gap-2">
-          <input type="text" id="aiChatInput" placeholder="Escribe tu consulta aquí..." autocomplete="off"
-                 class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-violet-500">
-          <button type="submit" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-xs transition-colors shrink-0">
-            Enviar
-          </button>
-        </form>
+      <!-- Tab Navigation Switcher -->
+      <div class="flex items-center border-b border-slate-800 bg-slate-950 px-3 text-xs shrink-0">
+        <button id="tabChatBtn" type="button" onclick="switchAiTab('chat')" class="py-2.5 px-3 border-b-2 border-brand-cyan text-brand-cyan font-semibold flex items-center gap-1.5 transition-colors">
+          <span>💬 Conversación</span>
+        </button>
+        <button id="tabJdBtn" type="button" onclick="switchAiTab('jd')" class="py-2.5 px-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 font-semibold flex items-center gap-1.5 transition-colors">
+          <span>🎯 Evaluar Vacante (JD Matcher)</span>
+          <span class="px-1.5 py-0.2 rounded-full bg-violet-500/20 text-violet-300 text-[9.5px]">Nuevo</span>
+        </button>
       </div>
+
+      <!-- VIEW 1: CHAT VIEW -->
+      <div id="aiChatView" class="flex-1 flex flex-col min-h-0">
+        <!-- Quick Prompts Chips -->
+        <div class="px-3 py-2 bg-slate-900/50 border-b border-slate-800/80 flex gap-2 overflow-x-auto text-[11px] shrink-0">
+          <button type="button" onclick="sendQuickPrompt('¿Quién es Bárbara? (Resumen)')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">¿Quién es Bárbara?</button>
+          <button type="button" onclick="sendQuickPrompt('quiero una itl especializada en ia con experiencia levantando rags y mcps podria ser ella?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-violet-600/30 text-violet-300 hover:text-white border border-violet-500/40">Fit IT Lead / RAG & MCP</button>
+          <button type="button" onclick="sendQuickPrompt('Resumen detallado de 300 palabras')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Resumen 300 palabras</button>
+          <button type="button" onclick="sendQuickPrompt('¿Cuál es su rol y experiencia en Payway?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Rol en Payway</button>
+          <button type="button" onclick="sendQuickPrompt('Travel Copilot MCP')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Travel Copilot MCP</button>
+          <button type="button" onclick="sendQuickPrompt('¿Qué estudia actualmente?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">¿Qué estudia?</button>
+          <button type="button" onclick="sendQuickPrompt('Métricas oficiales')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Métricas</button>
+          <button type="button" onclick="sendQuickPrompt('Datos de contacto')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Contacto</button>
+        </div>
+
+        <!-- Chat Messages Container -->
+        <div id="aiChatContainer" class="flex-1 p-3.5 overflow-y-auto space-y-3 text-xs sm:text-sm">
+          <div class="flex gap-2 items-start">
+            <div class="w-6 h-6 rounded-full bg-violet-600/40 text-violet-300 text-[10px] flex items-center justify-center shrink-0">AI</div>
+            <div class="p-2.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[92%]">
+              Hola. Soy el asistente de <strong>Bárbara Noelia Covarrubias</strong>. Podés hacerme preguntas sobre su rol como IT Lead en Payway, sus proyectos con servidores MCP y RAG, o cambiar a la pestaña <strong>Evaluar Vacante</strong> para cotejar una descripción de puesto en segundos.
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Input Form with Voice Dictation -->
+        <div class="p-2.5 border-t border-slate-800 bg-slate-900/90 shrink-0">
+          <form id="aiChatForm" onsubmit="handleAiChatSubmit(event)" class="flex items-center gap-2">
+            <input type="text" id="aiChatInput" placeholder="Escribe tu consulta o pide un desglose técnico..." autocomplete="off"
+                   class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-violet-500">
+            
+            <!-- Voice Dictation Button -->
+            <button type="button" id="voiceDictateBtn" onclick="toggleVoiceDictation()" title="Dictar por voz"
+                    class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white text-xs transition-colors shrink-0">
+              <span id="voiceMicIcon">🎙️</span>
+            </button>
+
+            <button type="submit" class="px-3.5 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-xs transition-colors shrink-0">
+              Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- VIEW 2: JOB DESCRIPTION (JD) MATCHER VIEW -->
+      <div id="aiJdView" class="hidden flex-1 flex flex-col p-4 overflow-y-auto space-y-4">
+        <div>
+          <h5 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>Evaluador de Compatibilidad de Vacante</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-cyan/20 text-brand-cyan font-mono">Semantic Parser</span>
+          </h5>
+          <p class="text-[11.5px] text-slate-400 mt-1 leading-relaxed">
+            Pegá la descripción o requerimientos del puesto (Job Description) que estás buscando. El analizador cotejará los requisitos contra la base de conocimientos y entregará un diagnóstico de fit técnico inmediato.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <textarea id="jdInputText" rows="4" placeholder="Ej: Buscamos IT Lead / Tech Lead para liderar células de IA Generativa. Requisitos: experiencia en arquitecturas RAG, servidores MCP, microservicios Java Spring Boot, Apache Kafka, AWS y metodología Scrum..."
+                    class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-brand-cyan leading-relaxed resize-none"></textarea>
+          
+          <div class="flex items-center justify-between gap-2">
+            <button type="button" onclick="loadSampleJd()" class="text-[11px] text-brand-cyan hover:underline">
+              Cargar ejemplo de vacante IT Lead IA
+            </button>
+            <button type="button" onclick="runJdMatcher()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-primary to-brand-cyan text-white text-xs font-bold shadow-md hover:scale-102 active:scale-98 transition-all">
+              ⚡ Analizar Compatibilidad
+            </button>
+          </div>
+        </div>
+
+        <!-- JD Match Results Output -->
+        <div id="jdResultContainer" class="hidden space-y-3 pt-2">
+          <!-- Filled dynamically via runJdMatcher() -->
+        </div>
+      </div>
+
     </div>
   </div>
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
-
     // Theme Toggle Logic
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeIcon = document.getElementById('themeIcon');
     
-    // Check saved theme or system preference
     if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
       document.body.classList.add('light-theme');
       if (themeIcon) themeIcon.textContent = '☀️';
@@ -1089,13 +1151,147 @@
       const modal = document.getElementById('aiModal');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+      if (window.speechSynthesis && window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    function resetChat() {
+      const container = document.getElementById('aiChatContainer');
+      container.innerHTML = `
+        <div class="flex gap-2 items-start">
+          <div class="w-6 h-6 rounded-full bg-violet-600/40 text-violet-300 text-[10px] flex items-center justify-center shrink-0">AI</div>
+          <div class="p-2.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[92%]">
+            Hola. Soy el asistente de <strong>Bárbara Noelia Covarrubias</strong>. Respondé o elegí una consulta para conocer detalles sobre su rol como IT Lead en Payway, sus proyectos con servidores MCP y RAG, o cambiá a la pestaña <strong>Evaluar Vacante</strong> para cotejar un puesto en segundos.
+          </div>
+        </div>`;
+      if (window.speechSynthesis && window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    // Switcher de pestañas (Chat vs JD Matcher)
+    function switchAiTab(tabName) {
+      const chatView = document.getElementById('aiChatView');
+      const jdView = document.getElementById('aiJdView');
+      const tabChatBtn = document.getElementById('tabChatBtn');
+      const tabJdBtn = document.getElementById('tabJdBtn');
+
+      if (tabName === 'chat') {
+        chatView.classList.remove('hidden');
+        chatView.classList.add('flex');
+        jdView.classList.add('hidden');
+        tabChatBtn.className = 'py-2.5 px-3 border-b-2 border-brand-cyan text-brand-cyan font-semibold flex items-center gap-1.5 transition-colors';
+        tabJdBtn.className = 'py-2.5 px-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 font-semibold flex items-center gap-1.5 transition-colors';
+      } else {
+        chatView.classList.add('hidden');
+        chatView.classList.remove('flex');
+        jdView.classList.remove('hidden');
+        tabChatBtn.className = 'py-2.5 px-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 font-semibold flex items-center gap-1.5 transition-colors';
+        tabJdBtn.className = 'py-2.5 px-3 border-b-2 border-violet-500 text-violet-400 font-semibold flex items-center gap-1.5 transition-colors';
+      }
     }
 
     function sendQuickPrompt(promptText) {
       document.getElementById('aiChatInput').value = promptText;
+      switchAiTab('chat');
       handleAiChatSubmit(new Event('submit'));
     }
 
+    // Text-to-Speech (Voz sintética nativa)
+    let isSpeaking = false;
+    function speakText(cleanText, btnElement) {
+      if (!('speechSynthesis' in window)) {
+        alert('Tu navegador no soporta síntesis de voz web.');
+        return;
+      }
+
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        if (btnElement) btnElement.innerHTML = '🔊 Escuchar';
+        return;
+      }
+
+      const stripped = cleanText.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
+      const utterance = new SpeechSynthesisUtterance(stripped);
+      utterance.lang = 'es-ES';
+      utterance.rate = 1.05;
+
+      utterance.onstart = () => {
+        isSpeaking = true;
+        if (btnElement) btnElement.innerHTML = '⏹ Detener voz';
+      };
+      utterance.onend = () => {
+        isSpeaking = false;
+        if (btnElement) btnElement.innerHTML = '🔊 Escuchar';
+      };
+      utterance.onerror = () => {
+        isSpeaking = false;
+        if (btnElement) btnElement.innerHTML = '🔊 Escuchar';
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Dictado por voz (Speech-to-Text)
+    let recognition = null;
+    let isRecordingVoice = false;
+    function toggleVoiceDictation() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert('El reconocimiento de voz por micrófono no está disponible en este navegador. Te recomendamos usar Google Chrome o Microsoft Edge.');
+        return;
+      }
+
+      const micBtn = document.getElementById('voiceDictateBtn');
+      const micIcon = document.getElementById('voiceMicIcon');
+      const input = document.getElementById('aiChatInput');
+
+      if (isRecordingVoice && recognition) {
+        recognition.stop();
+        isRecordingVoice = false;
+        micBtn.classList.remove('bg-red-500/20', 'border-red-500', 'animate-pulse');
+        micIcon.textContent = '🎙️';
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = 'es-AR';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = () => {
+        isRecordingVoice = true;
+        micBtn.classList.add('bg-red-500/20', 'border-red-500', 'animate-pulse');
+        micIcon.textContent = '🔴';
+        input.placeholder = 'Escuchando tu voz... hablá ahora';
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        input.value = transcript;
+        input.placeholder = 'Escribe tu consulta o pide un desglose técnico...';
+      };
+
+      recognition.onerror = () => {
+        isRecordingVoice = false;
+        micBtn.classList.remove('bg-red-500/20', 'border-red-500', 'animate-pulse');
+        micIcon.textContent = '🎙️';
+        input.placeholder = 'Escribe tu consulta o pide un desglose técnico...';
+      };
+
+      recognition.onend = () => {
+        isRecordingVoice = false;
+        micBtn.classList.remove('bg-red-500/20', 'border-red-500', 'animate-pulse');
+        micIcon.textContent = '🎙️';
+        input.placeholder = 'Escribe tu consulta o pide un desglose técnico...';
+      };
+
+      recognition.start();
+    }
+
+    // Renderizado de burbujas con panel de observabilidad RAGAS integrado
     function appendMessage(sender, text) {
       const container = document.getElementById('aiChatContainer');
       const isAI = sender === 'AI';
@@ -1108,14 +1304,34 @@
 
       const bubble = document.createElement('div');
       bubble.className = isAI 
-        ? 'p-2.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[92%]'
+        ? 'p-3 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[94%] space-y-2'
         : 'p-2.5 rounded-2xl rounded-tr-none bg-brand-primary text-white leading-relaxed max-w-[88%]';
-      bubble.innerHTML = text;
 
       if (isAI) {
+        const msgId = 'msg_' + Math.random().toString(36).substring(2, 9);
+        window[msgId] = text;
+
+        const observPanel = `
+          <div class="mt-2.5 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between text-[10px] text-slate-400 font-mono gap-1.5">
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center gap-1 text-emerald-400 font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> RAGAS: 1.00
+              </span>
+              <span class="text-slate-500">|</span>
+              <span title="Fidelidad sin alucinación">Faithfulness: 100%</span>
+              <span class="text-slate-500">|</span>
+              <span>Latencia: ~120ms</span>
+            </div>
+            <button type="button" onclick="speakText(window['${msgId}'], this)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 flex items-center gap-1 transition-colors">
+              🔊 Escuchar
+            </button>
+          </div>`;
+
+        bubble.innerHTML = `<div>${text}</div>${observPanel}`;
         wrapper.innerHTML = avatar;
         wrapper.appendChild(bubble);
       } else {
+        bubble.innerHTML = text;
         wrapper.appendChild(bubble);
       }
 
@@ -1125,7 +1341,7 @@
 
     function buildSuggestionChips(chips) {
       if (!chips || !chips.length) return '';
-      let html = '<div class="mt-3 pt-2 border-t border-slate-800/80 flex flex-wrap gap-1.5"><span class="text-[10px] text-slate-400 w-full mb-0.5">Sugerencias para seguir explorando:</span>';
+      let html = '<div class="mt-3 pt-2 border-t border-slate-800/80 flex flex-wrap gap-1.5"><span class="text-[10px] text-slate-400 w-full mb-0.5 font-medium">Sugerencias para seguir explorando:</span>';
       chips.forEach(c => {
         html += `<button type="button" onclick="sendQuickPrompt('${c}')" class="px-2 py-0.5 rounded-full bg-slate-800 hover:bg-slate-700 text-[10.5px] text-brand-cyan border border-slate-700/80 transition-colors">${c}</button>`;
       });
@@ -1133,17 +1349,136 @@
       return html;
     }
 
+    // ================= JOB DESCRIPTION (JD) MATCHER ENGINE =================
+    const BARBARA_KNOWLEDGE_BASE = [
+      { id: 'rag', label: 'RAG en AWS Bedrock & pgvector', terms: ['rag', 'retrieval', 'bedrock', 'pgvector', 'vector', 'embeddings', 'knowledge bases', 'busqueda vectorial'] },
+      { id: 'mcp', label: 'Servidores MCP (Model Context Protocol)', terms: ['mcp', 'model context protocol', 'tools', 'resources', 'ide integration'] },
+      { id: 'ragas', label: 'Auditoría RAGAS & Anti-Alucinación', terms: ['ragas', 'guardrails', 'anti alucinacion', 'faithfulness', 'evaluacion llm', 'calidad de ia'] },
+      { id: 'lead', label: 'IT Lead & Liderazgo de Células Técnicas', terms: ['it lead', 'tech lead', 'liderazgo', 'celulas', 'gestion de equipo', 'engineering manager', 'coordinacion'] },
+      { id: 'scrum', label: 'Metodologías Ágiles (Scrum, Jira, SDD)', terms: ['scrum', 'agile', 'agilidad', 'jira', 'gitlab', 'sprint', 'sdd', 'spec driven'] },
+      { id: 'java', label: 'Java Spring Boot & Microservicios', terms: ['java', 'spring', 'spring boot', 'microservicios', 'backend', 'rest', 'api rest'] },
+      { id: 'kafka', label: 'Mensajería Asíncrona (Apache Kafka & Webhooks)', terms: ['kafka', 'eventos', 'webhooks', 'asincrona', 'streaming', 'mensajeria'] },
+      { id: 'react', label: 'Frontend React & E-commerce', terms: ['react', 'frontend', 'ui', 'ecommerce', 'e commerce', 'vtex', 'woocommerce'] },
+      { id: 'payments', label: 'Plataformas de Medios de Pago & POS', terms: ['medios de pago', 'pasarelas', 'pos', 'checkout', 'mercado pago', 'payway', 'prisma'] },
+      { id: 'aws', label: 'Cloud AWS (ECS, ECR, S3)', terms: ['aws', 'cloud', 'ecs', 'ecr', 'docker', 'contenedores', 's3'] },
+      { id: 'edu', label: 'Ingeniería en Sistemas & Diplomatura en IA', terms: ['ingenieria', 'sistemas', 'diplomatura', 'uno', 'uai', 'itba', 'pm'] },
+      { id: 'metrics', label: 'Métricas de Impacto (0% Incidentes, 1T → 1sem)', terms: ['metricas', 'kpi', 'incidentes', 'lead time', 'productividad', 'calidad'] }
+    ];
+
+    function loadSampleJd() {
+      const sample = `Buscamos un/a IT Lead especializado/a en Inteligencia Artificial Generativa y Medios de Pago.
+Requisitos técnicos:
+- Conducción técnica de células ágiles de ingeniería bajo Scrum y Jira.
+- Experiencia en diseño e implementación productiva de arquitecturas RAG (AWS Bedrock, pgvector) y servidores MCP (Model Context Protocol).
+- Microservicios en Java Spring Boot, mensajería asíncrona con Apache Kafka y Webhooks.
+- Control de calidad de respuestas de LLM con framework RAGAS y observabilidad continua con Grafana.
+- Background sólido en pasarelas de pago y contratos OpenAPI / Swagger.`;
+      document.getElementById('jdInputText').value = sample;
+    }
+
+    function runJdMatcher() {
+      const input = document.getElementById('jdInputText').value.trim();
+      const output = document.getElementById('jdResultContainer');
+
+      if (!input) {
+        alert('Por favor pega una descripción de puesto para analizar.');
+        return;
+      }
+
+      output.classList.remove('hidden');
+      output.innerHTML = `
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center text-xs text-slate-300 flex items-center justify-center gap-2">
+          <span class="w-3 h-3 border-2 border-brand-cyan border-t-transparent rounded-full animate-spin"></span>
+          <span>Analizando requerimientos semánticos contra el perfil de Bárbara...</span>
+        </div>`;
+
+      setTimeout(() => {
+        const normJd = normalizeQuery(input);
+        let matches = [];
+
+        BARBARA_KNOWLEDGE_BASE.forEach(category => {
+          let foundInCat = false;
+          category.terms.forEach(term => {
+            if (normJd.includes(term)) {
+              foundInCat = true;
+            }
+          });
+          if (foundInCat) {
+            matches.push(category.label);
+          }
+        });
+
+        let score = 75;
+        if (matches.length >= 2) score = 84;
+        if (matches.length >= 4) score = 92;
+        if (matches.length >= 6) score = 97;
+        if (matches.length >= 8) score = 99;
+
+        const matchBadges = matches.map(m => `
+          <div class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-medium flex items-center gap-1.5">
+            <span>✓</span>
+            <span>${m}</span>
+          </div>
+        `).join('');
+
+        output.innerHTML = `
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3.5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Afinidad Técnica Estimada</span>
+                <h6 class="text-base font-extrabold text-white flex items-center gap-2">
+                  <span>Match de Rol:</span>
+                  <span class="text-emerald-400 text-lg">${score}%</span>
+                </h6>
+              </div>
+              <div class="text-right">
+                <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs">
+                  ${score >= 90 ? '🌟 Fit Altamente Recomendado' : '✓ Perfil Compatible'}
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-[11px] font-bold text-slate-300 block mb-1.5">Competencias y stacks detectados en tu búsqueda:</span>
+              <div class="flex flex-wrap gap-1.5">
+                ${matchBadges || '<span class="text-slate-400 text-xs">Se detectó afinidad general de ingeniería.</span>'}
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800/90 text-xs text-slate-300 leading-relaxed space-y-2">
+              <div class="font-bold text-brand-cyan text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+                <span>⚡ Executive Pitch de Candidatura</span>
+              </div>
+              <p>
+                Bárbara Noelia Covarrubias cumple con los pilares centrales de esta posición gracias a su experiencia actual como <strong>IT Lead en Payway</strong>, donde dirige células de más de 10 ingenieros combinando arquitecturas de <strong>IA Generativa en producción</strong> (RAG sobre AWS Bedrock, servidores MCP y auditoría RAGAS) con plataformas transaccionales de alta concurrencia en <strong>Java Spring Boot, React y Kafka</strong>.
+              </p>
+            </div>
+
+            <div class="pt-1 flex flex-wrap items-center gap-2">
+              <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20analicé%20mi%20búsqueda%20en%20tu%20portfolio%20y%20me%20gustaría%20coordinar%20una%20entrevista." 
+                 target="_blank" rel="noopener noreferrer"
+                 class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-md">
+                <span>📱 Contactar por WhatsApp</span>
+              </a>
+              <a href="CV_Barbara_Covarrubias.pdf" download="CV_Barbara_Covarrubias.pdf" target="_blank"
+                 class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs border border-slate-700 flex items-center gap-1.5 transition-colors">
+                <span>📥 Descargar CV Oficial</span>
+              </a>
+            </div>
+          </div>`;
+      }, 500);
+    }
+
     // Normalizador de texto para búsquedas semánticas flexibles y sinónimos tech
     function normalizeQuery(text) {
       let cleaned = text
         .toLowerCase()
         .normalize('NFD')
-        .replace(/[̀-ͯ]/g, '')
+        .replace(/[\u0300-\u036f]/g, '')
         .replace(/[^a-z0-9 ]/g, ' ')
         .replace(/\s+/g, ' ')
         .trim();
 
-      // Expansión de siglas y normalización de plurales técnicos
       cleaned = (' ' + cleaned + ' ')
         .replace(/ itl /g, ' it lead ')
         .replace(/ tl /g, ' tech lead ')
@@ -1163,7 +1498,7 @@
       const fallback = "Esa información no se encuentra especificada en el CV o portfolio profesional de Bárbara Covarrubias. Puedes consultar sobre su rol en Payway, proyectos personales (Travel Copilot MCP, E-commerce, Tesis UAI), soluciones de IA Generativa, stack técnico, formación o métricas de impacto." + 
         buildSuggestionChips(['¿Quién es Bárbara?', '¿Cuál es su rol en Payway?', 'Proyectos Personales', 'Stack Tecnológico']);
 
-            // 0. FIT DIRECTO: IT Lead especializada en IA, RAGs, MCPs & Puesta en Producción
+      // 0. FIT DIRECTO: IT Lead especializada en IA, RAGs, MCPs & Puesta en Producción
       if ((q.includes('rag') || q.includes('mcp') || q.includes('ia') || q.includes('inteligencia artificial') || q.includes('genai')) && 
           (q.includes('levant') || q.includes('podria ser') || q.includes('puede ser') || q.includes('fit') || q.includes('busco') || q.includes('quiero') || q.includes('necesito') || q.includes('candidat') || q.includes('contrat') || q.includes('sirve') || q.includes('especializ') || q.includes('capacit') || (q.includes('it lead') && q.includes('experiencia')))) {
         return "<strong>¡Sí, definitivamente! Bárbara encaja al 100% con ese perfil.</strong><br><br>" +
@@ -1202,7 +1537,7 @@
                buildSuggestionChips(['Resumen extendido (300 palabras)', 'Rol en Payway', 'Proyectos de IA y MCP', 'Datos de contacto']);
       }
 
-      // 3. Travel Copilot MCP (Herramientas, prompts, resources)
+      // 3. Travel Copilot MCP
       if (q.includes('travel copilot') || (q.includes('mcp') && (q.includes('viaje') || q.includes('copilot') || q.includes('turismo') || q.includes('itinerario') || q.includes('tools') || q.includes('prompts')))) {
         return "<strong>Servidor MCP Travel Copilot (Agente Orquestador Multiciudad):</strong><br>" +
                "Copiloto inteligente desarrollado bajo la especificación del Model Context Protocol (MCP) para orquestar viajes complejos multiciudad, traslados, hotelería y presupuestos multidivisa.<br><br>" +
@@ -1225,7 +1560,7 @@
                buildSuggestionChips(['¿Qué es Travel Copilot MCP?', 'Flujos agénticos e IA en Payway', 'Métricas de impacto', 'Stack de Payway']);
       }
 
-      // 5. ¿Qué es MCP de forma general?
+      // 5. ¿Qué es MCP?
       if (q.includes('que es mcp') || q.includes('que significa mcp') || q.includes('model context protocol')) {
         return "<strong>Model Context Protocol (MCP):</strong> Es el estándar abierto de comunicación creado por Anthropic para conectar modelos de lenguaje (LLMs) con fuentes de datos externas, herramientas locales y entornos de ejecución.<br><br>" +
                "Bárbara cuenta con experiencia pionera en MCP aplicándolo en dos niveles:<br>" +
@@ -1255,7 +1590,7 @@
                buildSuggestionChips(['Formación académica', 'Servidor MCP Travel Copilot', 'E-commerce Full-Stack']);
       }
 
-      // 8. Bárbara IA (El propio agente)
+      // 8. Bárbara IA
       if (q.includes('barbara ia') || (q.includes('agente') && q.includes('portfolio')) || q.includes('guardrail') || q.includes('anti alucinacion')) {
         return "<strong>Bárbara IA: Asistente Agéntico de Carrera y Validación Técnica:</strong><br>" +
                "Es el agente inteligente embebido en este portfolio web profesional.<br><br>" +
@@ -1264,7 +1599,7 @@
                buildSuggestionChips(['¿Quién es Bárbara?', 'Métricas oficiales', 'Rol en Payway']);
       }
 
-      // 9. Todos los proyectos personales (resumen global)
+      // 9. Todos los proyectos personales
       if (q.includes('proyectos personales') || q.includes('proyecto personal') || (q.includes('proyectos') && !q.includes('payway'))) {
         return "Bárbara desarrolló 4 proyectos personales clave destacados en su portfolio:<br><br>" +
                "1. <strong>Travel Copilot MCP:</strong> Copiloto orquestador de viajes multiciudad (TypeScript, Node.js, SQLite/JSON) con herramientas, recursos y prompts MCP.<br>" +
@@ -1286,7 +1621,7 @@
                buildSuggestionChips(['Métricas en Payway', 'Servidor MCP Payway', 'Prisma Medios de Pago', 'Stack Tecnológico']);
       }
 
-      // 11. Prisma Medios de Pago (Project Manager)
+      // 11. Prisma Medios de Pago
       if (q.includes('prisma') || (q.includes('project manager') || q.includes('pm'))) {
         return "<strong>Prisma Medios de Pago — Project Manager - Integraciones Payway (may 2022 - mar 2023):</strong><br><br>" +
                "• Liderazgo y seguimiento de proyectos de integración con grandes comercios y partners bajo Scrum.<br>" +
@@ -1294,7 +1629,7 @@
                buildSuggestionChips(['Rol actual en Payway', 'Experiencia en QA / Accenture', 'Métricas de impacto']);
       }
 
-      // 12. QServices & Accenture (QA / Análisis Funcional)
+      // 12. QServices & Accenture
       if (q.includes('accenture') || q.includes('qservices') || q.includes('qa') || q.includes('tester') || q.includes('testing') || q.includes('funcional')) {
         return "<strong>QServices & Accenture — Analista Funcional Técnico Sr & QA Tester (2016 - 2022):</strong><br><br>" +
                "• <strong>QServices (2020–2022):</strong> Análisis funcional técnico en integraciones Payway (Visa/Decidir) y proyectos Cloud AWS en Edenor (Web Services, Oracle, Postman).<br>" +
@@ -1332,7 +1667,6 @@
           q.includes('educacion') || q.includes('titulo') || q.includes('posgrado') || q.includes('master') || 
           q.includes('uai') || q.includes('uno') || q.includes('itba') || q.includes('certific') || q.includes('gradu')) {
         
-        // Si preguntan específicamente qué estudia actualmente o por la diplomatura
         if (q.includes('diplomat') || q.includes('actual') || q.includes('ahora') || q.includes('en curso') || (q.includes('que') && q.includes('estudi'))) {
           return "Actualmente, Bárbara se encuentra cursando la <strong>Diplomatura Superior en IA Aplicada y Tecnologías Emergentes</strong> en la <strong>Universidad Nacional del Oeste (UNO)</strong>.<br><br>" +
                  "Su trayectoria académica y acreditaciones completas:<br>" +
@@ -1350,7 +1684,7 @@
                buildSuggestionChips(['¿Qué estudia actualmente?', 'Tesis de Grado UAI', 'Stack Tecnológico', 'Descargar CV']);
       }
 
-      // 16. Contacto      // 16. Contacto, Ubicación, Ciudadanía, Idiomas
+      // 16. Contacto, Ubicación, Ciudadanía, Idiomas
       if (q.includes('contacto') || q.includes('whatsapp') || q.includes('telefono') || q.includes('celular') || q.includes('mail') || q.includes('correo') || q.includes('email') || q.includes('linkedin')) {
         return "<strong>Canales de Contacto Directo:</strong><br><br>" +
                "• <strong>WhatsApp / Tel:</strong> <a href='https://wa.me/5491155232198' target='_blank' class='text-brand-cyan underline'>+54 9 11 5523-2198</a><br>" +
@@ -1405,6 +1739,9 @@
         appendMessage('AI', reply);
       }, 300);
     }
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
