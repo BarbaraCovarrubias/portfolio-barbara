@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>Bárbara Noelia Covarrubias | IT Lead Integraciones, Medios de Pago & Soluciones IA</title>
   <meta name="description" content="Portfolio y CV profesional de Bárbara Noelia Covarrubias - IT Lead Integraciones, Medios de Pago & Soluciones IA.">
+  
+  <!-- Google Fonts & Tailwind -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -109,6 +111,7 @@
       background: #1E293B;
       border-radius: 9999px;
     }
+
     /* Light Theme Overrides (High-Contrast Professional Palette) */
     body.light-theme {
       background-color: #F1F5F9 !important;
@@ -133,6 +136,7 @@
       border-color: #3B82F6 !important;
       box-shadow: 0 14px 28px -4px rgba(59, 130, 246, 0.15);
     }
+
     /* Tipografía y textos de alto contraste */
     body.light-theme .text-white {
       color: #0F172A !important;
@@ -153,6 +157,7 @@
     body.light-theme .text-brand-cyan {
       color: #0284C7 !important; /* Azul cian intenso legible en fondo claro */
     }
+
     /* Badges de cabecera y datos clave (Ubicación, Ciudadanía, Idiomas, etc.) */
     body.light-theme .bg-slate-800,
     body.light-theme .bg-slate-800\/80,
@@ -168,6 +173,7 @@
     body.light-theme .border-slate-800\/80 {
       border-color: #CBD5E1 !important;
     }
+
     /* Bloques de código, diagramas y detalles técnicos */
     body.light-theme .bg-slate-900,
     body.light-theme .bg-slate-900\/70,
@@ -186,6 +192,7 @@
       padding: 1px 4px;
       border-radius: 4px;
     }
+
     /* Botones y chips secundarios */
     body.light-theme .tech-pill {
       background-color: #F1F5F9 !important;
@@ -197,6 +204,7 @@
       border-color: #0284C7 !important;
       color: #0284C7 !important;
     }
+
     /* Botón Descargar CV Oficial */
     body.light-theme a[href="CV_Barbara_Covarrubias.pdf"] {
       background-color: #0F172A !important;
@@ -210,6 +218,7 @@
     body.light-theme a[href="CV_Barbara_Covarrubias.pdf"] svg {
       color: #38BDF8 !important;
     }
+
     /* Modal Bárbara IA */
     body.light-theme #aiModal > div {
       background-color: #FFFFFF !important;
@@ -265,6 +274,10 @@
       background-color: #F0F9FF !important;
       border-color: #BAE6FD !important;
     }
+
+
+
+
     /* Modal Universal Responsive (Celular, Tablet, Laptop, Desktop) */
     #aiModal {
       padding-top: max(0.5rem, env(safe-area-inset-top));
@@ -279,15 +292,20 @@
       }
     }
   </style>
+  <!-- GoatCounter Analytics (Visitas diarias y métricas sin cookies) -->
   <script data-goatcounter="https://barbaracovarrubias.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="selection:bg-brand-primary selection:text-white bg-grid relative">
+
+  <!-- Ambient Glow Effects -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
     <div class="absolute -top-32 -left-20 w-96 h-96 bg-brand-primary/15 rounded-full blur-3xl animate-pulse-glow"></div>
     <div class="absolute top-1/3 -right-24 w-80 h-80 bg-brand-cyan/15 rounded-full blur-3xl animate-float-slow"></div>
     <div class="absolute bottom-20 left-10 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl animate-float-delayed"></div>
   </div>
+
+  <!-- ================= TOP NAVIGATION ================= -->
   <header class="sticky top-0 left-0 right-0 z-40 glass border-b border-brand-border/60">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2.5 group">
@@ -296,6 +314,8 @@
         </div>
         <span class="font-bold text-sm sm:text-base tracking-tight text-white group-hover:text-brand-cyan transition-colors">Bárbara Covarrubias</span>
       </a>
+
+      <!-- Desktop Links -->
       <nav class="hidden md:flex items-center gap-5 text-sm text-slate-300">
         <a href="#sobre-mi" class="hover:text-brand-cyan transition-colors">Perfil</a>
         <a href="#metricas" class="hover:text-brand-cyan transition-colors">Métricas</a>
@@ -305,10 +325,14 @@
         <a href="#formacion" class="hover:text-brand-cyan transition-colors">Formación</a>
         <a href="#contacto" class="hover:text-brand-cyan transition-colors">Contacto</a>
       </nav>
+
+      <!-- Action Buttons -->
       <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Theme Toggle Button -->
         <button id="themeToggleBtn" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema claro/oscuro" class="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-slate-700/80 text-slate-300 hover:text-white transition-all active:scale-95">
           <span id="themeIcon">🌙</span>
         </button>
+
         <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustaría%20conversar%20sobre%20una%20oportunidad%20laboral." 
            target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold hover:bg-emerald-500/25 transition-all">
@@ -317,6 +341,8 @@
           </svg>
           <span>Hablemos</span>
         </a>
+
+        <!-- Mobile Menu Toggle Button -->
         <button id="mobileMenuBtn" aria-label="Abrir menú" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -324,6 +350,8 @@
         </button>
       </div>
     </div>
+
+    <!-- Mobile Dropdown Menu -->
     <div id="mobileMenu" class="hidden md:hidden border-t border-brand-border/60 bg-brand-dark/95 backdrop-blur-xl px-5 py-3 space-y-2.5">
       <a href="#sobre-mi" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Perfil</a>
       <a href="#metricas" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Métricas</a>
@@ -334,7 +362,9 @@
       <a href="#contacto" class="block py-1 text-slate-200 hover:text-brand-cyan text-sm">Contacto Directo</a>
     </div>
   </header>
+
   <main class="relative z-10 pt-8 sm:pt-14 pb-20">
+    <!-- ================= HERO SECTION ================= -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
       <div class="relative">
         <div class="max-w-3xl space-y-4 sm:space-y-5">
@@ -342,20 +372,27 @@
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span>IT Lead | Medios de Pago & Soluciones IA</span>
           </div>
+
           <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
             BÁRBARA NOELIA <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-cyan to-brand-emerald animate-gradient-x">COVARRUBIAS</span>
           </h1>
+
           <p class="text-base sm:text-xl font-medium text-slate-200">
             IT Lead Integraciones, Medios de Pago & Soluciones IA
           </p>
+
           <p class="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
             Ingeniera en Sistemas e IT Lead con sólida trayectoria técnica y de gestión liderando células ágiles de ingeniería en el ecosistema Prisma Medios de Pago / Payway. Especializada en la arquitectura técnica, delivery y puesta en producción de soluciones de Inteligencia Artificial Generativa y plataformas de integración de alta concurrencia.
           </p>
+
+          <!-- Badges de Datos Clave según CV Oficial -->
           <div class="flex flex-wrap gap-2 text-xs font-mono pt-1">
             <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">📍 Francisco Álvarez, Buenos Aires</span>
             <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">🌍 Ciudadanía Italiana</span>
             <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">🗣️ Español (Nativo) | Inglés (Intermedio B1)</span>
           </div>
+
+          <!-- Action CTA Group -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
             <a href="#proyectos" class="px-5 py-3 rounded-xl bg-gradient-to-r from-brand-primary to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold text-sm text-center shadow-lg shadow-blue-500/25 transition-all hover:scale-105 active:scale-95">
               Ver Proyectos & Arquitecturas
@@ -368,6 +405,8 @@
             </a>
           </div>
         </div>
+
+        <!-- Metric Badges EXACTAS DEL CV OFICIAL REVISADO -->
         <div id="metricas" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mt-8 sm:mt-12 reveal">
           <div class="glass-card p-4 rounded-xl text-center sm:text-left group">
             <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-primary font-mono group-hover:scale-105 transition-transform">1T → 1sem</div>
@@ -392,6 +431,8 @@
         </div>
       </div>
     </section>
+
+    <!-- ================= SOBRE MÍ / PERFIL ================= -->
     <section id="sobre-mi" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 reveal">
       <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-700/80 relative overflow-hidden">
         <div class="absolute -right-16 -bottom-16 w-60 h-60 bg-brand-primary/10 rounded-full blur-2xl pointer-events-none"></div>
@@ -407,23 +448,32 @@
         </div>
       </div>
     </section>
+
+    <!-- ================= PROYECTOS PERSONALES & ARQUITECTURAS ================= -->
     <section id="proyectos" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 reveal">
       <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Innovación & Soluciones Aplicadas</h2>
         <h3 class="text-2xl sm:text-3xl font-bold text-white">Proyectos Personales & Arquitecturas de Software</h3>
         <p class="text-xs sm:text-sm text-slate-400 mt-2">Arquitecturas completas de Inteligencia Artificial agéntica, e-commerce transaccional y plataformas distribuidas.</p>
       </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- Proyecto 1: Travel Copilot MCP -->
         <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-brand-cyan">
           <div class="space-y-4">
             <div class="flex items-center justify-between gap-2">
               <span class="px-2.5 py-0.5 rounded bg-brand-cyan/15 text-brand-cyan text-xs font-mono font-semibold">Agente Orquestador Multiciudad</span>
               <span class="text-xs text-slate-400 font-mono">TypeScript · Node.js · SQLite / JSON</span>
             </div>
+            
             <h4 class="text-lg sm:text-xl font-bold text-white">1. Servidor MCP Travel Copilot</h4>
+            
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Desarrollo de un <strong>Model Context Protocol (MCP)</strong> que actúa como copiloto inteligente para estructurar y orquestar viajes complejos multiciudad, conexiones de transporte, hotelería y presupuestos multidivisa con validación temporal.
             </p>
+
+            <!-- Mini Diagrama Arquitectura MCP -->
             <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] font-mono text-slate-300 space-y-1">
               <div class="text-[10px] uppercase font-bold text-brand-cyan tracking-wider flex items-center justify-between">
                 <span>Arquitectura & Flujo MCP</span>
@@ -437,6 +487,7 @@
                 <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">SQLite & Prompts</span>
               </div>
             </div>
+
             <div class="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2 text-xs text-slate-300">
               <div class="font-bold text-brand-cyan text-[11px] uppercase tracking-wider">Capacidades Técnicas & Primitivas MCP:</div>
               <ul class="space-y-1.5 list-disc pl-4 text-[11.5px] leading-relaxed text-slate-300">
@@ -446,6 +497,7 @@
               </ul>
             </div>
           </div>
+
           <div class="pt-4 flex flex-wrap items-center gap-2">
             <button type="button" onclick="sendQuickPrompt('¿Cómo funciona el servidor MCP Travel Copilot?'); openBarbaraAI();" class="px-3 py-1.5 rounded-lg bg-brand-cyan/15 hover:bg-brand-cyan/25 border border-brand-cyan/40 text-brand-cyan text-xs font-semibold flex items-center gap-1.5 transition-colors">
               <span>Preguntar a Bárbara IA</span>
@@ -457,16 +509,22 @@
             </a>
           </div>
         </div>
+
+        <!-- Proyecto 2: E-commerce Full-Stack -->
         <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-brand-primary">
           <div class="space-y-4">
             <div class="flex items-center justify-between gap-2">
               <span class="px-2.5 py-0.5 rounded bg-blue-500/15 text-blue-400 text-xs font-mono font-semibold">E-commerce Transaccional</span>
               <span class="text-xs text-slate-400 font-mono">Full-Stack · Mercado Pago API · Webhooks</span>
             </div>
+
             <h4 class="text-lg sm:text-xl font-bold text-white">2. Plataforma E-commerce Full-Stack Mayorista y Minorista</h4>
+
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Arquitectura y desarrollo end-to-end de una plataforma de comercio electrónico para una distribuidora de artículos de limpieza con operativa B2B y B2C. Cuenta con catálogo público con filtrado dinámico, carrito de compras reactivo, pasarela de checkout integrada con múltiples medios de pago (Mercado Pago vía API y transferencias), panel administrativo de gestión de órdenes y stock, y pipeline de emails transaccionales asíncronos.
             </p>
+
+            <!-- Mini Diagrama Flujo Checkout -->
             <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] font-mono text-slate-300 space-y-1">
               <div class="text-[10px] uppercase font-bold text-brand-primary tracking-wider flex items-center justify-between">
                 <span>Flujo Transaccional & Pagos</span>
@@ -480,6 +538,7 @@
                 <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Admin Orders</span>
               </div>
             </div>
+
             <div class="flex flex-wrap gap-1.5 pt-1">
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Checkout API</span>
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Mercado Pago</span>
@@ -487,6 +546,7 @@
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Emails Asíncronos</span>
             </div>
           </div>
+
           <div class="pt-4 flex flex-wrap items-center gap-2">
             <button type="button" onclick="sendQuickPrompt('¿Cómo es la plataforma de e-commerce con Mercado Pago?'); openBarbaraAI();" class="px-3 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 text-blue-300 text-xs font-semibold flex items-center gap-1.5 transition-colors">
               <span>Consultar arquitectura</span>
@@ -498,16 +558,21 @@
             </a>
           </div>
         </div>
+
+        <!-- Proyecto 3: Sistema Hospitalario UAI -->
         <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-brand-emerald">
           <div class="space-y-4">
             <div class="flex items-center justify-between gap-2">
               <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400 text-xs font-mono font-semibold">Tesis de Grado UAI</span>
               <span class="text-xs text-slate-400 font-mono">Arquitectura Clínica · Tesis Aprobada</span>
             </div>
+
             <h4 class="text-lg sm:text-xl font-bold text-white">3. Sistema Integral para Clínicas y Hospitales</h4>
+
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Desarrollo integral para la obtención del título de <strong>Ingeniera en Sistemas Informáticos (UAI)</strong>. Plataforma modular de gestión hospitalaria de alta disponibilidad que contempla: admisión y administración de pacientes, gestión integral de agendas y turnos médicos en tiempo real, seguimiento de calendario oficial de vacunación y módulo seguro de historias clínicas electrónicas bajo estándares de confidencialidad y auditoría.
             </p>
+
             <div class="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-1.5 text-xs text-slate-300">
               <div class="font-bold text-emerald-400 text-[11px] uppercase tracking-wider">Módulos Críticos de Alta Disponibilidad:</div>
               <ul class="space-y-1 list-disc pl-4 text-[11.5px] leading-relaxed text-slate-300">
@@ -516,6 +581,7 @@
                 <li><strong>Historias Clínicas:</strong> Trazabilidad y auditoría completa de prescripciones y consultas.</li>
               </ul>
             </div>
+
             <div class="flex flex-wrap gap-1.5 pt-1">
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Historias Clínicas</span>
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Turnos en Tiempo Real</span>
@@ -523,6 +589,7 @@
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Auditoría Clínica</span>
             </div>
           </div>
+
           <div class="pt-4 flex flex-wrap items-center gap-2">
             <button type="button" onclick="sendQuickPrompt('¿De qué trata la tesis de grado en la UAI?'); openBarbaraAI();" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-semibold flex items-center gap-1.5 transition-colors">
               <span>Consultar detalles de tesis</span>
@@ -534,16 +601,22 @@
             </a>
           </div>
         </div>
+
+        <!-- Proyecto 4: Bárbara IA -->
         <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-violet-500">
           <div class="space-y-4">
             <div class="flex items-center justify-between gap-2">
               <span class="px-2.5 py-0.5 rounded bg-violet-500/15 text-violet-300 text-xs font-mono font-semibold">Agente Embebido en Portfolio</span>
               <span class="text-xs text-slate-400 font-mono">Agentic AI · Strict RAG · Guardrails</span>
             </div>
+
             <h4 class="text-lg sm:text-xl font-bold text-white">4. Bárbara IA: Asistente Agéntico de Carrera y Validación Técnica</h4>
+
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Diseño e implementación del agente inteligente embebido en este mismo portfolio web profesional (<a href="https://barbaracovarrubias.github.io/portfolio-barbara/" class="text-brand-cyan underline">barbaracovarrubias.github.io/portfolio-barbara/</a>). Diseñado bajo directivas anti-alucinación rigurosas, asiste en tiempo real a reclutadores técnicos y comités de arquitectura respondiendo consultas exactas sobre su stack, trayectoria en Payway y proyectos MCP.
             </p>
+
+            <!-- Mini Diagrama Guardrails -->
             <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] font-mono text-slate-300 space-y-1">
               <div class="text-[10px] uppercase font-bold text-violet-400 tracking-wider flex items-center justify-between">
                 <span>Arquitectura de Guardrails</span>
@@ -557,6 +630,7 @@
                 <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Respuesta + Chips</span>
               </div>
             </div>
+
             <div class="flex flex-wrap gap-1.5 pt-1">
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Strict Guardrails</span>
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Fidelidad 100%</span>
@@ -564,6 +638,7 @@
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-mono">Streaming UX</span>
             </div>
           </div>
+
           <div class="pt-4 flex items-center gap-2">
             <button type="button" onclick="openBarbaraAI()" class="px-3.5 py-1.5 rounded-lg bg-violet-600/30 hover:bg-violet-600/50 border border-violet-500/40 text-violet-200 text-xs font-semibold flex items-center gap-1.5 transition-colors">
               <span>Probar Agente en Vivo</span>
@@ -571,14 +646,20 @@
             </button>
           </div>
         </div>
+
       </div>
     </section>
+
+    <!-- ================= EXPERIENCIA LABORAL COMPLETA ================= -->
     <section id="experiencia" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 reveal">
       <div class="text-center max-w-2xl mx-auto mb-10">
         <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Trayectoria</h2>
         <h3 class="text-2xl sm:text-3xl font-bold text-white">Experiencia Laboral</h3>
       </div>
+
       <div class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-800">
+        
+        <!-- 1. Payway -->
         <div class="relative pl-10">
           <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-cyan border-4 border-brand-dark animate-pulse"></div>
           <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-3">
@@ -589,6 +670,7 @@
               </div>
               <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 w-fit">abr 2023 – Actualidad</span>
             </div>
+            
             <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
               <li class="flex items-start gap-2">
                 <span class="text-brand-primary mt-1 font-bold">▪</span>
@@ -617,6 +699,8 @@
             </ul>
           </div>
         </div>
+
+        <!-- 2. Prisma Medios de Pago - Project Manager -->
         <div class="relative pl-10">
           <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-primary border-4 border-brand-dark"></div>
           <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-3">
@@ -627,11 +711,14 @@
               </div>
               <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 w-fit">may 2022 – mar 2023</span>
             </div>
+            
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Liderazgo y seguimiento operativo de proyectos de integración con grandes comercios y partners; coordinación de homologaciones técnicas de pasarelas de pago y terminales punto de venta junto a Desarrollo y QA bajo metodología Scrum.
             </p>
           </div>
         </div>
+
+        <!-- 3. QServices & Accenture -->
         <div class="relative pl-10">
           <div class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-slate-600 border-4 border-brand-dark"></div>
           <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-3">
@@ -642,6 +729,7 @@
               </div>
               <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 w-fit">2016 – 2022</span>
             </div>
+            
             <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
               <li class="flex items-start gap-2">
                 <span class="text-slate-500 mt-1 font-bold">▪</span>
@@ -654,14 +742,19 @@
             </ul>
           </div>
         </div>
+
       </div>
     </section>
+
+    <!-- ================= COMPETENCIAS TÉCNICAS & STACK ================= -->
     <section id="habilidades" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 reveal">
       <div class="text-center max-w-2xl mx-auto mb-10">
         <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Habilidades Técnicas</h2>
         <h3 class="text-2xl sm:text-3xl font-bold text-white">Competencias & Stack</h3>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- 1. Liderazgo & Delivery -->
         <div class="glass-card p-5 rounded-2xl">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-lg">👥</span>
@@ -675,6 +768,8 @@
             <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Stakeholders</span>
           </div>
         </div>
+
+        <!-- 2. Medios de Pago -->
         <div class="glass-card p-5 rounded-2xl">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-lg">💳</span>
@@ -688,6 +783,8 @@
             <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Checkouts</span>
           </div>
         </div>
+
+        <!-- 3. IA Generativa & LLMs -->
         <div class="glass-card p-5 rounded-2xl">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-lg">🤖</span>
@@ -704,6 +801,8 @@
             <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Spec-Driven Development (SDD)</span>
           </div>
         </div>
+
+        <!-- 4. Arquitectura & Backend -->
         <div class="glass-card p-5 rounded-2xl">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-lg">⚙️</span>
@@ -721,6 +820,8 @@
             <span class="tech-pill px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs border border-transparent">Docker</span>
           </div>
         </div>
+
+        <!-- 5. Datos & Observabilidad -->
         <div class="glass-card p-5 rounded-2xl col-span-1 md:col-span-2 lg:col-span-2">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-lg">🛡️</span>
@@ -738,27 +839,37 @@
         </div>
       </div>
     </section>
+
+    <!-- ================= FORMACIÓN & REFERENCIAS ================= -->
     <section id="formacion" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 reveal">
       <div class="text-center max-w-2xl mx-auto mb-10">
         <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan">Educación</h2>
         <h3 class="text-2xl sm:text-3xl font-bold text-white">Formación</h3>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <!-- Formación 1 -->
         <div class="glass-card p-5 rounded-2xl">
           <div class="text-xs font-mono text-brand-cyan mb-1">Universidad Nacional del Oeste (UNO)</div>
           <h4 class="font-bold text-white text-sm sm:text-base">Diplomatura Sup. en IA Aplicada y Tec. Emergentes</h4>
           <p class="text-xs text-slate-400 mt-1">En Curso</p>
         </div>
+
+        <!-- Formación 2 -->
         <div class="glass-card p-5 rounded-2xl">
           <div class="text-xs font-mono text-emerald-400 mb-1">Universidad Abierta Interamericana (UAI)</div>
           <h4 class="font-bold text-white text-sm sm:text-base">Ingeniería en Sistemas Informáticos</h4>
           <p class="text-xs text-slate-400 mt-1">Graduada 2022</p>
         </div>
+
+        <!-- Formación 3 -->
         <div class="glass-card p-5 rounded-2xl">
           <div class="text-xs font-mono text-violet-400 mb-1">Instituto Tecnológico de Buenos Aires (ITBA)</div>
           <h4 class="font-bold text-white text-sm sm:text-base">Certificación Profesional en Project Management</h4>
           <p class="text-xs text-slate-400 mt-1">2023</p>
         </div>
+
+        <!-- Certificaciones -->
         <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
           <div>
             <div class="text-xs font-mono text-blue-400 mb-1 flex items-center justify-between">
@@ -788,6 +899,8 @@
         </div>
       </div>
     </section>
+
+    <!-- ================= CONTACTO DIRECTO ================= -->
     <section id="contacto" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 reveal">
       <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-700/80">
         <div class="text-center max-w-xl mx-auto mb-8">
@@ -797,7 +910,9 @@
             Disponible para entrevistas técnicas, consultoría estratégica y oportunidades de liderazgo de ingeniería.
           </p>
         </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- WhatsApp Card -->
           <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20vi%20tu%20portfolio%20profesional%20y%20me%20gustaría%20conversar%20sobre%20una%20oportunidad%20laboral." target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 flex items-center gap-3 transition-all hover:scale-102">
             <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
@@ -807,6 +922,8 @@
               <div class="text-sm font-bold text-white">+54 9 11 5523-2198</div>
             </div>
           </a>
+
+          <!-- Email Card with Copy icon button -->
           <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-2">
             <div class="flex items-center gap-3 min-w-0">
               <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-primary/20 text-brand-primary flex items-center justify-center">
@@ -823,6 +940,8 @@
               </svg>
             </button>
           </div>
+
+          <!-- LinkedIn Card -->
           <a href="https://www.linkedin.com/in/ing-b%C3%A1rbara-noelia-covarrubias-42166b109/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 flex items-center gap-3 transition-all hover:scale-102">
             <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-[#0A66C2] flex items-center justify-center">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 6.54a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z"/></svg>
@@ -832,6 +951,8 @@
               <div class="text-sm font-bold text-white truncate">Ing.BarbaraNoeliaCovarrubias</div>
             </div>
           </a>
+
+          <!-- Location Info -->
           <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-slate-800 text-slate-400 flex items-center justify-center">
               <svg class="w-5 h-5 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -845,6 +966,8 @@
       </div>
     </section>
   </main>
+
+  <!-- ================= FLOATING AI AGENT BUTTON ================= -->
   <aside aria-label="Asistente Virtual" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30">
     <button onclick="openBarbaraAI()" class="flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium text-xs sm:text-sm shadow-xl shadow-violet-500/30 hover:scale-105 active:scale-95 transition-all">
       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -852,9 +975,13 @@
       <span class="text-[10px] bg-white/20 px-1.5 py-0.5 rounded-full">✨</span>
     </button>
   </aside>
+
+  <!-- ================= MODAL: BÁRBARA AI AGENT (RESPONSIVE UNIVERSAL) ================= -->
   <div id="aiModal" class="fixed inset-0 z-50 hidden p-2 sm:p-4 md:p-6 flex items-center justify-center bg-black/85 backdrop-blur-md overflow-hidden transition-all">
     <div class="bg-slate-950 border border-violet-500/30 w-full max-w-lg rounded-2xl sm:rounded-3xl flex flex-col shadow-2xl overflow-hidden my-auto"
          style="height: min(88dvh, 620px); max-height: 88dvh;">
+      
+      <!-- Header del Modal -->
       <div class="p-3 sm:p-3.5 border-b border-slate-800 bg-slate-900/95 flex items-center justify-between shrink-0">
         <div class="flex items-center gap-2.5 min-w-0">
           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-violet-600 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-violet-500/40 shrink-0">
@@ -873,6 +1000,8 @@
           <button type="button" onclick="closeBarbaraAI()" class="p-1 px-2.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold">✕ Cerrar</button>
         </div>
       </div>
+
+      <!-- Tab Switcher -->
       <div class="flex items-center border-b border-slate-800 bg-slate-950 px-3 text-xs shrink-0">
         <button id="tabChatBtn" type="button" onclick="switchAiTab('chat')" class="py-2 px-3 border-b-2 border-brand-cyan text-brand-cyan font-semibold flex items-center gap-1.5 transition-colors">
           <span>💬 Conversación</span>
@@ -882,7 +1011,10 @@
           <span class="px-1.5 py-0.2 rounded-full bg-violet-500/20 text-violet-300 text-[9px]">Nuevo</span>
         </button>
       </div>
+
+      <!-- VIEW 1: CHAT VIEW -->
       <div id="aiChatView" class="flex-1 flex flex-col min-h-0 overflow-hidden">
+        <!-- Quick Prompts Chips -->
         <div class="px-3 py-1.5 bg-slate-900/50 border-b border-slate-800/80 flex gap-1.5 overflow-x-auto text-[10.5px] shrink-0">
           <button type="button" onclick="sendQuickPrompt('¿Quién es Bárbara? (Resumen)')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">¿Quién es Bárbara?</button>
           <button type="button" onclick="sendQuickPrompt('quiero una itl especializada en ia con experiencia levantando rags y mcps podria ser ella?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-violet-600/30 text-violet-300 hover:text-white border border-violet-500/40">Fit IT Lead / RAG & MCP</button>
@@ -893,6 +1025,8 @@
           <button type="button" onclick="sendQuickPrompt('Métricas oficiales')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Métricas</button>
           <button type="button" onclick="sendQuickPrompt('Datos de contacto')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700">Contacto</button>
         </div>
+
+        <!-- Mensajes del Chat -->
         <div id="aiChatContainer" class="flex-1 p-3 sm:p-4 overflow-y-auto space-y-3 text-xs sm:text-sm">
           <div class="flex gap-2 items-start">
             <div class="w-6 h-6 rounded-full bg-violet-600/40 text-violet-300 text-[10px] flex items-center justify-center shrink-0">AI</div>
@@ -901,20 +1035,26 @@
             </div>
           </div>
         </div>
+
+        <!-- Chat Input Form -->
         <div class="p-2 sm:p-2.5 border-t border-slate-800 bg-slate-900/95 shrink-0">
           <form id="aiChatForm" onsubmit="handleAiChatSubmit(event)" class="flex items-center gap-1.5 sm:gap-2">
             <input type="text" id="aiChatInput" placeholder="Escribe tu consulta o pide un desglose técnico..." autocomplete="off"
                    class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-violet-500 min-w-0">
+            
             <button type="button" id="voiceDictateBtn" onclick="toggleVoiceDictation()" title="Dictar por voz"
                     class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white text-xs transition-colors shrink-0">
               <span id="voiceMicIcon">🎙️</span>
             </button>
+
             <button type="submit" class="px-3 sm:px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-xs transition-colors shrink-0">
               Enviar
             </button>
           </form>
         </div>
       </div>
+
+      <!-- VIEW 2: JOB DESCRIPTION (JD) MATCHER VIEW -->
       <div id="aiJdView" class="hidden flex-1 flex flex-col p-3.5 sm:p-4 overflow-y-auto space-y-3 min-h-0">
         <div>
           <h5 class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
@@ -925,9 +1065,11 @@
             Pegá la descripción o requerimientos del puesto (Job Description) que estás buscando. El analizador cotejará los requisitos contra el perfil de Bárbara y entregará un diagnóstico de fit técnico inmediato.
           </p>
         </div>
+
         <div class="space-y-2">
           <textarea id="jdInputText" rows="3" placeholder="Ej: Buscamos IT Lead / Tech Lead para liderar células de IA Generativa. Requisitos: experiencia en arquitecturas RAG, servidores MCP, microservicios Java Spring Boot, Apache Kafka, AWS y metodología Scrum..."
                     class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 sm:p-3 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-brand-cyan leading-relaxed resize-none"></textarea>
+          
           <div class="flex flex-wrap items-center justify-between gap-2">
             <button type="button" onclick="loadSampleJd()" class="text-[10.5px] sm:text-[11px] text-brand-cyan hover:underline">
               Cargar ejemplo de vacante IT Lead IA
@@ -937,14 +1079,23 @@
             </button>
           </div>
         </div>
+
         <div id="jdResultContainer" class="hidden space-y-3 pt-1">
+          <!-- Filled dynamically via runJdMatcher() -->
         </div>
       </div>
+
     </div>
   </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
+
+    // Theme Toggle Logic
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeIcon = document.getElementById('themeIcon');
+    
+    // Check saved theme or system preference
     if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
       document.body.classList.add('light-theme');
       if (themeIcon) themeIcon.textContent = '☀️';
@@ -952,6 +1103,7 @@
       document.body.classList.remove('light-theme');
       if (themeIcon) themeIcon.textContent = '🌙';
     }
+
     if (themeToggleBtn) {
       themeToggleBtn.addEventListener('click', () => {
         document.body.classList.toggle('light-theme');
@@ -960,14 +1112,19 @@
         if (themeIcon) themeIcon.textContent = isLight ? '☀️' : '🌙';
       });
     }
+
+    // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
+
     document.querySelectorAll('#mobileMenu a').forEach(link => {
       link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
+
+    // Copy Email Helper
     function copyEmail() {
       const email = 'barbara.covarrubias@hotmail.com';
       navigator.clipboard.writeText(email).then(() => {
@@ -986,6 +1143,8 @@
         }, 2000);
       });
     }
+
+    // Scroll Reveal
     const revealElements = document.querySelectorAll('.reveal');
     function checkReveal() {
       const triggerBottom = window.innerHeight * 0.90;
@@ -998,6 +1157,8 @@
     }
     window.addEventListener('scroll', checkReveal);
     window.addEventListener('load', checkReveal);
+
+    // Bárbara AI Modal & Interactive Logic
     function openBarbaraAI() {
       const modal = document.getElementById('aiModal');
       modal.classList.remove('hidden');
@@ -1011,6 +1172,8 @@
         window.speechSynthesis.cancel();
       }
     }
+
+    // Reiniciar Chat
     function resetChat() {
       const container = document.getElementById('aiChatContainer');
       if (container) {
@@ -1033,12 +1196,16 @@
         window.speechSynthesis.cancel();
       }
     }
+
+    // Switcher de pestañas (Chat vs JD Matcher)
     function switchAiTab(tabName) {
       const chatView = document.getElementById('aiChatView');
       const jdView = document.getElementById('aiJdView');
       const tabChatBtn = document.getElementById('tabChatBtn');
       const tabJdBtn = document.getElementById('tabJdBtn');
+
       if (!chatView || !jdView || !tabChatBtn || !tabJdBtn) return;
+
       if (tabName === 'chat') {
         chatView.classList.remove('hidden');
         chatView.classList.add('flex');
@@ -1053,28 +1220,34 @@
         tabJdBtn.className = 'py-2 px-3 border-b-2 border-violet-500 text-violet-400 font-semibold flex items-center gap-1.5 transition-colors';
       }
     }
+
     function sendQuickPrompt(promptText) {
       const input = document.getElementById('aiChatInput');
       if (input) input.value = promptText;
       switchAiTab('chat');
       handleAiChatSubmit(new Event('submit'));
     }
+
+    // Text-to-Speech (Voz sintética nativa)
     let isSpeaking = false;
     function speakText(cleanText, btnElement) {
       if (!('speechSynthesis' in window)) {
         alert('Tu navegador no soporta síntesis de voz web.');
         return;
       }
+
       if (window.speechSynthesis.speaking) {
         window.speechSynthesis.cancel();
         isSpeaking = false;
         if (btnElement) btnElement.innerHTML = '🔊 Escuchar';
         return;
       }
+
       const stripped = cleanText.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
       const utterance = new SpeechSynthesisUtterance(stripped);
       utterance.lang = 'es-ES';
       utterance.rate = 1.05;
+
       utterance.onstart = () => {
         isSpeaking = true;
         if (btnElement) btnElement.innerHTML = '⏹ Detener voz';
@@ -1087,8 +1260,11 @@
         isSpeaking = false;
         if (btnElement) btnElement.innerHTML = '🔊 Escuchar';
       };
+
       window.speechSynthesis.speak(utterance);
     }
+
+    // Dictado por voz (Speech-to-Text)
     let recognition = null;
     let isRecordingVoice = false;
     function toggleVoiceDictation() {
@@ -1097,9 +1273,11 @@
         alert('El reconocimiento de voz por micrófono no está disponible en este navegador. Te recomendamos usar Google Chrome o Microsoft Edge.');
         return;
       }
+
       const micBtn = document.getElementById('voiceDictateBtn');
       const micIcon = document.getElementById('voiceMicIcon');
       const input = document.getElementById('aiChatInput');
+
       if (isRecordingVoice && recognition) {
         recognition.stop();
         isRecordingVoice = false;
@@ -1107,16 +1285,19 @@
         if (micIcon) micIcon.textContent = '🎙️';
         return;
       }
+
       recognition = new SpeechRecognition();
       recognition.lang = 'es-AR';
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
+
       recognition.onstart = () => {
         isRecordingVoice = true;
         if (micBtn) micBtn.classList.add('bg-red-500/20', 'border-red-500', 'animate-pulse');
         if (micIcon) micIcon.textContent = '🔴';
         if (input) input.placeholder = 'Escuchando tu voz... hablá ahora';
       };
+
       recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
         if (input) {
@@ -1124,36 +1305,45 @@
           input.placeholder = 'Escribe tu consulta o pide un desglose técnico...';
         }
       };
+
       recognition.onerror = () => {
         isRecordingVoice = false;
         if (micBtn) micBtn.classList.remove('bg-red-500/20', 'border-red-500', 'animate-pulse');
         if (micIcon) micIcon.textContent = '🎙️';
         if (input) input.placeholder = 'Escribe tu consulta o pide un desglose técnico...';
       };
+
       recognition.onend = () => {
         isRecordingVoice = false;
         if (micBtn) micBtn.classList.remove('bg-red-500/20', 'border-red-500', 'animate-pulse');
         if (micIcon) micIcon.textContent = '🎙️';
         if (input) input.placeholder = 'Escribe tu consulta o pide un desglose técnico...';
       };
+
       recognition.start();
     }
+
+    // Renderizado de burbujas con panel de observabilidad RAGAS integrado
     function appendMessage(sender, text) {
       const container = document.getElementById('aiChatContainer');
       if (!container) return;
       const isAI = sender === 'AI';
       const wrapper = document.createElement('div');
       wrapper.className = 'flex gap-2 items-start ' + (isAI ? '' : 'justify-end');
+
       const avatar = isAI 
         ? '<div class="w-6 h-6 rounded-full bg-violet-600/40 text-violet-300 text-[10px] flex items-center justify-center shrink-0">AI</div>'
         : '';
+
       const bubble = document.createElement('div');
       bubble.className = isAI 
         ? 'p-2.5 sm:p-3 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 leading-relaxed max-w-[94%] space-y-2'
         : 'p-2.5 rounded-2xl rounded-tr-none bg-brand-primary text-white leading-relaxed max-w-[88%]';
+
       if (isAI) {
         const msgId = 'msg_' + Math.random().toString(36).substring(2, 9);
         window[msgId] = text;
+
         const observPanel = `
           <div class="mt-2.5 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between text-[10px] text-slate-400 font-mono gap-1.5">
             <div class="flex items-center gap-2">
@@ -1169,6 +1359,7 @@
               🔊 Escuchar
             </button>
           </div>`;
+
         bubble.innerHTML = `<div>${text}</div>${observPanel}`;
         wrapper.innerHTML = avatar;
         wrapper.appendChild(bubble);
@@ -1176,9 +1367,11 @@
         bubble.innerHTML = text;
         wrapper.appendChild(bubble);
       }
+
       container.appendChild(wrapper);
       container.scrollTop = container.scrollHeight;
     }
+
     function buildSuggestionChips(chips) {
       if (!chips || !chips.length) return '';
       let html = '<div class="mt-3 pt-2 border-t border-slate-800/80 flex flex-wrap gap-1.5"><span class="text-[10px] text-slate-400 w-full mb-0.5 font-medium">Sugerencias para seguir explorando:</span>';
@@ -1188,6 +1381,8 @@
       html += '</div>';
       return html;
     }
+
+            // ================= JOB DESCRIPTION (JD) MATCHER ENGINE DE ALTA PRECISIÓN =================
     const BARBARA_TECH_MODULES = [
       {
         id: 'ai_gen',
@@ -1226,7 +1421,10 @@
         regex: /\b(scrum|agile|agilidad|scrum master|jira|gitlab|sprints|backlog|sdd|spec driven|delivery)\b/i
       }
     ];
+
+    // Detector de dominio estricto de Ingeniería de Software / TI / Fintech
     const STRICT_IT_DOMAIN_REGEX = /\b(software|sistemas|programador|programacion|desarrollador|developer|it lead|tech lead|tech manager|engineering manager|backend|frontend|fullstack|devops|qa|cloud|aws|docker|microservicios|api|apis|java|python|scrum|base de datos|ingenieria en sistemas|computacion|informatica|fintech|pagos|cobranzas|ai-native|ia)\b/i;
+
     function loadSampleJd() {
       const sample = `Buscamos un/a Tech Manager (Player-Coach) para liderar equipos en fintech de pagos y cobranzas en LATAM.
 Requisitos técnicos:
@@ -1237,27 +1435,33 @@ Requisitos técnicos:
       const input = document.getElementById('jdInputText');
       if (input) input.value = sample;
     }
+
     function runJdMatcher() {
       const inputEl = document.getElementById('jdInputText');
       const output = document.getElementById('jdResultContainer');
       if (!inputEl || !output) return;
+
       const input = inputEl.value.trim();
       if (!input) {
         alert('Por favor pega una descripción de puesto para analizar.');
         return;
       }
+
       output.classList.remove('hidden');
       output.innerHTML = `
         <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center text-xs text-slate-300 flex items-center justify-center gap-2">
           <span class="w-3 h-3 border-2 border-brand-cyan border-t-transparent rounded-full animate-spin"></span>
           <span>Analizando requerimientos semánticos contra el perfil de Bárbara...</span>
         </div>`;
+
       setTimeout(() => {
         const normJd = normalizeQuery(input);
         const hasItDomain = STRICT_IT_DOMAIN_REGEX.test(normJd);
+
         let matches = [];
         let matchedIds = new Set();
         let rawWeight = 0;
+
         BARBARA_TECH_MODULES.forEach(mod => {
           if (mod.regex.test(normJd)) {
             matches.push(mod.label);
@@ -1265,6 +1469,8 @@ Requisitos técnicos:
             rawWeight += mod.weight;
           }
         });
+
+        // Caso 1: Puesto fuera del dominio de TI / Software (Ej: Plomería, Oficios, etc.)
         if (!hasItDomain || matches.length === 0) {
           output.innerHTML = `
             <div class="p-3.5 sm:p-4 rounded-2xl bg-slate-900 border border-red-500/30 space-y-3.5">
@@ -1282,6 +1488,7 @@ Requisitos técnicos:
                   </span>
                 </div>
               </div>
+
               <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed space-y-1.5">
                 <div class="font-bold text-red-400 text-[11px] uppercase tracking-wider flex items-center gap-1.5">
                   <span>Diagnóstico del Asistente</span>
@@ -1293,6 +1500,7 @@ Requisitos técnicos:
                   El perfil de Bárbara Noelia Covarrubias está estrictamente especializado en <strong>IT Leadership / Tech Management, Arquitectura de IA Generativa (RAG, MCP), Microservicios y Plataformas Fintech / Medios de Pago</strong>.
                 </p>
               </div>
+
               <div class="pt-1 flex items-center justify-between">
                 <button type="button" onclick="loadSampleJd()" class="text-[11px] text-brand-cyan hover:underline">
                   Probar con vacante Tech Manager Fintech →
@@ -1305,24 +1513,33 @@ Requisitos técnicos:
             </div>`;
           return;
         }
+
+        // Caso 2: Puesto de TI / Software / Fintech
+        // Ponderación dinámica contextual:
+        // Si combina Liderazgo/Management + Fintech/Pagos + IA / AI-Native, la afinidad es excepcional (>95%)
         let finalScore = 65;
         if (matches.length === 1) finalScore = 70;
         else if (matches.length === 2) finalScore = 82;
         else if (matches.length === 3) finalScore = 90;
         else if (matches.length >= 4) finalScore = 96;
+
+        // Bonus por sinergia crítica (Tech Management + Fintech/Pagos + AI-Native)
         if (matchedIds.has('it_leadership') && matchedIds.has('fintech_payments')) {
           finalScore = Math.max(finalScore, 92);
         }
         if (matchedIds.has('it_leadership') && matchedIds.has('fintech_payments') && matchedIds.has('ai_gen')) {
           finalScore = Math.max(finalScore, 98);
         }
+
         finalScore = Math.min(100, finalScore);
+
         const matchBadges = matches.map(m => `
           <div class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-medium flex items-center gap-1.5">
             <span>✓</span>
             <span>${m}</span>
           </div>
         `).join('');
+
         output.innerHTML = `
           <div class="p-3.5 sm:p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3.5">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
@@ -1339,12 +1556,14 @@ Requisitos técnicos:
                 </span>
               </div>
             </div>
+
             <div>
               <span class="text-[11px] font-bold text-slate-300 block mb-1.5">Pilares estratégicos detectados en tu búsqueda:</span>
               <div class="flex flex-wrap gap-1.5">
                 ${matchBadges}
               </div>
             </div>
+
             <div class="p-3 rounded-xl bg-slate-950 border border-slate-800/90 text-xs text-slate-300 leading-relaxed space-y-2">
               <div class="font-bold text-brand-cyan text-[11px] uppercase tracking-wider flex items-center gap-1.5">
                 <span>⚡ Executive Pitch de Candidatura</span>
@@ -1356,6 +1575,7 @@ Requisitos técnicos:
                 Aporta especialización crítica en <strong>ingeniería AI-Native</strong> (AWS Bedrock, servidores MCP en producción, flujos agénticos con n8n y calidad RAGAS) sumada a un dominio integral de <strong>APIs transaccionales de medios de pago y cobranzas en LATAM</strong>.
               </p>
             </div>
+
             <div class="pt-1 flex flex-wrap items-center gap-2">
               <a href="https://wa.me/5491155232198?text=Hola%20Bárbara,%20analicé%20el%20puesto%20de%20Tech%20Manager%20en%20tu%20portfolio%20y%20me%20gustaría%20coordinar%20una%20entrevista." 
                  target="_blank" rel="noopener noreferrer"
@@ -1370,6 +1590,8 @@ Requisitos técnicos:
           </div>`;
       }, 450);
     }
+
+        // Normalizador de texto para búsquedas semánticas flexibles y sinónimos tech
     function normalizeQuery(text) {
       let cleaned = text
         .toLowerCase()
@@ -1378,6 +1600,8 @@ Requisitos técnicos:
         .replace(/[^a-z0-9 ]/g, ' ')
         .replace(/\s+/g, ' ')
         .trim();
+
+      // Corrección de typos y variaciones coloquiales frecuentes
       cleaned = (' ' + cleaned + ' ')
         .replace(/ itl /g, ' it lead ')
         .replace(/ tl /g, ' tech lead ')
@@ -1386,13 +1610,22 @@ Requisitos técnicos:
         .replace(/ llms /g, ' llm ')
         .replace(/ apis /g, ' api ')
         .replace(/ kpis /g, ' kpi ')
+        .replace(/ ahces /g, ' haces ')
+        .replace(/ hce /g, ' hace ')
+        .replace(/ \b[ca]tualm\w* /g, ' actualmente ')
+        .replace(/ \blabur\w* /g, ' trabaja ')
         .trim();
+
       return cleaned;
     }
+
+    // Motor de Respuestas Semántico & Dinámico sobre el CV de Bárbara Covarrubias
     function getLocalAiResponse(rawQuery) {
       const q = normalizeQuery(rawQuery);
       const fallback = "Esa información no se encuentra especificada en el CV o portfolio profesional de Bárbara Covarrubias. Puedes consultar sobre su rol en Payway, proyectos personales (Travel Copilot MCP, E-commerce, Tesis UAI), soluciones de IA Generativa, stack técnico, formación o métricas de impacto." + 
         buildSuggestionChips(['¿Quién es Bárbara?', '¿Cuál es su rol en Payway?', 'Proyectos Personales', 'Stack Tecnológico']);
+
+      // -1. FILTRO DE TERCERAS PERSONAS (Evitar responder con datos de Bárbara si preguntan por otra persona)
       const otherPersonMatch = q.match(/(?:quien es|que hace|conoces a|quien fue|hablame de|que podes decir de)\s+([a-z]+)/i);
       if (otherPersonMatch) {
         const target = otherPersonMatch[1].trim();
@@ -1404,8 +1637,43 @@ Requisitos técnicos:
                  buildSuggestionChips(['¿Quién es Bárbara?', '¿Cuál es su rol en Payway?', 'Proyectos Personales', 'Descargar CV']);
         }
       }
+
+      // -0.5. CONSULTA SOBRE EMPLEO ACTUAL / DÓNDE TRABAJA / SI ESTÁ TRABAJANDO
+      const isCurrentJobQuery = q.includes('donde trabaja') || q.includes('en que empresa') || q.includes('donde esta trabajando') || 
+                                q.includes('esta trabajando') || q.includes('trabaja actualmente') || q.includes('trabajando actualmente') || 
+                                q.includes('trabaja hoy') || q.includes('trabajo actual') || q.includes('empleo actual') || 
+                                q.includes('rol actual') || q.includes('puesto actual') || q.includes('empresa actual') ||
+                                (q.includes('trabaj') && (q.includes('actual') || q.includes('hoy') || q.includes('momento') || q.includes('donde')));
+
+      const isSummaryQuery = q.includes('resumen') || q.includes('todo') || q.includes('perfil') || q.includes('quien es');
+
+      // Si piden un resumen y además consultan si está trabajando actualmente:
+      if (isSummaryQuery && (isCurrentJobQuery || q.includes('actualmente'))) {
+        return "<strong>Sí, actualmente Bárbara se encuentra trabajando en Payway</strong> (Prisma Medios de Pago) como <strong>IT Lead de Plataforma de Integraciones & AI Solutions</strong> (desde abril de 2023 hasta la actualidad).<br><br>" +
+               "<strong>Resumen Ejecutivo de su Perfil:</strong><br>" +
+               "Bárbara Noelia Covarrubias es <strong>Ingeniera en Sistemas Informáticos (UAI)</strong> e IT Lead especializada en la arquitectura técnica, delivery ágil y puesta en producción de soluciones de <strong>Inteligencia Artificial Generativa</strong> y plataformas transaccionales de alta concurrencia.<br><br>" +
+               "• <strong>Liderazgo y Gestión:</strong> Conduce una célula técnica de más de 10 ingenieros bajo Scrum con un delivery del +90% y reducción de lead time de 1T a 1 semana.<br>" +
+               "• <strong>IA en Producción:</strong> Implementó arquitecturas RAG sobre AWS Bedrock (Anthropic), bases vectoriales en PostgreSQL (pgvector), Redis, flujos agénticos con n8n y evaluación con RAGAS (0% de incidentes en release).<br>" +
+               "• <strong>Ecosistema Transaccional:</strong> Microservicios en Java Spring Boot, React, Apache Kafka y servidores Model Context Protocol (MCP) corporativos.<br>" +
+               "• <strong>Formación Continua:</strong> Cursa la Diplomatura Superior en IA Aplicada (UNO) y cuenta con certificación en Project Management (ITBA)." +
+               buildSuggestionChips(['Rol detallado en Payway', 'Servidor MCP Payway', 'Métricas de impacto', 'Descargar CV Oficial']);
+      }
+
+      // Si preguntan específicamente dónde trabaja o si está trabajando en este momento:
+      if (isCurrentJobQuery) {
+        return "<strong>Sí, actualmente Bárbara trabaja en Payway (Prisma Medios de Pago)</strong> como <strong>IT Lead de Plataforma de Integraciones & AI Solutions</strong> (desde abril de 2023 hasta la actualidad).<br><br>" +
+               "En su rol actual desempeña las siguientes responsabilidades y liderazgos clave:<br><br>" +
+               "• <strong>Liderazgo de Célula de Ingeniería:</strong> Conduce un equipo multidisciplinario de más de 10 ingenieros (Backend, Frontend, QA y DevOps) bajo Scrum, gestionando sprints, deuda técnica y backlog en Jira y GitLab.<br>" +
+               "• <strong>Portal de Integraciones:</strong> Dirige la arquitectura y evolución de la plataforma pública (<a href='https://docs.payway.com.ar' target='_blank' class='text-brand-cyan underline'>docs.payway.com.ar</a>), microservicios en Java Spring Boot, React, mensajería asíncrona con Apache Kafka y Webhooks transaccionales.<br>" +
+               "• <strong>IA Generativa & Servidores MCP:</strong> Diseñó y desplegó en producción el asistente inteligente con flujos agénticos (n8n, AWS Bedrock con Anthropic, pgvector, Redis) y el servidor corporativo Model Context Protocol (MCP) sobre AWS (ECS/ECR).<br>" +
+               "• <strong>Calidad RAGAS:</strong> Pipeline automatizado de evaluación de fidelidad semántica en Python, logrando 0% de incidentes en release." +
+               buildSuggestionChips(['¿Quién es Bárbara? (Resumen)', 'Métricas de impacto en Payway', 'Servidor MCP Payway', 'Descargar CV']);
+      }
+
+      // 0. CAPACIDAD FORMAL & IDONEIDAD TÉCNICA (¿Bárbara es capaz de / puede hacer / puede estar en proyectos de RAG, RAGAS, MCP o su experiencia?)
       const isCapacidadQuery = q.includes('capaz') || q.includes('capacidad') || q.includes('puede estar') || q.includes('puede hacer') || q.includes('puede liderar') || q.includes('puede desarrollar') || q.includes('puede implementar') || q.includes('puede trabajar') || q.includes('podria estar') || q.includes('podria hacer') || q.includes('podria liderar') || q.includes('sabe hacer') || q.includes('sabe implementar') || q.includes('experiencia haciendo') || q.includes('califica para');
       const isTechScope = q.includes('rag') || q.includes('ragas') || q.includes('mcp') || q.includes('ia') || q.includes('inteligencia artificial') || q.includes('genai') || q.includes('llm') || q.includes('vector') || q.includes('pgvector') || q.includes('bedrock') || q.includes('java') || q.includes('kafka') || q.includes('microservicios') || q.includes('scrum') || q.includes('integracion') || q.includes('medios de pago') || q.includes('payway');
+
       if (isCapacidadQuery && isTechScope) {
         return "<strong>Sí, Bárbara cuenta con plena capacidad técnica y experiencia comprobada en producción</strong> para incorporarse, liderar y ejecutar con éxito proyectos de arquitecturas RAG, control de calidad RAGAS, servidores MCP e integraciones transaccionales.<br><br>" +
                "Su solvencia para este tipo de iniciativas se sustenta en su trayectoria y logros verificados:<br><br>" +
@@ -1416,8 +1684,11 @@ Requisitos técnicos:
                "• <strong>Formación Especializada:</strong> Actualmente cursa la <strong>Diplomatura Superior en IA Aplicada (Universidad Nacional del Oeste)</strong>, es graduada como <strong>Ingeniera en Sistemas Informáticos (UAI)</strong> y certificada en <strong>Project Management (ITBA)</strong>." +
                buildSuggestionChips(['Fit como IT Lead', 'Servidor MCP Payway', 'Travel Copilot MCP', 'Descargar CV Oficial']);
       }
+
+      // 1. FIT DIRECTO: ¿Bárbara sirve como IT Lead / Tech Lead / Líder Técnico / Puesto de Liderazgo?
       const isLeadQuery = q.includes('it lead') || q.includes('tech lead') || q.includes('lider') || q.includes('itl') || q.includes('tl') || q.includes('engineering manager') || q.includes('leadership');
       const isFitQuery = q.includes('sirve') || q.includes('fit') || q.includes('puede') || q.includes('podria') || q.includes('encaja') || q.includes('califica') || q.includes('capacit') || q.includes('apta') || q.includes('perfil') || q.includes('rol') || q.includes('puesto') || q.includes('contrat') || q.includes('candidat') || q.includes('busco') || q.includes('quiero') || q.includes('necesito');
+
       if (isLeadQuery && (isFitQuery || q.includes('experiencia'))) {
         return "<strong>¡Sí, definitivamente! Bárbara encaja al 100% como IT Lead (ITL).</strong><br><br>" +
                "De hecho, es su rol profesional actual: se desempeña como <strong>IT Lead de Plataforma de Integraciones & AI Solutions en Payway</strong> (desde abril de 2023), con un perfil técnico-estratégico comprobado:<br><br>" +
@@ -1428,6 +1699,8 @@ Requisitos técnicos:
                "Cuenta con formación de grado como <strong>Ingeniera en Sistemas Informáticos (UAI)</strong>, certificación en <strong>Project Management (ITBA)</strong> y actualmente cursa la <strong>Diplomatura Superior en IA Aplicada (UNO)</strong>." +
                buildSuggestionChips(['Rol detallado en Payway', 'Métricas de impacto', 'Contactar por WhatsApp', 'Descargar CV Oficial']);
       }
+
+      // 2. RAG, RAGAS & IA Generativa
       if (q.includes('rag') || q.includes('ragas') || (q.includes('ia') && (q.includes('generativ') || q.includes('solucion') || q.includes('experiencia')))) {
         return "<strong>Experiencia de Bárbara en RAG, RAGAS e IA Generativa:</strong><br><br>" +
                "• <strong>RAG & Vector Search:</strong> Implementación de arquitecturas RAG utilizando <strong>Amazon Bedrock Knowledge Bases</strong> con modelos de <strong>Anthropic</strong>, junto con indexación y búsqueda semántica en <strong>PostgreSQL (pgvector)</strong> y caché de sesiones en <strong>Redis</strong>.<br>" +
@@ -1435,6 +1708,8 @@ Requisitos técnicos:
                "• <strong>Evaluación RAGAS:</strong> Construcción de pipeline de auditoría continua en Python para medir métricas oficiales de <em>Faithfulness</em> (fidelidad), <em>Answer Relevance</em> y <em>Semantic Similarity</em>, logrando <strong>0% de incidentes en release</strong> y erradicación de alucinaciones en entornos productivos." +
                buildSuggestionChips(['¿Es capaz de hacer RAG/MCP?', 'Servidor MCP Payway', 'Diplomatura en IA (UNO)', 'Descargar CV']);
       }
+
+      // 3. Resumen de 300 palabras o versión extendida
       if ((q.includes('300') || q.includes('extenso') || q.includes('largo') || q.includes('detallado') || q.includes('completo')) && 
           (q.includes('resum') || q.includes('hace') || q.includes('perfil') || q.includes('barbara') || q.includes('quien'))) {
         return "<strong>Bárbara Noelia Covarrubias</strong> es Ingeniera en Sistemas Informáticos (UAI) e IT Lead especializada en la arquitectura, delivery técnico y despliegue productivo de soluciones de <strong>Inteligencia Artificial Generativa</strong> y plataformas transaccionales de alta concurrencia en el ecosistema <strong>Prisma Medios de Pago / Payway</strong>.<br><br>" +
@@ -1443,12 +1718,16 @@ Requisitos técnicos:
                "Desarrolló proyectos destacados como el copiloto autónomo <strong>Travel Copilot MCP</strong>, una plataforma e-commerce con checkout <strong>Mercado Pago</strong> y su tesis hospitalaria integral." +
                buildSuggestionChips(['¿Qué tecnologías usa en Payway?', 'Detalles del Servidor MCP', 'Proyectos Personales', 'Descargar CV']);
       }
+
+      // 4. Resumen ejecutivo / Quién es / Qué hace / Presentación
       if (q.includes('quien es') || q.includes('quien sos') || q.includes('que hace') || q.includes('resum') || 
           q.includes('perfil') || q.includes('present') || q.includes('sobre ella') || q.includes('sobre barbara') || q.includes('biografia')) {
         return "<strong>Bárbara Noelia Covarrubias</strong> es Ingeniera en Sistemas Informáticos e IT Lead con sólida trayectoria técnica y de gestión en Prisma Medios de Pago y Payway.<br><br>" +
                "Especializada en arquitectura técnica, delivery ágil y puesta en producción de soluciones de <strong>Inteligencia Artificial Generativa</strong> (RAG en AWS Bedrock con modelos Anthropic, PostgreSQL pgvector, servidores MCP y evaluación continua RAGAS) y en plataformas de integración transaccionales de alta concurrencia. Conduce la evolución del Portal de Integraciones bajo microservicios reactivos (Java Spring Boot, React, Kafka, Webhooks), diseñando contratos de API que habilitan la integración escalable de e-commerce y terminales de pago." +
                buildSuggestionChips(['Resumen extendido (300 palabras)', 'Rol en Payway', 'Proyectos de IA y MCP', 'Datos de contacto']);
       }
+
+      // 5. Travel Copilot MCP (Herramientas, prompts, resources)
       if (q.includes('travel copilot') || (q.includes('mcp') && (q.includes('viaje') || q.includes('copilot') || q.includes('turismo') || q.includes('itinerario') || q.includes('tools') || q.includes('prompts')))) {
         return "<strong>Servidor MCP Travel Copilot (Agente Orquestador Multiciudad):</strong><br>" +
                "Copiloto inteligente desarrollado bajo la especificación del Model Context Protocol (MCP) para orquestar viajes complejos multiciudad, traslados, hotelería y presupuestos multidivisa.<br><br>" +
@@ -1461,6 +1740,8 @@ Requisitos técnicos:
                "• <strong>Prompts:</strong> <code>suggest-daily-route</code> (analiza atracciones seleccionadas y genera recorridos geográficamente eficientes)." +
                buildSuggestionChips(['¿Qué es el servidor MCP de Payway?', 'E-commerce artículos de limpieza', 'Tesis UAI Hospitalaria', 'Stack Tecnológico']);
       }
+
+      // 6. Servidor MCP de Payway
       if (q.includes('mcp') && (q.includes('payway') || q.includes('produccion') || q.includes('corporativo') || q.includes('empresa') || q.includes('servidor'))) {
         return "<strong>Servidor MCP (Model Context Protocol) en Payway:</strong><br>" +
                "Bárbara diseñó la arquitectura y lideró el desarrollo en Node.js sobre contenedores AWS (ECS/ECR) del servidor MCP corporativo para la Plataforma de Integraciones de Payway.<br><br>" +
@@ -1468,6 +1749,8 @@ Requisitos técnicos:
                "• <strong>Impacto:</strong> Aceleró drásticamente el onboarding técnico de desarrolladores y redujo los tiempos de integración de comercios." +
                buildSuggestionChips(['¿Qué es Travel Copilot MCP?', 'Flujos agénticos e IA en Payway', 'Métricas de impacto', 'Stack de Payway']);
       }
+
+      // 7. ¿Qué es MCP de forma general?
       if (q.includes('que es mcp') || q.includes('que significa mcp') || q.includes('model context protocol')) {
         return "<strong>Model Context Protocol (MCP):</strong> Es el estándar abierto de comunicación creado por Anthropic para conectar modelos de lenguaje (LLMs) con fuentes de datos externas, herramientas locales y entornos de ejecución.<br><br>" +
                "Bárbara cuenta con experiencia pionera en MCP aplicándolo en dos niveles:<br>" +
@@ -1475,6 +1758,8 @@ Requisitos técnicos:
                "2. <strong>Personal:</strong> Proyecto <em>Travel Copilot MCP</em> orquestando herramientas de itinerarios y presupuestos multidivisa." +
                buildSuggestionChips(['Servidor MCP de Payway', 'Travel Copilot MCP', 'Soluciones de IA Generativa']);
       }
+
+      // 8. E-commerce Distribuidora Artículos de Limpieza
       if (q.includes('limpieza') || q.includes('mercado pago') || (q.includes('ecommerce') || q.includes('e commerce')) && (q.includes('mayorista') || q.includes('minorista') || q.includes('distribuidora'))) {
         return "<strong>Plataforma E-commerce Full-Stack Mayorista y Minorista:</strong><br>" +
                "Arquitectura y desarrollo end-to-end de una solución de comercio electrónico diseñada a medida para una distribuidora de artículos de limpieza con operativa mixta B2B y B2C.<br><br>" +
@@ -1483,6 +1768,8 @@ Requisitos técnicos:
                "• <strong>Backend & Gestión:</strong> Panel de administración para inventario y órdenes, con pipeline asíncrono de emails transaccionales." +
                buildSuggestionChips(['Travel Copilot MCP', 'Tesis UAI Hospitalaria', 'Stack Backend & Frontend']);
       }
+
+      // 9. Sistema Clínico / Hospitalario / Tesis de Grado UAI
       if (q.includes('tesis') || q.includes('clinica') || q.includes('hospital') || q.includes('paciente') || q.includes('vacun') || q.includes('medico') || q.includes('salud')) {
         return "<strong>Sistema Integral para Clínicas y Hospitales (Tesis de Grado UAI):</strong><br>" +
                "Desarrollo arquitectónico completo para la graduación como <strong>Ingeniera en Sistemas Informáticos (2022)</strong> en la Universidad Abierta Interamericana.<br><br>" +
@@ -1492,6 +1779,8 @@ Requisitos técnicos:
                "• <strong>Historias Clínicas Electrónicas:</strong> Expediente clínico digital bajo estándares de auditoría, seguridad y confidencialidad." +
                buildSuggestionChips(['Formación académica', 'Servidor MCP Travel Copilot', 'E-commerce Full-Stack']);
       }
+
+      // 10. Bárbara IA (El propio agente)
       if (q.includes('barbara ia') || (q.includes('agente') && q.includes('portfolio')) || q.includes('guardrail') || q.includes('anti alucinacion')) {
         return "<strong>Bárbara IA: Asistente Agéntico de Carrera y Validación Técnica:</strong><br>" +
                "Es el agente inteligente embebido en este portfolio web profesional.<br><br>" +
@@ -1499,6 +1788,8 @@ Requisitos técnicos:
                "• <strong>Propósito:</strong> Permitir a reclutadores técnicos y comités de arquitectura evaluar su experiencia, stack y proyectos en tiempo real." +
                buildSuggestionChips(['¿Quién es Bárbara?', 'Métricas oficiales', 'Rol en Payway']);
       }
+
+      // 11. Todos los proyectos personales (resumen global)
       if (q.includes('proyectos personales') || q.includes('proyecto personal') || (q.includes('proyectos') && !q.includes('payway'))) {
         return "Bárbara desarrolló 4 proyectos personales clave destacados en su portfolio:<br><br>" +
                "1. <strong>Travel Copilot MCP:</strong> Copiloto orquestador de viajes multiciudad (TypeScript, Node.js, SQLite/JSON) con herramientas, recursos y prompts MCP.<br>" +
@@ -1507,6 +1798,8 @@ Requisitos técnicos:
                "4. <strong>Bárbara IA:</strong> Agente inteligente embebido en el portfolio con guardrails anti-alucinación." +
                buildSuggestionChips(['Travel Copilot MCP', 'E-commerce de limpieza', 'Tesis UAI', 'Bárbara IA']);
       }
+
+      // 12. Payway / Rol actual / Plataforma de Integraciones
       if (q.includes('payway') || q.includes('portal') || q.includes('liderazgo') || q.includes('rol actual') || q.includes('puesto actual') || q.includes('experiencia actual')) {
         return "<strong>Payway — IT Lead - Plataforma de Integraciones & AI Solutions (abr 2023 - Actualidad):</strong><br><br>" +
                "• <strong>Liderazgo Técnico de Célula:</strong> Coordinación técnica y delivery ágil de célula de más de 10 ingenieros asignados a la plataforma (<a href='https://docs.payway.com.ar' target='_blank' class='text-brand-cyan underline'>docs.payway.com.ar</a>), ceremonias Scrum, gestión de deuda técnica y backlog en Jira y GitLab.<br>" +
@@ -1517,18 +1810,24 @@ Requisitos técnicos:
                "• <strong>Observabilidad:</strong> Monitoreo continuo con Grafana y CI/CD sobre AWS y PostgreSQL." +
                buildSuggestionChips(['Métricas en Payway', 'Servidor MCP Payway', 'Prisma Medios de Pago', 'Stack Tecnológico']);
       }
+
+      // 13. Prisma Medios de Pago (Project Manager)
       if (q.includes('prisma') || (q.includes('project manager') || q.includes('pm'))) {
         return "<strong>Prisma Medios de Pago — Project Manager - Integraciones Payway (may 2022 - mar 2023):</strong><br><br>" +
                "• Liderazgo y seguimiento de proyectos de integración con grandes comercios y partners bajo Scrum.<br>" +
                "• Coordinación de homologaciones técnicas de pasarelas de pago online y terminales punto de venta (POS) junto a Desarrollo y QA." +
                buildSuggestionChips(['Rol actual en Payway', 'Experiencia en QA / Accenture', 'Métricas de impacto']);
       }
+
+      // 14. QServices & Accenture (QA / Análisis Funcional)
       if (q.includes('accenture') || q.includes('qservices') || q.includes('qa') || q.includes('tester') || q.includes('testing') || q.includes('funcional')) {
         return "<strong>QServices & Accenture — Analista Funcional Técnico Sr & QA Tester (2016 - 2022):</strong><br><br>" +
                "• <strong>QServices (2020–2022):</strong> Análisis funcional técnico en integraciones Payway (Visa/Decidir) y proyectos Cloud AWS en Edenor (Web Services, Oracle, Postman).<br>" +
                "• <strong>Accenture (2016–2020):</strong> QA y análisis técnico en interfaces críticas transaccionales y procesos batch SQL/SAP para empresas como YPF y Telecom Italia." +
                buildSuggestionChips(['Experiencia en Prisma', 'Rol como IT Lead en Payway', 'Stack Tecnológico']);
       }
+
+      // 15. Métricas y KPIs oficiales
       if (q.includes('metrica') || q.includes('kpi') || q.includes('cifra') || q.includes('rendimiento') || q.includes('time to market') || q.includes('entrega') || q.includes('incidentes')) {
         return "<strong>Métricas Oficiales de Impacto de Bárbara Covarrubias:</strong><br><br>" +
                "• <strong>1T → 1sem:</strong> Reducción drástica del ciclo por feature integrando aceleración con IA.<br>" +
@@ -1538,6 +1837,8 @@ Requisitos técnicos:
                "• <strong>0%:</strong> Incidentes en release a producción gracias a pipelines de calidad y auditoría RAGAS." +
                buildSuggestionChips(['Rol en Payway', 'Servidor MCP', 'Descargar CV']);
       }
+
+      // 16. Stack Tecnológico / Habilidades
       if (q.includes('stack') || q.includes('tecnolog') || q.includes('lenguaje') || q.includes('herramientas') || 
           q.includes('java') || q.includes('python') || q.includes('node') || q.includes('react') || q.includes('kafka') || 
           q.includes('aws') || q.includes('postgres') || q.includes('docker') || q.includes('bedrock') || q.includes('redis')) {
@@ -1549,10 +1850,13 @@ Requisitos técnicos:
                "• <strong>Datos & Observabilidad:</strong> PostgreSQL (extensión pgvector), SQLite, Redis, SQL Server, Keycloak (OAuth2/JWT), Grafana, Guardrails." +
                buildSuggestionChips(['Soluciones de IA en Payway', 'Proyectos Personales', 'Métricas de impacto']);
       }
+
+      // 17. Formación Académica, Qué estudia & Diplomatura
       if (q.includes('estudi') || q.includes('diplomat') || q.includes('curs') || q.includes('carrera') || 
           q.includes('universidad') || q.includes('facultad') || q.includes('academ') || q.includes('formacion') || 
           q.includes('educacion') || q.includes('titulo') || q.includes('posgrado') || q.includes('master') || 
           q.includes('uai') || q.includes('uno') || q.includes('itba') || q.includes('certific') || q.includes('gradu')) {
+        
         if (q.includes('diplomat') || q.includes('actual') || q.includes('ahora') || q.includes('en curso') || (q.includes('que') && q.includes('estudi'))) {
           return "Actualmente, Bárbara se encuentra cursando la <strong>Diplomatura Superior en IA Aplicada y Tecnologías Emergentes</strong> en la <strong>Universidad Nacional del Oeste (UNO)</strong>.<br><br>" +
                  "Su trayectoria académica y acreditaciones completas:<br>" +
@@ -1561,6 +1865,7 @@ Requisitos técnicos:
                  "• <strong>Certificaciones Internacionales:</strong> Amazon Q Developer, Engineering Lead, Scrum Master." +
                  buildSuggestionChips(['Tesis de Grado UAI', 'Stack Tecnológico', 'Rol en Payway', 'Descargar CV']);
         }
+
         return "<strong>Formación Académica & Certificaciones:</strong><br><br>" +
                "• <strong>Diplomatura Superior en IA Aplicada y Tecnologías Emergentes:</strong> Universidad Nacional del Oeste (UNO) – <em>En Curso</em>.<br>" +
                "• <strong>Ingeniería en Sistemas Informáticos:</strong> Universidad Abierta Interamericana (UAI) – <em>Graduada 2022</em>.<br>" +
@@ -1568,6 +1873,8 @@ Requisitos técnicos:
                "• <strong>Certificaciones Internacionales:</strong> Amazon Q Developer, Engineering Lead, Scrum Master." +
                buildSuggestionChips(['¿Qué estudia actualmente?', 'Tesis de Grado UAI', 'Stack Tecnológico', 'Descargar CV']);
       }
+
+      // 18. Contacto, Ubicación, Ciudadanía, Idiomas
       if (q.includes('contacto') || q.includes('whatsapp') || q.includes('telefono') || q.includes('celular') || q.includes('mail') || q.includes('correo') || q.includes('email') || q.includes('linkedin')) {
         return "<strong>Canales de Contacto Directo:</strong><br><br>" +
                "• <strong>WhatsApp / Tel:</strong> <a href='https://wa.me/5491155232198' target='_blank' class='text-brand-cyan underline'>+54 9 11 5523-2198</a><br>" +
@@ -1576,37 +1883,48 @@ Requisitos técnicos:
                "• <strong>Portfolio:</strong> <a href='https://barbaracovarrubias.github.io/portfolio-barbara/' target='_blank' class='text-brand-cyan underline'>barbaracovarrubias.github.io/portfolio-barbara/</a>" +
                buildSuggestionChips(['¿Dónde vive?', 'Ciudadanía e Idiomas', 'Descargar CV']);
       }
+
       if (q.includes('donde vive') || q.includes('ubicacion') || q.includes('zona') || q.includes('reside') || q.includes('francisco alvarez') || q.includes('moreno') || q.includes('buenos aires')) {
         return "Bárbara reside en <strong>Francisco Álvarez, Buenos Aires, Argentina</strong>." +
                buildSuggestionChips(['Datos de contacto', 'Ciudadanía e Idiomas', '¿Quién es Bárbara?']);
       }
+
       if (q.includes('ciudadania') || q.includes('nacionalidad') || q.includes('pasaporte') || q.includes('italiana')) {
         return "Bárbara cuenta con <strong>Ciudadanía Italiana</strong> (habilitación para trabajar en la Unión Europea sin patrocinio de visa)." +
                buildSuggestionChips(['Idiomas que habla', 'Datos de contacto', 'Descargar CV']);
       }
+
       if (q.includes('idioma') || q.includes('ingles') || q.includes('espanol') || q.includes('english')) {
         return "<strong>Idiomas:</strong><br>• <strong>Español:</strong> Nativo.<br>• <strong>Inglés:</strong> Intermedio B1." +
                buildSuggestionChips(['Ciudadanía Italiana', 'Formación Académica', 'Rol en Payway']);
       }
+
+      // 19. Descargar CV
       if (q.includes('descargar') || q.includes('cv') || q.includes('curriculum') || q.includes('pdf')) {
         return "Puedes descargar el <strong>Currículum Vitae Oficial en PDF</strong> haciendo clic en el siguiente enlace:<br><br>" +
                "<a href='CV_Barbara_Covarrubias.pdf' download='CV_Barbara_Covarrubias.pdf' target='_blank' class='inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-primary text-white text-xs font-semibold hover:bg-blue-600 transition-colors'>📥 Descargar CV Oficial (PDF)</a>" +
                buildSuggestionChips(['¿Quién es Bárbara?', 'Métricas oficiales', 'Stack Tecnológico']);
       }
+
+      // 20. Saludos cordiales
       if (q === 'hola' || q === 'buenas' || q === 'buenos dias' || q === 'buenas tardes' || q === 'buenas noches' || q === 'hola como estas') {
         return "¡Hola! Soy el asistente virtual de <strong>Bárbara Noelia Covarrubias</strong>. ¿Sobre qué aspecto de su perfil te gustaría conocer más?" +
                buildSuggestionChips(['¿Quién es Bárbara?', 'Rol en Payway', 'Proyectos Personales', 'Métricas de impacto']);
       }
+
       return fallback;
     }
+
     function handleAiChatSubmit(e) {
       if (e && e.preventDefault) e.preventDefault();
       const input = document.getElementById('aiChatInput');
       if (!input) return;
       const val = input.value.trim();
       if (!val) return;
+
       appendMessage('User', val);
       input.value = '';
+
       setTimeout(() => {
         const reply = getLocalAiResponse(val);
         appendMessage('AI', reply);
